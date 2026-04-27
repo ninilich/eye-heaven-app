@@ -12,6 +12,7 @@ final class BreakScheduler {
     private let preBreakController = PreBreakWindowController()
     private let breakController = BreakWindowController()
     private var preBreakAcknowledged = false
+    private var breakSoundPlayed = false
 
     private init() {
         settings = .shared
@@ -87,6 +88,10 @@ final class BreakScheduler {
 
         case let .inBreak(type):
             preBreakController.hide()
+            if !breakSoundPlayed {
+                SoundPlayer.playBreakStart()
+                breakSoundPlayed = true
+            }
             let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
             let allowSkip = !settings.hardMode && settings.longBreakAllowSkip
             breakController.show(
@@ -100,6 +105,10 @@ final class BreakScheduler {
             )
 
         case .running:
+            if breakSoundPlayed {
+                SoundPlayer.playBreakEnd()
+                breakSoundPlayed = false
+            }
             preBreakAcknowledged = false
             preBreakController.hide()
             breakController.hide()
