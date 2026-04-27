@@ -20,6 +20,7 @@ final class TimerEngine {
 
     private let settings: AppSettings
     private var timer: Timer?
+    private var breakTask: Task<Void, Never>?
     private var shortBreakElapsed: TimeInterval = 0
     private var longBreakElapsed: TimeInterval = 0
     private var postponeCount: Int = 0
@@ -65,19 +66,24 @@ final class TimerEngine {
 
     func skipBreak(_ type: BreakType) {
         guard settings.longBreakAllowSkip || type == .short else { return }
+        cancelBreakTask()
         state = .running
         switch type {
         case .short: shortBreakElapsed = 0; skipNextShort = false
         case .long: longBreakElapsed = 0; skipNextLong = false; postponeCount = 0
         }
+        start()
     }
 
     func breakFinished(_ type: BreakType) {
+        guard case .inBreak = state else { return }
+        cancelBreakTask()
         state = .running
         switch type {
         case .short: shortBreakElapsed = 0; skipNextShort = false
         case .long: longBreakElapsed = 0; skipNextLong = false; postponeCount = 0
         }
+        start()
     }
 
     // MARK: - Private
@@ -95,12 +101,13 @@ final class TimerEngine {
     }
 
     private func tick() {
-        guard case .running = state else { return }
-
+        switch state {
+        case .running, .inPreBreak: break
+        default: return
+        }
         shortBreakElapsed += 1
         longBreakElapsed += 1
         updateNextBreakTimes()
-
         checkForBreak()
     }
 
@@ -116,7 +123,7 @@ final class TimerEngine {
 
         if longBreakElapsed >= settings.longBreakInterval {
             if skipNextLong {
-                longBreakElapsed = 0; skipNextLong = false
+                longBreakElapsed = 0; skipNextLong = false; state = .running
             } else {
                 beginBreak(.long)
             }
@@ -125,9 +132,9 @@ final class TimerEngine {
 
         if longBreakElapsed >= longWarningStart {
             let remaining = settings.longBreakInterval - longBreakElapsed
-            if case .inPreBreak(.long, _) = state {
-                state = .inPreBreak(.long, timeRemaining: remaining)
-            } else if !skipNextLong {
+            if skipNextLong {
+                if case .inPreBreak(.long, _) = state { state = .running }
+            } else {
                 state = .inPreBreak(.long, timeRemaining: remaining)
             }
             return
@@ -135,7 +142,7 @@ final class TimerEngine {
 
         if shortBreakElapsed >= settings.shortBreakInterval {
             if skipNextShort {
-                shortBreakElapsed = 0; skipNextShort = false
+                shortBreakElapsed = 0; skipNextShort = false; state = .running
             } else {
                 beginBreak(.short)
             }
@@ -144,9 +151,9 @@ final class TimerEngine {
 
         if shortBreakElapsed >= shortWarningStart {
             let remaining = settings.shortBreakInterval - shortBreakElapsed
-            if case .inPreBreak(.short, _) = state {
-                state = .inPreBreak(.short, timeRemaining: remaining)
-            } else if !skipNextShort {
+            if skipNextShort {
+                if case .inPreBreak(.short, _) = state { state = .running }
+            } else {
                 state = .inPreBreak(.short, timeRemaining: remaining)
             }
         }
@@ -158,9 +165,17 @@ final class TimerEngine {
         timer = nil
 
         let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
-        Task {
+        breakTask = Task {
             try? await Task.sleep(for: .seconds(duration))
-            await MainActor.run { breakFinished(type) }
+            await MainActor.run {
+                self.breakFinished(type)
+                self.start()
+            }
         }
+    }
+
+    private func cancelBreakTask() {
+        breakTask?.cancel()
+        breakTask = nil
     }
 }
