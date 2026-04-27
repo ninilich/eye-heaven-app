@@ -4,9 +4,9 @@ import SwiftUI
 @MainActor
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private var statusItem: NSStatusItem?
-    private var settingsWindow: NSWindow?
+    private var settingsWindowController: NSWindowController?
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
+    func applicationDidFinishLaunching(_: Notification) {
         _ = BreakScheduler.shared
         setupStatusItem()
     }
@@ -65,23 +65,42 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     @objc func openSettings() {
-        if let window = settingsWindow {
-            window.makeKeyAndOrderFront(nil)
-            NSApp.activate(ignoringOtherApps: true)
-            return
+        if settingsWindowController == nil {
+            settingsWindowController = makeSettingsWindowController()
         }
-        let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 560),
-            styleMask: [.titled, .closable, .miniaturizable],
-            backing: .buffered,
-            defer: false
-        )
-        window.title = String(localized: "settings.title")
-        window.contentView = NSHostingView(rootView: SettingsView())
-        window.center()
-        window.isReleasedWhenClosed = false
-        window.makeKeyAndOrderFront(nil)
+        settingsWindowController?.showWindow(nil)
         NSApp.activate(ignoringOtherApps: true)
-        settingsWindow = window
+    }
+
+    private func makeSettingsWindowController() -> NSWindowController {
+        let tabVC = NSTabViewController()
+        tabVC.tabStyle = .toolbar
+
+        func addTab(_ view: some View, label: String, symbol: String) {
+            let vc = NSHostingController(rootView: view)
+            let item = NSTabViewItem(viewController: vc)
+            item.label = label
+            item.image = NSImage(systemSymbolName: symbol, accessibilityDescription: nil)
+            tabVC.addTabViewItem(item)
+        }
+
+        addTab(BreaksSettingsView(),
+               label: String(localized: "settings.tab.breaks"),
+               symbol: "clock.fill")
+        addTab(SystemSettingsView(),
+               label: String(localized: "settings.section.system"),
+               symbol: "gear")
+        addTab(StereogramsSettingsView(),
+               label: String(localized: "settings.section.stereograms"),
+               symbol: "eye.fill")
+        addTab(AboutSettingsView(),
+               label: String(localized: "settings.tab.about"),
+               symbol: "info.circle")
+
+        let window = NSWindow(contentViewController: tabVC)
+        window.styleMask = [.titled, .closable, .miniaturizable]
+        window.isReleasedWhenClosed = false
+        window.center()
+        return NSWindowController(window: window)
     }
 }

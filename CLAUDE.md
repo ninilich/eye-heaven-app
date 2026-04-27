@@ -189,8 +189,14 @@ try SMAppService.mainApp.register()
 
 ## Команды сборки
 
+**Обязательно**: после каждого изменения кода запускать Debug-сборку и убеждаться что нет ошибок компилятора перед тем как сообщать пользователю о готовности.
+
 ```bash
-# Сборка (вручную — XcodeBuildMCP заблокирован enterprise-политикой)
+# Проверка компиляции (Debug — быстрее, достаточно для проверки ошибок)
+cd /Users/nikolainikolaev/Repos-2/eyes-rest-timer/EyeHeaven && \
+  xcodebuild -project EyeHeaven.xcodeproj -scheme EyeHeaven -configuration Debug build 2>&1 | grep -E "error:|BUILD"
+
+# Сборка Release (перед релизом)
 xcodebuild -project EyeHeaven.xcodeproj -scheme EyeHeaven -configuration Release build
 
 # Нотаризация
@@ -240,3 +246,13 @@ let stereogramsDir = appSupport.appendingPathComponent("EyeHeaven/stereograms/")
 - In-App Purchases
 - Упражнения для глаз
 - iOS версия
+
+## graphify
+
+This project has a graphify knowledge graph at graphify-out/.
+
+Rules:
+- Before answering architecture or codebase questions, read graphify-out/GRAPH_REPORT.md for god nodes and community structure
+- If graphify-out/wiki/index.md exists, navigate it instead of reading raw files
+- For cross-module "how does X relate to Y" questions, prefer `graphify query "<question>"`, `graphify path "<A>" "<B>"`, or `graphify explain "<concept>"` over grep — these traverse the graph's EXTRACTED + INFERRED edges instead of scanning files
+- After modifying code files in this session, run `graphify update .` to keep the graph current (AST-only, no API cost)

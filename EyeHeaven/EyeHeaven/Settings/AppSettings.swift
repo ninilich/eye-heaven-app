@@ -7,7 +7,7 @@ final class AppSettings {
     // MARK: - Short Break
 
     var shortBreakInterval: TimeInterval {
-        get { store.double(forKey: "shortBreakInterval").nonZero ?? 15 } // TEST: было 20 * 60
+        get { store.double(forKey: "shortBreakInterval").nonZero ?? 20 * 60 }
         set { store.set(newValue, forKey: "shortBreakInterval") }
     }
 
