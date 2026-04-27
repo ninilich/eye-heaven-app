@@ -21,8 +21,6 @@ struct BreakView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 24) {
-                Spacer()
-
                 icon
                     .font(.system(size: 56))
                     .foregroundStyle(.white.opacity(0.9))
@@ -53,9 +51,24 @@ struct BreakView: View {
                     }
                     .buttonStyle(.plain)
                 }
-
-                Spacer()
             }
+            .padding(48)
+            .frame(width: 420)
+            .background {
+                RoundedRectangle(cornerRadius: 24)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color(red: 0.14, green: 0.22, blue: 0.48),
+                                Color(red: 0.08, green: 0.13, blue: 0.32),
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                        .opacity(0.94)
+                    )
+            }
+            .shadow(radius: 24, y: 8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear { startTimer() }
