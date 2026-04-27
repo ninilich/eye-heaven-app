@@ -370,6 +370,51 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 
 ---
 
+## Прогресс реализации
+
+### ✅ Реализовано
+
+| Commit | Что сделано |
+|---|---|
+| `0df0309` | **Foundation**: menu bar (NSStatusItem), TimerEngine, IdleDetector, BreakScheduler, AppSettings |
+| `ce873c2` | **Pre-break fix**: закрытие баннера не пропускает перерыв (`preBreakAcknowledged` флаг) |
+| `4d9c089` | **Break window**: navy gradient карточка поверх затемнённого overlay |
+| `6242ac9` | **Sound**: мягкий Glass-звук при начале и конце любого перерыва |
+| `eb9d7fd` | **Settings**: NSTabViewController (.tabStyle = .toolbar), 4 вкладки (Breaks / System / Stereograms / About), IntField вместо Stepper, локализация 9 языков |
+
+**Что работает сейчас:**
+- Menu bar с меню (пауза, пропустить, настройки, выйти)
+- Короткие и длинные перерывы по таймеру
+- Idle detection без разрешений (`CGEventSource`)
+- Пре-брейк уведомление (floating NSPanel)
+- Окно паузы поверх всего (screenSaver level) + затемнение на каждом мониторе
+- Звуки начала/конца
+- Нативное окно настроек со всеми параметрами
+
+---
+
+### 🔲 Не реализовано
+
+**Phase 5 (продолжение)**
+- [ ] Meeting Detection (`MeetingDetector.swift` + интеграция в `BreakScheduler`)
+- [ ] Respect Focus Mode (`respectFocusMode` настройка)
+
+**Phase 6 — Стереограммы**
+- [ ] SwiftData модель `StereogramRecord`
+- [ ] `CatalogService`: скачивание и кеширование `catalog.json` + изображений
+- [ ] `StereogramPicker`: взвешенный рандом
+- [ ] `StereogramView`: отображение стереограммы + атрибуция в BreakView
+- [ ] Кнопка "Обновить каталог" в `StereogramsSettingsView`
+
+**Phase 7 — Полировка и релиз**
+- [ ] Heartbeat: анонимный пинг раз в сутки
+- [ ] Onboarding при первом запуске
+- [ ] Проверка обновлений приложения
+- [ ] Локализация: полировка автоперевода
+- [ ] Нотаризация и .dmg для GitHub Releases
+
+---
+
 ## Что не делаем (намеренно)
 
 - Нет iCloud sync
