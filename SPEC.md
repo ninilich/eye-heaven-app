@@ -396,7 +396,7 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 ### 🔲 Не реализовано
 
 **Phase 5 (продолжение)**
-- [ ] Respect Focus Mode (`respectFocusMode` настройка)
+- [x] Respect Focus Mode (`respectFocusMode` настройка)
 
 **Phase 6 — Стереограммы**
 - [ ] SwiftData модель `StereogramRecord`
