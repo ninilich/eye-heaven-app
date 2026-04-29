@@ -396,7 +396,6 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 ### 🔲 Не реализовано
 
 **Phase 5 (продолжение)**
-- [ ] Meeting Detection (`MeetingDetector.swift` + интеграция в `BreakScheduler`)
 - [ ] Respect Focus Mode (`respectFocusMode` настройка)
 
 **Phase 6 — Стереограммы**
@@ -412,6 +411,10 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 - [ ] Проверка обновлений приложения
 - [ ] Локализация: полировка автоперевода
 - [ ] Нотаризация и .dmg для GitHub Releases
+
+**Phase 8 — Meeting Detection (последняя)**
+- [ ] `MeetingDetector.swift`: процессы (NSWorkspace) + окна (CGWindowList) + mic статус (CoreAudio)
+- [ ] Интеграция в `BreakScheduler` (откладывает паузу на `meetingDelay` секунд)
 
 ---
 

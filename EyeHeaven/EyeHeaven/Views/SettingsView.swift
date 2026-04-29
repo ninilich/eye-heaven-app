@@ -118,6 +118,14 @@ struct SystemSettingsView: View {
                     }
                 ))
                 Toggle(String(localized: "settings.sound_enabled"), isOn: $s.soundEnabled)
+                Toggle(isOn: $s.respectFocusMode) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(String(localized: "settings.respect_focus_mode"))
+                        Text(String(localized: "settings.respect_focus_mode.description"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
                 Toggle(isOn: $s.heartbeatEnabled) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text(String(localized: "settings.heartbeat"))
@@ -129,7 +137,7 @@ struct SystemSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .frame(width: 480, height: 260)
+        .frame(width: 480, height: 320)
     }
 
     private func applyLaunchAtLogin(_ enabled: Bool) {

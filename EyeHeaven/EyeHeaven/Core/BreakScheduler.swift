@@ -8,6 +8,7 @@ final class BreakScheduler {
 
     private(set) var timerEngine: TimerEngine
     private let idleDetector: IdleDetector
+    private let focusDetector: FocusDetector
     private let settings: AppSettings
     private let preBreakController = PreBreakWindowController()
     private let breakController = BreakWindowController()
@@ -18,6 +19,7 @@ final class BreakScheduler {
         settings = .shared
         timerEngine = TimerEngine(settings: .shared)
         idleDetector = IdleDetector()
+        focusDetector = FocusDetector()
         setup()
     }
 
@@ -51,6 +53,7 @@ final class BreakScheduler {
 
     private func setup() {
         idleDetector.start()
+        focusDetector.start()
         setupSleepWakeObservers()
         observeTimerState()
     }
@@ -67,6 +70,11 @@ final class BreakScheduler {
     }
 
     private func handleWindowState() {
+        if settings.respectFocusMode, focusDetector.isFocusActive {
+            preBreakController.hide()
+            breakController.hide()
+            return
+        }
         switch timerEngine.state {
         case let .inPreBreak(type, remaining):
             guard !preBreakAcknowledged else { return }
