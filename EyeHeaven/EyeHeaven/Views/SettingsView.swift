@@ -157,14 +157,99 @@ struct StereogramsSettingsView: View {
         Form {
             Section(String(localized: "settings.section.stereograms")) {
                 Toggle(String(localized: "settings.stereograms_enabled"), isOn: $s.stereogramsEnabled)
-                if s.stereogramsEnabled {
-                    Button(String(localized: "settings.update_catalog")) {}
-                        .buttonStyle(.borderless)
+                    .onChange(of: s.stereogramsEnabled) { _, enabled in
+                        if enabled {
+                            let svc = CatalogService.shared
+                            if svc.needsDownload {
+                                Task { await svc.fetchAndDownload() }
+                            }
+                        }
+                    }
+                // CatalogService observation isolated in child view
+                CatalogDownloadStatusView()
+            }
+
+            if s.stereogramsEnabled {
+                Section(String(localized: "settings.section.stereograms_updates")) {
+                    Toggle(isOn: $s.stereogramsAutoUpdate) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(String(localized: "settings.stereograms_auto_update"))
+                            Text(String(localized: "settings.stereograms_auto_update.description"))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    LabeledContent(String(localized: "settings.stereograms_last_checked")) {
+                        if let lastChecked = s.stereogramsLastChecked {
+                            Text(lastChecked, style: .relative)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Text(String(localized: "settings.stereograms_last_checked.never"))
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    // Button + disabled state isolated in child view
+                    CatalogUpdateButtonView()
+                }
+
+                Section(String(localized: "settings.section.stereograms_storage")) {
+                    LabeledContent(String(localized: "settings.stereograms_max_images")) {
+                        IntField(
+                            value: Binding(
+                                get: { s.stereogramsMaxImages },
+                                set: { s.stereogramsMaxImages = $0 }
+                            ),
+                            range: 0 ... 999
+                        )
+                    }
+                    Text(String(localized: "settings.stereograms_max_images.hint"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
                 }
             }
         }
         .formStyle(.grouped)
-        .frame(width: 480, height: 160)
+        .frame(width: 480, height: s.stereogramsEnabled ? 480 : 200)
+    }
+}
+
+/// Isolated child: only this view re-renders on CatalogService changes
+private struct CatalogDownloadStatusView: View {
+    private let service = CatalogService.shared
+
+    var body: some View {
+        if service.isDownloading {
+            VStack(alignment: .leading, spacing: 4) {
+                ProgressView(value: service.downloadProgress)
+                Text(service.downloadStatusText)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        if let error = service.downloadError {
+            Text(error)
+                .font(.caption)
+                .foregroundStyle(.red)
+        }
+        if !service.isDownloading, service.downloadError == nil, !service.images.isEmpty {
+            let count = service.images.count(where: { service.localURL(for: $0) != nil })
+            Text(String(localized: "settings.stereograms_images_ready \(count)"))
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+}
+
+/// Isolated child: only this view re-renders on CatalogService.isDownloading changes
+private struct CatalogUpdateButtonView: View {
+    private let service = CatalogService.shared
+
+    var body: some View {
+        Button(String(localized: "settings.update_now")) {
+            Task { await service.fetchAndDownload() }
+        }
+        .disabled(service.isDownloading)
+        .buttonStyle(.borderless)
     }
 }
 
@@ -221,6 +306,7 @@ struct IntField: View {
     var unit: String = ""
 
     @State private var text: String = ""
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         HStack(spacing: 4) {
@@ -228,9 +314,13 @@ struct IntField: View {
                 .frame(width: 52)
                 .multilineTextAlignment(.trailing)
                 .textFieldStyle(.roundedBorder)
+                .focused($isFocused)
                 .onSubmit { commit() }
                 .onAppear { text = "\(value)" }
                 .onChange(of: value) { _, new in text = "\(new)" }
+                .onChange(of: isFocused) { _, focused in
+                    if !focused { commit() }
+                }
             if !unit.isEmpty {
                 Text(unit)
                     .foregroundStyle(.secondary)
