@@ -165,51 +165,52 @@ struct StereogramsSettingsView: View {
                             }
                         }
                     }
-                // CatalogService observation isolated in child view
                 CatalogDownloadStatusView()
             }
 
-            if s.stereogramsEnabled {
-                Section(String(localized: "settings.section.stereograms_updates")) {
-                    Toggle(isOn: $s.stereogramsAutoUpdate) {
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(String(localized: "settings.stereograms_auto_update"))
-                            Text(String(localized: "settings.stereograms_auto_update.description"))
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
+            Section(String(localized: "settings.section.stereograms_updates")) {
+                Toggle(isOn: $s.stereogramsAutoUpdate) {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(String(localized: "settings.stereograms_auto_update"))
+                        Text(String(localized: "settings.stereograms_auto_update.description"))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                     }
-                    LabeledContent(String(localized: "settings.stereograms_last_checked")) {
-                        if let lastChecked = s.stereogramsLastChecked {
-                            Text(lastChecked, style: .relative)
-                                .foregroundStyle(.secondary)
-                        } else {
-                            Text(String(localized: "settings.stereograms_last_checked.never"))
-                                .foregroundStyle(.secondary)
-                        }
-                    }
-                    // Button + disabled state isolated in child view
-                    CatalogUpdateButtonView()
                 }
-
-                Section(String(localized: "settings.section.stereograms_storage")) {
-                    LabeledContent(String(localized: "settings.stereograms_max_images")) {
-                        IntField(
-                            value: Binding(
-                                get: { s.stereogramsMaxImages },
-                                set: { s.stereogramsMaxImages = $0 }
-                            ),
-                            range: 0 ... 999
-                        )
+                LabeledContent(String(localized: "settings.stereograms_last_checked")) {
+                    if let lastChecked = s.stereogramsLastChecked {
+                        Text(lastChecked, style: .relative)
+                            .foregroundStyle(.secondary)
+                    } else {
+                        Text(String(localized: "settings.stereograms_last_checked.never"))
+                            .foregroundStyle(.secondary)
                     }
-                    Text(String(localized: "settings.stereograms_max_images.hint"))
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
                 }
+                CatalogUpdateButtonView()
             }
+            .disabled(!s.stereogramsEnabled)
+            .opacity(s.stereogramsEnabled ? 1 : 0.4)
+
+            Section(String(localized: "settings.section.stereograms_storage")) {
+                LabeledContent(String(localized: "settings.stereograms_max_images")) {
+                    IntField(
+                        value: Binding(
+                            get: { s.stereogramsMaxImages },
+                            set: { s.stereogramsMaxImages = $0 }
+                        ),
+                        range: 0 ... 999
+                    )
+                }
+                Text(String(localized: "settings.stereograms_max_images.hint"))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            .disabled(!s.stereogramsEnabled)
+            .opacity(s.stereogramsEnabled ? 1 : 0.4)
         }
         .formStyle(.grouped)
-        .frame(width: 480, height: s.stereogramsEnabled ? 480 : 200)
+        .scrollDisabled(true)
+        .frame(width: 480, height: 460)
     }
 }
 

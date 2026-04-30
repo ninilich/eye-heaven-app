@@ -7,109 +7,130 @@ final class AppSettings {
     // MARK: - Short Break
 
     var shortBreakInterval: TimeInterval {
-        get { store.double(forKey: "shortBreakInterval").nonZero ?? 20 * 60 }
-        set { store.set(newValue, forKey: "shortBreakInterval") }
+        didSet { store.set(shortBreakInterval, forKey: "shortBreakInterval") }
     }
 
     var shortBreakDuration: TimeInterval {
-        get { store.double(forKey: "shortBreakDuration").nonZero ?? 20 }
-        set { store.set(newValue, forKey: "shortBreakDuration") }
+        didSet { store.set(shortBreakDuration, forKey: "shortBreakDuration") }
     }
 
     var shortBreakWarning: TimeInterval {
-        get { store.double(forKey: "shortBreakWarning").nonZero ?? 10 }
-        set { store.set(newValue, forKey: "shortBreakWarning") }
+        didSet { store.set(shortBreakWarning, forKey: "shortBreakWarning") }
     }
 
     // MARK: - Long Break
 
     var longBreakInterval: TimeInterval {
-        get { store.double(forKey: "longBreakInterval").nonZero ?? 60 * 60 }
-        set { store.set(newValue, forKey: "longBreakInterval") }
+        didSet { store.set(longBreakInterval, forKey: "longBreakInterval") }
     }
 
     var longBreakDuration: TimeInterval {
-        get { store.double(forKey: "longBreakDuration").nonZero ?? 5 * 60 }
-        set { store.set(newValue, forKey: "longBreakDuration") }
+        didSet { store.set(longBreakDuration, forKey: "longBreakDuration") }
     }
 
     var longBreakWarning: TimeInterval {
-        get { store.double(forKey: "longBreakWarning").nonZero ?? 30 }
-        set { store.set(newValue, forKey: "longBreakWarning") }
+        didSet { store.set(longBreakWarning, forKey: "longBreakWarning") }
     }
 
     var longBreakMaxPostpones: Int {
-        get { (store.object(forKey: "longBreakMaxPostpones") as? Int) ?? 2 }
-        set { store.set(newValue, forKey: "longBreakMaxPostpones") }
+        didSet { store.set(longBreakMaxPostpones, forKey: "longBreakMaxPostpones") }
     }
 
     var longBreakAllowSkip: Bool {
-        get { store.object(forKey: "longBreakAllowSkip") as? Bool ?? true }
-        set { store.set(newValue, forKey: "longBreakAllowSkip") }
+        didSet { store.set(longBreakAllowSkip, forKey: "longBreakAllowSkip") }
     }
 
     // MARK: - Mode
 
     var hardMode: Bool {
-        get { store.bool(forKey: "hardMode") }
-        set { store.set(newValue, forKey: "hardMode") }
+        didSet { store.set(hardMode, forKey: "hardMode") }
     }
 
     var overlayOpacity: Double {
-        get { store.object(forKey: "overlayOpacity") as? Double ?? 0.6 }
-        set { store.set(newValue, forKey: "overlayOpacity") }
+        didSet { store.set(overlayOpacity, forKey: "overlayOpacity") }
     }
 
     // MARK: - Meetings
 
     var meetingDetectionEnabled: Bool {
-        get { store.bool(forKey: "meetingDetectionEnabled") }
-        set { store.set(newValue, forKey: "meetingDetectionEnabled") }
+        didSet { store.set(meetingDetectionEnabled, forKey: "meetingDetectionEnabled") }
     }
 
     var meetingDelay: TimeInterval {
-        get { store.double(forKey: "meetingDelay").nonZero ?? 60 }
-        set { store.set(newValue, forKey: "meetingDelay") }
+        didSet { store.set(meetingDelay, forKey: "meetingDelay") }
     }
 
     // MARK: - Stereograms
 
     var stereogramsEnabled: Bool {
-        get { store.bool(forKey: "stereogramsEnabled") }
-        set { store.set(newValue, forKey: "stereogramsEnabled") }
+        didSet { store.set(stereogramsEnabled, forKey: "stereogramsEnabled") }
+    }
+
+    var stereogramsAutoUpdate: Bool {
+        didSet { store.set(stereogramsAutoUpdate, forKey: "stereogramsAutoUpdate") }
+    }
+
+    var stereogramsMaxImages: Int {
+        didSet { store.set(stereogramsMaxImages, forKey: "stereogramsMaxImages") }
+    }
+
+    var stereogramsLastChecked: Date? {
+        didSet { store.set(stereogramsLastChecked?.timeIntervalSince1970, forKey: "stereogramsLastChecked") }
     }
 
     // MARK: - System
 
     var launchAtLogin: Bool {
-        get { store.bool(forKey: "launchAtLogin") }
-        set { store.set(newValue, forKey: "launchAtLogin") }
+        didSet { store.set(launchAtLogin, forKey: "launchAtLogin") }
     }
 
     var soundEnabled: Bool {
-        get { store.object(forKey: "soundEnabled") as? Bool ?? true }
-        set { store.set(newValue, forKey: "soundEnabled") }
+        didSet { store.set(soundEnabled, forKey: "soundEnabled") }
     }
 
     var respectFocusMode: Bool {
-        get { store.object(forKey: "respectFocusMode") as? Bool ?? true }
-        set { store.set(newValue, forKey: "respectFocusMode") }
+        didSet { store.set(respectFocusMode, forKey: "respectFocusMode") }
     }
 
     var heartbeatEnabled: Bool {
-        get { store.object(forKey: "heartbeatEnabled") as? Bool ?? true }
-        set { store.set(newValue, forKey: "heartbeatEnabled") }
+        didSet { store.set(heartbeatEnabled, forKey: "heartbeatEnabled") }
     }
 
     var appLanguage: String {
-        get { store.string(forKey: "appLanguage") ?? "system" }
-        set { store.set(newValue, forKey: "appLanguage") }
+        didSet { store.set(appLanguage, forKey: "appLanguage") }
     }
 
     // MARK: - Private
 
-    private let store = UserDefaults.standard
-    private init() {}
+    @ObservationIgnored private let store = UserDefaults.standard
+
+    private init() {
+        shortBreakInterval = store.double(forKey: "shortBreakInterval").nonZero ?? 20 * 60
+        shortBreakDuration = store.double(forKey: "shortBreakDuration").nonZero ?? 20
+        shortBreakWarning = store.double(forKey: "shortBreakWarning").nonZero ?? 10
+        longBreakInterval = store.double(forKey: "longBreakInterval").nonZero ?? 60 * 60
+        longBreakDuration = store.double(forKey: "longBreakDuration").nonZero ?? 5 * 60
+        longBreakWarning = store.double(forKey: "longBreakWarning").nonZero ?? 30
+        longBreakMaxPostpones = (store.object(forKey: "longBreakMaxPostpones") as? Int) ?? 2
+        longBreakAllowSkip = store.object(forKey: "longBreakAllowSkip") as? Bool ?? true
+        hardMode = store.bool(forKey: "hardMode")
+        overlayOpacity = store.object(forKey: "overlayOpacity") as? Double ?? 0.6
+        meetingDetectionEnabled = store.bool(forKey: "meetingDetectionEnabled")
+        meetingDelay = store.double(forKey: "meetingDelay").nonZero ?? 60
+        stereogramsEnabled = store.bool(forKey: "stereogramsEnabled")
+        stereogramsAutoUpdate = store.object(forKey: "stereogramsAutoUpdate") as? Bool ?? true
+        stereogramsMaxImages = store.object(forKey: "stereogramsMaxImages") as? Int ?? 0
+        if let t = store.object(forKey: "stereogramsLastChecked") as? Double {
+            stereogramsLastChecked = Date(timeIntervalSince1970: t)
+        } else {
+            stereogramsLastChecked = nil
+        }
+        launchAtLogin = store.bool(forKey: "launchAtLogin")
+        soundEnabled = store.object(forKey: "soundEnabled") as? Bool ?? true
+        respectFocusMode = store.object(forKey: "respectFocusMode") as? Bool ?? true
+        heartbeatEnabled = store.object(forKey: "heartbeatEnabled") as? Bool ?? true
+        appLanguage = store.string(forKey: "appLanguage") ?? "system"
+    }
 }
 
 private extension Double {
