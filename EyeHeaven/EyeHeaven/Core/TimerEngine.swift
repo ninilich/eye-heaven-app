@@ -36,7 +36,12 @@ final class TimerEngine {
     // MARK: - Public
 
     func pause() {
-        guard case .running = state else { return }
+        switch state {
+        case .running, .inPreBreak:
+            break
+        default:
+            return
+        }
         state = .paused
         timer?.invalidate()
         timer = nil
@@ -86,6 +91,27 @@ final class TimerEngine {
         start()
     }
 
+    func registerIdleBreak(_ type: BreakType) {
+        switch state {
+        case .running, .inPreBreak:
+            break
+        default:
+            return
+        }
+
+        state = .running
+        switch type {
+        case .short:
+            shortBreakElapsed = 0
+            skipNextShort = false
+        case .long:
+            longBreakElapsed = 0
+            skipNextLong = false
+            postponeCount = 0
+        }
+        updateNextBreakTimes()
+    }
+
     // MARK: - Private
 
     private func resetTimers() {
@@ -95,6 +121,7 @@ final class TimerEngine {
     }
 
     private func start() {
+        timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.tick() }
         }
@@ -169,7 +196,6 @@ final class TimerEngine {
             try? await Task.sleep(for: .seconds(duration))
             await MainActor.run {
                 self.breakFinished(type)
-                self.start()
             }
         }
     }

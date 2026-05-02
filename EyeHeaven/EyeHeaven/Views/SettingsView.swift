@@ -20,9 +20,25 @@ struct BreaksSettingsView: View {
                         unit: "sec")
             }
             Section(String(localized: "settings.section.long_break")) {
-                timeRow(String(localized: "settings.interval"),
-                        value: minutesBinding(\.longBreakInterval, range: 10 ... 240),
-                        unit: "min")
+                LabeledContent("Long break every") {
+                    HStack(spacing: 6) {
+                        IntField(
+                            value: Binding(
+                                get: { s.longBreakEveryShortBreaks },
+                                set: { s.longBreakEveryShortBreaks = $0 }
+                            ),
+                            range: 2 ... 12
+                        )
+                        Text("short breaks")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                LabeledContent(String(localized: "settings.interval")) {
+                    Text("\(Int(s.longBreakInterval / 60)) min")
+                        .monospacedDigit()
+                        .foregroundStyle(.secondary)
+                }
                 timeRow(String(localized: "settings.duration"),
                         value: minutesBinding(\.longBreakDuration, range: 1 ... 30),
                         unit: "min")
@@ -78,7 +94,8 @@ struct BreaksSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .frame(width: 480, height: 460)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(width: 480, height: 460, alignment: .top)
     }
 
     private func timeRow(_ label: String, value: Binding<Int>, unit: String) -> some View {
@@ -137,7 +154,8 @@ struct SystemSettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .frame(width: 480, height: 320)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(width: 480, height: 460, alignment: .top)
     }
 
     private func applyLaunchAtLogin(_ enabled: Bool) {
@@ -210,7 +228,8 @@ struct StereogramsSettingsView: View {
         }
         .formStyle(.grouped)
         .scrollDisabled(true)
-        .frame(width: 480, height: 460)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(width: 480, height: 460, alignment: .top)
     }
 }
 
@@ -262,7 +281,6 @@ struct AboutSettingsView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-            Spacer()
 
             Image(systemName: "eye.fill")
                 .font(.system(size: 48))
@@ -292,10 +310,10 @@ struct AboutSettingsView: View {
             Text(String(localized: "about.author"))
                 .font(.caption)
                 .foregroundStyle(.tertiary)
-
-            Spacer()
         }
-        .frame(width: 480, height: 280)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(width: 480, height: 460, alignment: .top)
+        .padding(.top, 36)
     }
 }
 

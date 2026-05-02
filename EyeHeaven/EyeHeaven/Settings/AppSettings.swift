@@ -20,8 +20,19 @@ final class AppSettings {
 
     // MARK: - Long Break
 
+    var longBreakEveryShortBreaks: Int {
+        didSet {
+            let normalized = Self.clampLongBreakEveryShortBreaks(longBreakEveryShortBreaks)
+            if normalized != longBreakEveryShortBreaks {
+                longBreakEveryShortBreaks = normalized
+                return
+            }
+            store.set(longBreakEveryShortBreaks, forKey: "longBreakEveryShortBreaks")
+        }
+    }
+
     var longBreakInterval: TimeInterval {
-        didSet { store.set(longBreakInterval, forKey: "longBreakInterval") }
+        shortBreakInterval * Double(longBreakEveryShortBreaks)
     }
 
     var longBreakDuration: TimeInterval {
@@ -105,10 +116,17 @@ final class AppSettings {
     @ObservationIgnored private let store = UserDefaults.standard
 
     private init() {
-        shortBreakInterval = store.double(forKey: "shortBreakInterval").nonZero ?? 20 * 60
+        let storedShortBreakInterval = store.double(forKey: "shortBreakInterval").nonZero ?? 20 * 60
+        shortBreakInterval = storedShortBreakInterval
         shortBreakDuration = store.double(forKey: "shortBreakDuration").nonZero ?? 20
         shortBreakWarning = store.double(forKey: "shortBreakWarning").nonZero ?? 10
-        longBreakInterval = store.double(forKey: "longBreakInterval").nonZero ?? 60 * 60
+        if let storedEvery = store.object(forKey: "longBreakEveryShortBreaks") as? Int {
+            longBreakEveryShortBreaks = Self.clampLongBreakEveryShortBreaks(storedEvery)
+        } else {
+            let legacyLongInterval = store.double(forKey: "longBreakInterval").nonZero ?? 60 * 60
+            let derived = Int((legacyLongInterval / max(storedShortBreakInterval, 60)).rounded())
+            longBreakEveryShortBreaks = Self.clampLongBreakEveryShortBreaks(derived)
+        }
         longBreakDuration = store.double(forKey: "longBreakDuration").nonZero ?? 5 * 60
         longBreakWarning = store.double(forKey: "longBreakWarning").nonZero ?? 30
         longBreakMaxPostpones = (store.object(forKey: "longBreakMaxPostpones") as? Int) ?? 2
@@ -130,6 +148,10 @@ final class AppSettings {
         respectFocusMode = store.object(forKey: "respectFocusMode") as? Bool ?? true
         heartbeatEnabled = store.object(forKey: "heartbeatEnabled") as? Bool ?? true
         appLanguage = store.string(forKey: "appLanguage") ?? "system"
+    }
+
+    private static func clampLongBreakEveryShortBreaks(_ value: Int) -> Int {
+        min(12, max(2, value))
     }
 }
 

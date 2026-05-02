@@ -125,9 +125,6 @@ private final class AdaptiveTabViewController: NSTabViewController {
               viewController === tabViewItems[idx].viewController else { return }
         let size = viewController.preferredContentSize
         guard size.width > 0, size.height > 0, let window = view.window else { return }
-        NSAnimationContext.runAnimationGroup { ctx in
-            ctx.duration = 0.2
-            window.animator().setContentSize(size)
-        }
+        window.setContentSize(size)
     }
 }

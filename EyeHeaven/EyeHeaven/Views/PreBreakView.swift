@@ -4,16 +4,13 @@ struct PreBreakView: View {
     let model: PreBreakModel
     let onClose: () -> Void
 
-    @State private var elapsed: TimeInterval = 0
-    @State private var tickTimer: Timer?
-
     private var timeLeft: TimeInterval {
-        max(0, model.warningDuration - elapsed)
+        max(0, model.timeRemaining)
     }
 
     private var progress: Double {
         guard model.warningDuration > 0 else { return 0 }
-        return min(elapsed / model.warningDuration, 1)
+        return min((model.warningDuration - model.timeRemaining) / model.warningDuration, 1)
     }
 
     private var secondsLeft: Int {
@@ -49,11 +46,6 @@ struct PreBreakView: View {
         }
         .frame(width: 440)
         .background { background }
-        .onAppear {
-            elapsed = model.warningDuration - model.timeRemaining
-            startTimer()
-        }
-        .onDisappear { stopTimer() }
     }
 
     // MARK: - Background
@@ -125,20 +117,5 @@ struct PreBreakView: View {
                     .buttonStyle(BreakActionButtonStyle(role: .tertiary, size: .compact))
             }
         }
-    }
-
-    // MARK: - Timer
-
-    private func startTimer() {
-        tickTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            Task { @MainActor in
-                elapsed += 1
-            }
-        }
-    }
-
-    private func stopTimer() {
-        tickTimer?.invalidate()
-        tickTimer = nil
     }
 }

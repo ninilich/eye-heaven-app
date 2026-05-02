@@ -105,7 +105,7 @@ final class BreakScheduler {
                 breakSoundPlayed = true
             }
             let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
-            let allowSkip = !settings.hardMode && settings.longBreakAllowSkip
+            let allowSkip = !settings.hardMode && (type == .short || settings.longBreakAllowSkip)
             breakController.show(
                 type: type,
                 duration: duration,
@@ -135,9 +135,9 @@ final class BreakScheduler {
         guard case .running = timerEngine.state else { return }
         let idle = idleDetector.idleTime
         if idle >= settings.longBreakDuration {
-            timerEngine.breakFinished(.long)
+            timerEngine.registerIdleBreak(.long)
         } else if idle >= settings.shortBreakDuration {
-            timerEngine.breakFinished(.short)
+            timerEngine.registerIdleBreak(.short)
         }
     }
 

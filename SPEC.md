@@ -381,14 +381,19 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 | `4d9c089` | **Break window**: navy gradient карточка поверх затемнённого overlay |
 | `6242ac9` | **Sound**: мягкий Glass-звук при начале и конце любого перерыва |
 | `eb9d7fd` | **Settings**: NSTabViewController (.tabStyle = .toolbar), 4 вкладки (Breaks / System / Stereograms / About), IntField вместо Stepper, локализация 9 языков |
+| `54f26e7` | **Menu actions**: ручной запуск короткого/длинного перерыва, Pause timer/Resume timer, удалён пункт Skip next break |
+| `2565c1d` | **Break UI**: обновлён экран длинного перерыва со стереограммой (крупнее изображение, таймер mm:ss, переработанная нижняя панель управления) |
+| `c87c083` | **UI refactor**: единый стиль action-кнопок на всех break-экранах (Break/PreBreak/StereogramBreak) |
 
 **Что работает сейчас:**
-- Menu bar с меню (пауза, пропустить, настройки, выйти)
+- Menu bar с меню (ручной старт короткого/длинного перерыва, Pause timer/Resume timer, настройки, выйти)
 - Короткие и длинные перерывы по таймеру
 - Idle detection без разрешений (`CGEventSource`)
 - Пре-брейк уведомление (floating NSPanel)
 - Окно паузы поверх всего (screenSaver level) + затемнение на каждом мониторе
 - Звуки начала/конца
+- Длинный перерыв со стереограммой: увеличенное изображение, таймер в формате mm:ss, кнопки Skip/Next в нижней панели
+- Единый визуальный стиль action-кнопок на экранах Break / PreBreak / StereogramBreak
 - Нативное окно настроек со всеми параметрами
 
 ---
@@ -405,6 +410,7 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 - [x] `StereogramBreakView`: полноэкранное отображение, атрибуция, кнопки Next/End Break
 - [x] Расширенный `StereogramsSettingsView`: прогресс-бар, авто-обновление, хранение
 - [x] `ADDING_IMAGES.md`: инструкция для добавления картинок в каталог
+- [x] Локальное тестирование выполнено на 4 тестовых стереограммах (через sandbox cache)
 - [x] Локальный тестовый режим: автообновление каталога временно отключено (`defaults write org.ninil.EyeHeaven stereogramsAutoUpdate -bool false`)
 - [ ] Перед релизом вернуть автообновление (`defaults write org.ninil.EyeHeaven stereogramsAutoUpdate -bool true`)
 
@@ -418,6 +424,30 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 **Phase 8 — Meeting Detection (последняя)**
 - [ ] `MeetingDetector.swift`: процессы (NSWorkspace) + окна (CGWindowList) + mic статус (CoreAudio)
 - [ ] Интеграция в `BreakScheduler` (откладывает паузу на `meetingDelay` секунд)
+
+---
+
+## Что дальше
+
+1. **Bugfix sprint (сейчас, приоритет)**: стабилизировать текущую функциональность
+  - Сбор и приоритизация багов (critical/high/medium)
+  - Исправление регрессий после UI/меню изменений
+  - Smoke-проверка основных сценариев (таймер, окна, стереограммы, настройки)
+  - Подтверждение стабильности перед переходом к новым фичам
+
+2. **Phase 7 (после bugfix sprint)**: довести релизную готовность
+  - Heartbeat (анонимный пинг раз в сутки)
+  - Onboarding при первом запуске
+  - Проверка обновлений приложения
+  - Финальная полировка локализации
+  - Нотаризация и `.dmg` для GitHub Releases
+
+3. **Phase 8**: реализовать Meeting Detection
+  - `MeetingDetector.swift` (process + windows + mic status)
+  - Интеграция в `BreakScheduler` через `meetingDelay`
+
+4. **Перед релизом**: вернуть автообновление каталога после локального тестового режима
+  - `defaults write org.ninil.EyeHeaven stereogramsAutoUpdate -bool true`
 
 ---
 

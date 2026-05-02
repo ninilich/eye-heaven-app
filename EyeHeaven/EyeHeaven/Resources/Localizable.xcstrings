@@ -10,6 +10,9 @@
     "%lld" : {
 
     },
+    "%lld min" : {
+
+    },
     "%lld%%" : {
 
     },
@@ -778,6 +781,9 @@
       }
     },
     "EyeHeaven" : {
+
+    },
+    "Long break every" : {
 
     },
     "menu.next_break" : {
@@ -3920,6 +3926,9 @@
           }
         }
       }
+    },
+    "short breaks" : {
+
     },
     "Version %@ (%@)" : {
       "localizations" : {
