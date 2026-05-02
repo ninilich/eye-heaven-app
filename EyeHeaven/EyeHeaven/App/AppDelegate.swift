@@ -33,15 +33,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(menuItem(title: nextBreak, symbol: "eye.fill"))
         menu.addItem(.separator())
 
-        menu.addItem(menuItem(title: "Start short break", symbol: "figure.walk", action: #selector(startShortBreak)))
-        menu.addItem(menuItem(title: "Start long break", symbol: "figure.stand", action: #selector(startLongBreak)))
+        let startNow = String(localized: "prebreak.start_now")
+        let shortBreak = String(localized: "break.short.title")
+        let longBreak = String(localized: "break.long.title")
+        menu.addItem(menuItem(title: "\(startNow): \(shortBreak)", symbol: "figure.walk", action: #selector(startShortBreak)))
+        menu.addItem(menuItem(title: "\(startNow): \(longBreak)", symbol: "figure.stand", action: #selector(startLongBreak)))
         menu.addItem(.separator())
 
         let isPaused = BreakScheduler.shared.isPaused
         let pauseTitle = isPaused ? "Resume timer" : "Pause timer"
         let pauseSymbol = isPaused ? "play.fill" : "pause.fill"
         menu.addItem(menuItem(title: pauseTitle, symbol: pauseSymbol, action: #selector(togglePause)))
-        menu.addItem(menuItem(title: String(localized: "menu.skip_next"), symbol: "forward.end.fill", action: #selector(skipNext)))
         menu.addItem(.separator())
         menu.addItem(menuItem(title: String(localized: "menu.settings"), symbol: "gearshape", action: #selector(openSettings), key: ","))
         menu.addItem(.separator())
@@ -63,10 +65,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     @objc private func togglePause() {
         BreakScheduler.shared.togglePause()
-    }
-
-    @objc private func skipNext() {
-        BreakScheduler.shared.skipNextBreak()
     }
 
     @objc private func startShortBreak() {

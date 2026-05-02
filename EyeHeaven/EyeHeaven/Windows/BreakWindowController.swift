@@ -1,4 +1,5 @@
 import AppKit
+import SwiftData
 import SwiftUI
 
 @MainActor
@@ -11,17 +12,51 @@ final class BreakWindowController {
 
         overlay.show(opacity: AppSettings.shared.overlayOpacity)
 
+        let stereogramData = pickStereogram(for: type)
+
         for screen in NSScreen.screens {
-            let view = BreakView(
-                breakType: type,
-                duration: duration,
-                allowSkip: allowSkip,
-                onSkip: onSkip
-            )
-            let window = makeBreakWindow(for: screen, content: view)
+            let window: NSWindow
+            if let (image, source, author) = stereogramData {
+                let ctx = ModelContext(DataStack.container)
+                let service = CatalogService.shared
+                let view = StereogramBreakView(
+                    image: image,
+                    source: source,
+                    author: author,
+                    duration: duration,
+                    allowSkip: allowSkip,
+                    onSkip: onSkip,
+                    pickNext: {
+                        guard let (img, url) = StereogramPicker.pick(
+                            from: service.images, service: service, context: ctx
+                        ) else { return nil }
+                        guard let nsImage = NSImage(contentsOf: url) else { return nil }
+                        return (nsImage, img.source, img.author)
+                    }
+                )
+                window = makeBreakWindow(for: screen, content: view)
+            } else {
+                let view = BreakView(
+                    breakType: type,
+                    duration: duration,
+                    allowSkip: allowSkip,
+                    onSkip: onSkip
+                )
+                window = makeBreakWindow(for: screen, content: view)
+            }
             window.orderFront(nil)
             windows.append(window)
         }
+    }
+
+    private func pickStereogram(for type: BreakType) -> (NSImage, String?, String?)? {
+        guard type == .long, AppSettings.shared.stereogramsEnabled else { return nil }
+        let service = CatalogService.shared
+        let ctx = ModelContext(DataStack.container)
+        guard let (img, url) = StereogramPicker.pick(from: service.images, service: service, context: ctx),
+              let nsImage = NSImage(contentsOf: url)
+        else { return nil }
+        return (nsImage, img.source, img.author)
     }
 
     func hide() {

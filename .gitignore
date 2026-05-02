@@ -1,3 +1,7 @@
+# Python
+.venv/
+
+
 # Xcode
 *.xcuserstate
 *.xcuserdatad
@@ -45,3 +49,5 @@ fastlane/test_output/
 
 # Claude Code
 .claude/settings.local.json
+.graphifyignore
+graphify-out/

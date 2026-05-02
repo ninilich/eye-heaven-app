@@ -14,7 +14,7 @@ struct StereogramBreakView: View {
     let onSkip: () -> Void
     let pickNext: () -> (NSImage, String?, String?)?
 
-    private let hudHeight: CGFloat = 56
+    private let hudHeight: CGFloat = 64
     private let padding: CGFloat = 48
 
     init(
@@ -35,11 +35,6 @@ struct StereogramBreakView: View {
         self.pickNext = pickNext
     }
 
-    private var progress: Double {
-        guard duration > 0 else { return 1 }
-        return min(elapsed / duration, 1)
-    }
-
     private var remaining: Int {
         max(0, Int(duration - elapsed))
     }
@@ -52,20 +47,17 @@ struct StereogramBreakView: View {
 
     var body: some View {
         GeometryReader { geo in
-            let cardWidth = min(max(geo.size.width * 0.88, 640), 1_320)
-            let cardHeight = min(max(geo.size.height * 0.82, 420), 900)
-            let availW = cardWidth - padding * 2
-            let availH = cardHeight - hudHeight - padding * 1.5
-            let imgSize = currentImage.size
-            let scale = min(1.0, min(availW / imgSize.width, availH / imgSize.height))
+            let cardWidth = min(max(geo.size.width * 0.9, 680), 1_420)
+            let cardHeight = min(max(geo.size.height * 0.88, 520), 980)
+            let imageMaxHeight = geo.size.height * 0.75
 
             ZStack {
                 VStack(spacing: 0) {
                     Image(nsImage: currentImage)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: imgSize.width * scale, height: imgSize.height * scale)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .frame(maxWidth: cardWidth - padding * 2, maxHeight: imageMaxHeight)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
                         .padding(.top, 28)
                         .padding(.horizontal, padding)
                         .padding(.bottom, 20)
@@ -104,9 +96,10 @@ struct StereogramBreakView: View {
     }
 
     private var hudBar: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 14) {
             attributionView
             Spacer()
+
             HStack(spacing: 6) {
                 Image(systemName: "timer")
                     .font(.system(size: 11, weight: .regular))
@@ -114,6 +107,35 @@ struct StereogramBreakView: View {
                     .font(.system(size: 12, weight: .regular, design: .monospaced))
             }
             .foregroundStyle(.white.opacity(0.62))
+            .padding(.trailing, 22)
+
+            if allowSkip {
+                Button(action: onSkip) {
+                    Text(String(localized: "break.skip"))
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(.white.opacity(0.88))
+                        .padding(.horizontal, 18)
+                        .padding(.vertical, 9)
+                        .background(
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            Color(red: 0.26, green: 0.29, blue: 0.39),
+                                            Color(red: 0.17, green: 0.20, blue: 0.29),
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.white.opacity(0.20), lineWidth: 1)
+                        )
+                }
+                .buttonStyle(.plain)
+            }
 
             if hasNext {
                 Button {
@@ -125,34 +147,34 @@ struct StereogramBreakView: View {
                         hasNext = false
                     }
                 } label: {
-                    Label(String(localized: "break.stereogram.next"), systemImage: "arrow.right")
-                        .font(.system(size: 13))
-                        .foregroundStyle(.white.opacity(0.75))
-                }
-                .buttonStyle(.plain)
-            }
-
-            if allowSkip {
-                Button(action: onSkip) {
-                    Text(String(localized: "break.skip"))
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.92))
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 8)
+                    Label(String(localized: "break.stereogram.next"), systemImage: "arrow.right.circle.fill")
+                        .font(.system(size: 14, weight: .bold))
+                        .foregroundStyle(.white.opacity(0.93))
+                        .padding(.horizontal, 22)
+                        .padding(.vertical, 9)
                         .background(
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.white.opacity(0.12))
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            Color(red: 0.14, green: 0.50, blue: 0.78),
+                                            Color(red: 0.09, green: 0.30, blue: 0.62),
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
                         )
                         .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(.white.opacity(0.35), lineWidth: 1)
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.white.opacity(0.28), lineWidth: 1)
                         )
                 }
                 .buttonStyle(.plain)
             }
         }
         .padding(.horizontal, 24)
-        .background(.black.opacity(0.28))
+        .background(.black.opacity(0.38))
     }
 
     private var attributionView: some View {
