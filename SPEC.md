@@ -399,11 +399,14 @@ Xcode 26 использует `PBXFileSystemSynchronizedRootGroup` — все ф
 - [x] Respect Focus Mode (`respectFocusMode` настройка)
 
 **Phase 6 — Стереограммы**
-- [ ] SwiftData модель `StereogramRecord`
-- [ ] `CatalogService`: скачивание и кеширование `catalog.json` + изображений
-- [ ] `StereogramPicker`: взвешенный рандом
-- [ ] `StereogramView`: отображение стереограммы + атрибуция в BreakView
-- [ ] Кнопка "Обновить каталог" в `StereogramsSettingsView`
+- [x] SwiftData модель `StereogramRecord`
+- [x] `CatalogService`: скачивание и кеширование `catalog.json` + изображений, фоновые обновления, pruning
+- [x] `StereogramPicker`: взвешенный рандом
+- [x] `StereogramBreakView`: полноэкранное отображение, атрибуция, кнопки Next/End Break
+- [x] Расширенный `StereogramsSettingsView`: прогресс-бар, авто-обновление, хранение
+- [x] `ADDING_IMAGES.md`: инструкция для добавления картинок в каталог
+- [x] Локальный тестовый режим: автообновление каталога временно отключено (`defaults write org.ninil.EyeHeaven stereogramsAutoUpdate -bool false`)
+- [ ] Перед релизом вернуть автообновление (`defaults write org.ninil.EyeHeaven stereogramsAutoUpdate -bool true`)
 
 **Phase 7 — Полировка и релиз**
 - [ ] Heartbeat: анонимный пинг раз в сутки

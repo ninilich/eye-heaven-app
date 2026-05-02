@@ -49,6 +49,10 @@ final class BreakScheduler {
         timerEngine.skipNextBreak()
     }
 
+    func startBreakNow(_ type: BreakType) {
+        timerEngine.startBreakNow(type)
+    }
+
     // MARK: - Private
 
     private func setup() {

@@ -8,6 +8,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     func applicationDidFinishLaunching(_: Notification) {
         _ = BreakScheduler.shared
+        CatalogService.shared.start()
         setupStatusItem()
     }
 
@@ -32,8 +33,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(menuItem(title: nextBreak, symbol: "eye.fill"))
         menu.addItem(.separator())
 
+        menu.addItem(menuItem(title: "Start short break", symbol: "figure.walk", action: #selector(startShortBreak)))
+        menu.addItem(menuItem(title: "Start long break", symbol: "figure.stand", action: #selector(startLongBreak)))
+        menu.addItem(.separator())
+
         let isPaused = BreakScheduler.shared.isPaused
-        let pauseTitle = isPaused ? String(localized: "menu.resume") : String(localized: "menu.pause")
+        let pauseTitle = isPaused ? "Resume timer" : "Pause timer"
         let pauseSymbol = isPaused ? "play.fill" : "pause.fill"
         menu.addItem(menuItem(title: pauseTitle, symbol: pauseSymbol, action: #selector(togglePause)))
         menu.addItem(menuItem(title: String(localized: "menu.skip_next"), symbol: "forward.end.fill", action: #selector(skipNext)))
@@ -64,6 +69,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         BreakScheduler.shared.skipNextBreak()
     }
 
+    @objc private func startShortBreak() {
+        BreakScheduler.shared.startBreakNow(.short)
+    }
+
+    @objc private func startLongBreak() {
+        BreakScheduler.shared.startBreakNow(.long)
+    }
+
     @objc func openSettings() {
         if settingsWindowController == nil {
             settingsWindowController = makeSettingsWindowController()
@@ -73,7 +86,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     private func makeSettingsWindowController() -> NSWindowController {
-        let tabVC = NSTabViewController()
+        let tabVC = AdaptiveTabViewController()
         tabVC.tabStyle = .toolbar
 
         func addTab(_ view: some View, label: String, symbol: String) {
@@ -102,5 +115,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         window.isReleasedWhenClosed = false
         window.center()
         return NSWindowController(window: window)
+    }
+}
+
+/// Resizes the settings window when the active tab's preferredContentSize changes (e.g. stereograms toggle).
+private final class AdaptiveTabViewController: NSTabViewController {
+    override func preferredContentSizeDidChange(for viewController: NSViewController) {
+        super.preferredContentSizeDidChange(for: viewController)
+        let idx = selectedTabViewItemIndex
+        guard idx < tabViewItems.count,
+              viewController === tabViewItems[idx].viewController else { return }
+        let size = viewController.preferredContentSize
+        guard size.width > 0, size.height > 0, let window = view.window else { return }
+        NSAnimationContext.runAnimationGroup { ctx in
+            ctx.duration = 0.2
+            window.animator().setContentSize(size)
+        }
     }
 }
