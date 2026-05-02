@@ -114,19 +114,15 @@ struct PreBreakView: View {
         HStack(spacing: 6) {
             if let onStartNow = model.onStartNow {
                 Button(String(localized: "prebreak.start_now"), action: onStartNow)
-                    .buttonStyle(.borderedProminent)
-                    .controlSize(.small)
+                    .buttonStyle(BreakActionButtonStyle(role: .primary, size: .compact))
             }
             if let onPostpone = model.onPostpone {
                 Button(String(localized: "prebreak.postpone"), action: onPostpone)
-                    .buttonStyle(.bordered)
-                    .controlSize(.small)
+                    .buttonStyle(BreakActionButtonStyle(role: .secondary, size: .compact))
             }
             if let onSkip = model.onSkip {
                 Button(String(localized: "prebreak.skip"), action: onSkip)
-                    .buttonStyle(.plain)
-                    .controlSize(.small)
-                    .foregroundStyle(.secondary)
+                    .buttonStyle(BreakActionButtonStyle(role: .tertiary, size: .compact))
             }
         }
     }

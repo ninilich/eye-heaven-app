@@ -112,29 +112,8 @@ struct StereogramBreakView: View {
             if allowSkip {
                 Button(action: onSkip) {
                     Text(String(localized: "break.skip"))
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.88))
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 9)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(
-                                    LinearGradient(
-                                        colors: [
-                                            Color(red: 0.26, green: 0.29, blue: 0.39),
-                                            Color(red: 0.17, green: 0.20, blue: 0.29),
-                                        ],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white.opacity(0.20), lineWidth: 1)
-                        )
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(BreakActionButtonStyle(role: .tertiary, size: .compact))
             }
 
             if hasNext {
@@ -148,29 +127,8 @@ struct StereogramBreakView: View {
                     }
                 } label: {
                     Label(String(localized: "break.stereogram.next"), systemImage: "arrow.right.circle.fill")
-                        .font(.system(size: 14, weight: .bold))
-                        .foregroundStyle(.white.opacity(0.93))
-                        .padding(.horizontal, 22)
-                        .padding(.vertical, 9)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(
-                                    LinearGradient(
-                                        colors: [
-                                            Color(red: 0.14, green: 0.50, blue: 0.78),
-                                            Color(red: 0.09, green: 0.30, blue: 0.62),
-                                        ],
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(.white.opacity(0.28), lineWidth: 1)
-                        )
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(BreakActionButtonStyle(role: .primary, size: .compact))
             }
         }
         .padding(.horizontal, 24)

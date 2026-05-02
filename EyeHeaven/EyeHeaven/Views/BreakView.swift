@@ -49,20 +49,8 @@ struct BreakView: View {
                 if allowSkip {
                     Button(action: onSkip) {
                         Text(String(localized: "break.skip"))
-                            .font(.system(size: 15, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.92))
-                            .padding(.horizontal, 24)
-                            .padding(.vertical, 10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(.white.opacity(0.12))
-                            )
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.white.opacity(0.35), lineWidth: 1)
-                            )
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(BreakActionButtonStyle(role: .tertiary, size: .regular))
                 }
             }
             .padding(48)
