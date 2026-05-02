@@ -18,6 +18,15 @@ struct BreakView: View {
         max(0, Int(duration - elapsed))
     }
 
+    private var countdownText: String {
+        if breakType == .long {
+            let minutes = remaining / 60
+            let seconds = remaining % 60
+            return String(format: "%02d:%02d", minutes, seconds)
+        }
+        return "\(remaining)"
+    }
+
     var body: some View {
         ZStack {
             VStack(spacing: 24) {
@@ -40,13 +49,17 @@ struct BreakView: View {
                 if allowSkip {
                     Button(action: onSkip) {
                         Text(String(localized: "break.skip"))
-                            .font(.system(size: 14))
-                            .foregroundStyle(.white.opacity(0.6))
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 8)
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundStyle(.white.opacity(0.92))
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(.white.opacity(0.12))
+                            )
                             .overlay(
-                                RoundedRectangle(cornerRadius: 8)
-                                    .stroke(.white.opacity(0.3), lineWidth: 1)
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.white.opacity(0.35), lineWidth: 1)
                             )
                     }
                     .buttonStyle(.plain)
@@ -103,8 +116,9 @@ struct BreakView: View {
                 .rotationEffect(.degrees(-90))
                 .animation(.linear(duration: 0.5), value: progress)
 
-            Text("\(remaining)")
-                .font(.system(size: 32, weight: .light, design: .rounded))
+            Text(countdownText)
+                .font(.system(size: breakType == .long ? 20 : 32, weight: .medium, design: .rounded))
+                .monospacedDigit()
                 .foregroundStyle(.white)
         }
     }
