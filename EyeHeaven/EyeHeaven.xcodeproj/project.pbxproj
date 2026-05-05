@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		403FFDBA2FAA7552006903C5 /* Heartbeat in Frameworks */ = {isa = PBXBuildFile; productRef = 403FFDB92FAA7552006903C5 /* Heartbeat */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		4018F1452F9E94840065BE25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				403FFDBA2FAA7552006903C5 /* Heartbeat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,7 @@
 				4018F1392F9E94830065BE25 /* EyeHeaven */,
 				4018F1472F9E94840065BE25 /* EyeHeavenTests */,
 				4018F1512F9E94840065BE25 /* EyeHeavenUITests */,
+				403FFDB82FAA7552006903C5 /* Frameworks */,
 				4018F1382F9E94830065BE25 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +96,13 @@
 				4018F14E2F9E94840065BE25 /* EyeHeavenUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		403FFDB82FAA7552006903C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +125,7 @@
 			);
 			name = EyeHeaven;
 			packageProductDependencies = (
+				403FFDB92FAA7552006903C5 /* Heartbeat */,
 			);
 			productName = EyeHeaven;
 			productReference = 4018F1372F9E94830065BE25 /* EyeHeaven.app */;
@@ -195,6 +209,9 @@
 			);
 			mainGroup = 4018F12E2F9E94830065BE25;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				403FFDB72FAA7432006903C5 /* XCRemoteSwiftPackageReference "heartbeat-tracker" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4018F1382F9E94830065BE25 /* Products */;
 			projectDirPath = "";
@@ -577,6 +594,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		403FFDB72FAA7432006903C5 /* XCRemoteSwiftPackageReference "heartbeat-tracker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maierru/heartbeat-tracker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		403FFDB92FAA7552006903C5 /* Heartbeat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 403FFDB72FAA7432006903C5 /* XCRemoteSwiftPackageReference "heartbeat-tracker" */;
+			productName = Heartbeat;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4018F12F2F9E94830065BE25 /* Project object */;
 }

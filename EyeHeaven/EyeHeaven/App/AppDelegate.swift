@@ -1,4 +1,5 @@
 import AppKit
+import Heartbeat
 import SwiftUI
 
 @MainActor
@@ -9,6 +10,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func applicationDidFinishLaunching(_: Notification) {
         _ = BreakScheduler.shared
         CatalogService.shared.start()
+        if AppSettings.shared.heartbeatEnabled { Heartbeat.start() }
         setupStatusItem()
     }
 
