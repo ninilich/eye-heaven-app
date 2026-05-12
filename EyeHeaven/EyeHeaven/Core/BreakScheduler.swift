@@ -17,7 +17,7 @@ final class BreakScheduler {
 
     private init() {
         settings = .shared
-        timerEngine = TimerEngine(settings: .shared)
+        timerEngine = TimerEngine(settings: AppSettings.shared)
         idleDetector = IdleDetector()
         focusDetector = FocusDetector()
         setup()
@@ -25,8 +25,19 @@ final class BreakScheduler {
 
     // MARK: - Public
 
-    var nextBreakDescription: String {
+    var nextShortBreakDescription: String {
         let seconds = Int(timerEngine.nextShortBreakIn)
+        let time = formatBreakIn(seconds: seconds)
+        return "\(String(localized: "break.short.title")): \(time)"
+    }
+
+    var nextLongBreakDescription: String {
+        let seconds = Int(timerEngine.nextLongBreakIn)
+        let time = formatBreakIn(seconds: seconds)
+        return "\(String(localized: "break.long.title")): \(time)"
+    }
+
+    private func formatBreakIn(seconds: Int) -> String {
         if seconds < 60 { return String(localized: "break.in_seconds \(seconds)") }
         let minutes = seconds / 60
         return String(localized: "break.in_minutes \(minutes)")
@@ -51,6 +62,10 @@ final class BreakScheduler {
 
     func startBreakNow(_ type: BreakType) {
         timerEngine.startBreakNow(type)
+    }
+
+    func reloadScheduleFromSettings() {
+        timerEngine.reloadScheduleFromSettings()
     }
 
     // MARK: - Private

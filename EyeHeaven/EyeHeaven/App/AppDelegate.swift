@@ -31,8 +31,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
 
-        let nextBreak = BreakScheduler.shared.nextBreakDescription
-        menu.addItem(menuItem(title: nextBreak, symbol: "eye.fill"))
+        menu.addItem(menuItem(title: BreakScheduler.shared.nextShortBreakDescription, symbol: "clock"))
+        menu.addItem(menuItem(title: BreakScheduler.shared.nextLongBreakDescription, symbol: "clock.badge.checkmark"))
         menu.addItem(.separator())
 
         let startNow = String(localized: "prebreak.start_now")

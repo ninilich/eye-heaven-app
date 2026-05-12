@@ -3,6 +3,7 @@ import SwiftUI
 struct PreBreakView: View {
     let model: PreBreakModel
     let onClose: () -> Void
+    let panelWidth: CGFloat
 
     private var timeLeft: TimeInterval {
         max(0, model.timeRemaining)
@@ -44,7 +45,7 @@ struct PreBreakView: View {
             closeButton
                 .offset(x: -6, y: 6)
         }
-        .frame(width: 440)
+        .frame(width: panelWidth)
         .background { background }
     }
 

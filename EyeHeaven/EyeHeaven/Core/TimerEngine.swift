@@ -4,6 +4,19 @@ enum BreakType {
     case short, long
 }
 
+protocol TimerSettingsProviding: AnyObject {
+    var shortBreakInterval: TimeInterval { get set }
+    var shortBreakDuration: TimeInterval { get set }
+    var shortBreakWarning: TimeInterval { get set }
+    var longBreakInterval: TimeInterval { get }
+    var longBreakDuration: TimeInterval { get set }
+    var longBreakWarning: TimeInterval { get set }
+    var longBreakMaxPostpones: Int { get set }
+    var longBreakAllowSkip: Bool { get set }
+}
+
+extension AppSettings: TimerSettingsProviding {}
+
 enum TimerState {
     case running
     case paused
@@ -17,20 +30,26 @@ final class TimerEngine {
     private(set) var state: TimerState = .running
     private(set) var nextShortBreakIn: TimeInterval = 0
     private(set) var nextLongBreakIn: TimeInterval = 0
+    private(set) var nextBreakType: BreakType = .short
 
-    private let settings: AppSettings
+    private let settings: any TimerSettingsProviding
     private var timer: Timer?
     private var breakTask: Task<Void, Never>?
-    private var shortBreakElapsed: TimeInterval = 0
-    private var longBreakElapsed: TimeInterval = 0
+    private let postponeDuration: TimeInterval = 180
+    private var shortCountdown: TimeInterval = 0
+    private var longCountdown: TimeInterval = 0
     private var postponeCount: Int = 0
     private var skipNextShort = false
     private var skipNextLong = false
+    private let autoStart: Bool
 
-    init(settings: AppSettings = .shared) {
+    init(settings: any TimerSettingsProviding = AppSettings.shared, autoStart: Bool = true) {
         self.settings = settings
-        resetTimers()
-        start()
+        self.autoStart = autoStart
+        resetCycle()
+        if autoStart {
+            start()
+        }
     }
 
     // MARK: - Public
@@ -59,10 +78,12 @@ final class TimerEngine {
     }
 
     func postponeLongBreak() {
+        guard case .inPreBreak(.long, _) = state else { return }
         guard postponeCount < settings.longBreakMaxPostpones else { return }
         postponeCount += 1
-        longBreakElapsed = max(0, longBreakElapsed - settings.longBreakInterval / 3)
+        longCountdown += postponeDuration
         state = .running
+        updatePublishedCountdowns()
     }
 
     func startBreakNow(_ type: BreakType) {
@@ -72,22 +93,16 @@ final class TimerEngine {
     func skipBreak(_ type: BreakType) {
         guard settings.longBreakAllowSkip || type == .short else { return }
         cancelBreakTask()
+        completeBreak(type)
         state = .running
-        switch type {
-        case .short: shortBreakElapsed = 0; skipNextShort = false
-        case .long: longBreakElapsed = 0; skipNextLong = false; postponeCount = 0
-        }
         start()
     }
 
     func breakFinished(_ type: BreakType) {
         guard case .inBreak = state else { return }
         cancelBreakTask()
+        completeBreak(type)
         state = .running
-        switch type {
-        case .short: shortBreakElapsed = 0; skipNextShort = false
-        case .long: longBreakElapsed = 0; skipNextLong = false; postponeCount = 0
-        }
         start()
     }
 
@@ -99,25 +114,41 @@ final class TimerEngine {
             return
         }
 
+        completeBreak(type)
         state = .running
-        switch type {
-        case .short:
-            shortBreakElapsed = 0
-            skipNextShort = false
-        case .long:
-            longBreakElapsed = 0
-            skipNextLong = false
-            postponeCount = 0
+    }
+
+    func reloadScheduleFromSettings() {
+        shortCountdown = settings.shortBreakInterval
+        longCountdown = settings.longBreakInterval
+        postponeCount = 0
+        updatePublishedCountdowns()
+
+        switch state {
+        case .running, .inPreBreak:
+            evaluateTransitions()
+        case .paused, .inBreak:
+            break
         }
-        updateNextBreakTimes()
+    }
+
+    func advanceTimeForTesting(by seconds: Int) {
+        guard seconds > 0 else { return }
+        for _ in 0 ..< seconds {
+            tick()
+        }
     }
 
     // MARK: - Private
 
-    private func resetTimers() {
-        shortBreakElapsed = 0
-        longBreakElapsed = 0
-        updateNextBreakTimes()
+    private func resetCycle() {
+        shortCountdown = settings.shortBreakInterval
+        longCountdown = settings.longBreakInterval
+        postponeCount = 0
+        skipNextShort = false
+        skipNextLong = false
+        state = .running
+        updatePublishedCountdowns()
     }
 
     private func start() {
@@ -132,58 +163,57 @@ final class TimerEngine {
         case .running, .inPreBreak: break
         default: return
         }
-        shortBreakElapsed += 1
-        longBreakElapsed += 1
-        updateNextBreakTimes()
-        checkForBreak()
+        stepCountdowns(by: 1)
+        evaluateTransitions()
     }
 
-    private func updateNextBreakTimes() {
-        nextShortBreakIn = max(0, settings.shortBreakInterval - shortBreakElapsed)
-        nextLongBreakIn = max(0, settings.longBreakInterval - longBreakElapsed)
+    private func stepCountdowns(by seconds: TimeInterval) {
+        shortCountdown = max(0, shortCountdown - seconds)
+        longCountdown = max(0, longCountdown - seconds)
+        updatePublishedCountdowns()
     }
 
-    private func checkForBreak() {
+    private func updatePublishedCountdowns() {
+        nextShortBreakIn = max(0, shortCountdown)
+        nextLongBreakIn = max(0, longCountdown)
+        nextBreakType = nextLongBreakIn <= nextShortBreakIn ? .long : .short
+    }
+
+    private func evaluateTransitions() {
         // Long break takes priority
-        let longWarningStart = settings.longBreakInterval - settings.longBreakWarning
-        let shortWarningStart = settings.shortBreakInterval - settings.shortBreakWarning
-
-        if longBreakElapsed >= settings.longBreakInterval {
+        if longCountdown <= 0 {
             if skipNextLong {
-                longBreakElapsed = 0; skipNextLong = false; state = .running
+                skipNextLong = false
+                completeBreak(.long)
+                state = .running
             } else {
                 beginBreak(.long)
             }
             return
         }
 
-        if longBreakElapsed >= longWarningStart {
-            let remaining = settings.longBreakInterval - longBreakElapsed
-            if skipNextLong {
-                if case .inPreBreak(.long, _) = state { state = .running }
-            } else {
-                state = .inPreBreak(.long, timeRemaining: remaining)
-            }
+        if longCountdown <= settings.longBreakWarning {
+            state = .inPreBreak(.long, timeRemaining: longCountdown)
             return
         }
 
-        if shortBreakElapsed >= settings.shortBreakInterval {
+        if shortCountdown <= 0 {
             if skipNextShort {
-                shortBreakElapsed = 0; skipNextShort = false; state = .running
+                skipNextShort = false
+                completeBreak(.short)
+                state = .running
             } else {
                 beginBreak(.short)
             }
             return
         }
 
-        if shortBreakElapsed >= shortWarningStart {
-            let remaining = settings.shortBreakInterval - shortBreakElapsed
-            if skipNextShort {
-                if case .inPreBreak(.short, _) = state { state = .running }
-            } else {
-                state = .inPreBreak(.short, timeRemaining: remaining)
-            }
+        if shortCountdown <= settings.shortBreakWarning {
+            state = .inPreBreak(.short, timeRemaining: shortCountdown)
+            return
         }
+
+        state = .running
     }
 
     private func beginBreak(_ type: BreakType) {
@@ -203,5 +233,18 @@ final class TimerEngine {
     private func cancelBreakTask() {
         breakTask?.cancel()
         breakTask = nil
+    }
+
+    private func completeBreak(_ type: BreakType) {
+        switch type {
+        case .short:
+            shortCountdown = settings.shortBreakInterval
+
+        case .long:
+            shortCountdown = settings.shortBreakInterval
+            longCountdown = settings.longBreakInterval
+            postponeCount = 0
+        }
+        updatePublishedCountdowns()
     }
 }

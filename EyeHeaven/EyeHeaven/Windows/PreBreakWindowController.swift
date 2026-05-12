@@ -3,6 +3,10 @@ import SwiftUI
 
 @MainActor
 final class PreBreakWindowController {
+    private let preferredWidth: CGFloat = 560
+    private let panelHeight: CGFloat = 72
+    private let horizontalScreenMargin: CGFloat = 24
+
     private var window: NSPanel?
     private let model = PreBreakModel()
 
@@ -25,8 +29,10 @@ final class PreBreakWindowController {
 
         guard window == nil else { return }
 
-        let panel = makePanel()
-        positionPanel(panel)
+        let screen = NSScreen.main ?? NSScreen.screens[0]
+        let panelWidth = resolvedPanelWidth(for: screen)
+        let panel = makePanel(width: panelWidth)
+        positionPanel(panel, on: screen, width: panelWidth)
         panel.orderFront(nil)
         window = panel
     }
@@ -38,9 +44,9 @@ final class PreBreakWindowController {
 
     // MARK: - Private
 
-    private func makePanel() -> NSPanel {
+    private func makePanel(width: CGFloat) -> NSPanel {
         let panel = NSPanel(
-            contentRect: NSRect(x: 0, y: 0, width: 440, height: 72),
+            contentRect: NSRect(x: 0, y: 0, width: width, height: panelHeight),
             styleMask: .borderless,
             backing: .buffered,
             defer: false
@@ -55,17 +61,19 @@ final class PreBreakWindowController {
         let view = PreBreakView(model: model, onClose: { [weak self] in
             self?.model.onClose?()
             self?.hide()
-        })
+        }, panelWidth: width)
         panel.contentView = NSHostingView(rootView: view)
         return panel
     }
 
-    private func positionPanel(_ panel: NSPanel) {
-        let screen = NSScreen.main ?? NSScreen.screens[0]
-        let width: CGFloat = 440
-        let height: CGFloat = 72
+    private func positionPanel(_ panel: NSPanel, on screen: NSScreen, width: CGFloat) {
+        let height = panelHeight
         let x = screen.visibleFrame.midX - width / 2
         let y = screen.visibleFrame.maxY - height - 8
         panel.setFrame(NSRect(x: x, y: y, width: width, height: height), display: false)
+    }
+
+    private func resolvedPanelWidth(for screen: NSScreen) -> CGFloat {
+        max(420, min(preferredWidth, screen.visibleFrame.width - horizontalScreenMargin * 2))
     }
 }

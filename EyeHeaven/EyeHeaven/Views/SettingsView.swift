@@ -10,13 +10,13 @@ struct BreaksSettingsView: View {
         Form {
             Section(String(localized: "settings.section.short_break")) {
                 timeRow(String(localized: "settings.interval"),
-                        value: minutesBinding(\.shortBreakInterval, range: 1 ... 120),
+                        value: minutesBinding(\.shortBreakInterval, range: 1 ... 120, reloadSchedule: true),
                         unit: "min")
                 timeRow(String(localized: "settings.duration"),
                         value: secondsBinding(\.shortBreakDuration, range: 5 ... 300),
                         unit: "sec")
                 timeRow(String(localized: "settings.warning"),
-                        value: secondsBinding(\.shortBreakWarning, range: 5 ... 60),
+                        value: secondsBinding(\.shortBreakWarning, range: 5 ... 60, reloadSchedule: true),
                         unit: "sec")
             }
             Section(String(localized: "settings.section.long_break")) {
@@ -25,7 +25,10 @@ struct BreaksSettingsView: View {
                         IntField(
                             value: Binding(
                                 get: { s.longBreakEveryShortBreaks },
-                                set: { s.longBreakEveryShortBreaks = $0 }
+                                set: {
+                                    s.longBreakEveryShortBreaks = $0
+                                    BreakScheduler.shared.reloadScheduleFromSettings()
+                                }
                             ),
                             range: 2 ... 12
                         )
@@ -43,7 +46,7 @@ struct BreaksSettingsView: View {
                         value: minutesBinding(\.longBreakDuration, range: 1 ... 30),
                         unit: "min")
                 timeRow(String(localized: "settings.warning"),
-                        value: secondsBinding(\.longBreakWarning, range: 10 ... 120),
+                    value: secondsBinding(\.longBreakWarning, range: 10 ... 120, reloadSchedule: true),
                         unit: "sec")
                 LabeledContent(String(localized: "settings.max_postpones")) {
                     IntField(
@@ -102,19 +105,37 @@ struct BreaksSettingsView: View {
         LabeledContent(label) { IntField(value: value, unit: unit) }
     }
 
-    private func minutesBinding(_ kp: ReferenceWritableKeyPath<AppSettings, TimeInterval>, range: ClosedRange<Int>) -> Binding<Int> {
+    private func minutesBinding(
+        _ kp: ReferenceWritableKeyPath<AppSettings, TimeInterval>,
+        range: ClosedRange<Int>,
+        reloadSchedule: Bool = false
+    ) -> Binding<Int> {
         let settings = AppSettings.shared
         return Binding(
             get: { Int(settings[keyPath: kp] / 60) },
-            set: { settings[keyPath: kp] = Double(min(range.upperBound, max(range.lowerBound, $0))) * 60 }
+            set: {
+                settings[keyPath: kp] = Double(min(range.upperBound, max(range.lowerBound, $0))) * 60
+                if reloadSchedule {
+                    BreakScheduler.shared.reloadScheduleFromSettings()
+                }
+            }
         )
     }
 
-    private func secondsBinding(_ kp: ReferenceWritableKeyPath<AppSettings, TimeInterval>, range: ClosedRange<Int>) -> Binding<Int> {
+    private func secondsBinding(
+        _ kp: ReferenceWritableKeyPath<AppSettings, TimeInterval>,
+        range: ClosedRange<Int>,
+        reloadSchedule: Bool = false
+    ) -> Binding<Int> {
         let settings = AppSettings.shared
         return Binding(
             get: { Int(settings[keyPath: kp]) },
-            set: { settings[keyPath: kp] = Double(min(range.upperBound, max(range.lowerBound, $0))) }
+            set: {
+                settings[keyPath: kp] = Double(min(range.upperBound, max(range.lowerBound, $0)))
+                if reloadSchedule {
+                    BreakScheduler.shared.reloadScheduleFromSettings()
+                }
+            }
         )
     }
 }
@@ -336,7 +357,14 @@ struct IntField: View {
                 .focused($isFocused)
                 .onSubmit { commit() }
                 .onAppear { text = "\(value)" }
-                .onChange(of: value) { _, new in text = "\(new)" }
+                .onChange(of: text) { _, new in
+                    commitIfValid(new)
+                }
+                .onChange(of: value) { _, new in
+                    if !isFocused {
+                        text = "\(new)"
+                    }
+                }
                 .onChange(of: isFocused) { _, focused in
                     if !focused { commit() }
                 }
@@ -353,5 +381,10 @@ struct IntField: View {
             value = min(range.upperBound, max(range.lowerBound, n))
         }
         text = "\(value)"
+    }
+
+    private func commitIfValid(_ candidate: String) {
+        guard let number = Int(candidate) else { return }
+        value = min(range.upperBound, max(range.lowerBound, number))
     }
 }
