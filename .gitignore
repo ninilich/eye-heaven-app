@@ -51,3 +51,7 @@ fastlane/test_output/
 .claude/settings.local.json
 .graphifyignore
 graphify-out/
+
+# Local editor/tooling
+.vscode/
+.xcodebuildmcp/
