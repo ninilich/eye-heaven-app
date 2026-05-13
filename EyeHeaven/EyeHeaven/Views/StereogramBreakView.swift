@@ -3,11 +3,14 @@ import Combine
 import SwiftUI
 
 struct StereogramBreakView: View {
+    private static var keyboardMonitorInstalled = false
+
     @State private var currentImage: NSImage
     @State private var currentSource: String?
     @State private var currentAuthor: String?
     @State private var elapsed: TimeInterval = 0
     @State private var hasNext = true
+    @State private var keyMonitor: Any?
 
     let duration: TimeInterval
     let allowSkip: Bool
@@ -93,6 +96,12 @@ struct StereogramBreakView: View {
             guard elapsed < duration else { return }
             elapsed += 0.5
         }
+        .onAppear {
+            installKeyboardMonitorIfNeeded()
+        }
+        .onDisappear {
+            removeKeyboardMonitorIfNeeded()
+        }
     }
 
     private var hudBar: some View {
@@ -118,13 +127,7 @@ struct StereogramBreakView: View {
 
             if hasNext {
                 Button {
-                    if let (img, src, auth) = pickNext() {
-                        currentImage = img
-                        currentSource = src
-                        currentAuthor = auth
-                    } else {
-                        hasNext = false
-                    }
+                    showNextStereogram()
                 } label: {
                     Label(String(localized: "break.stereogram.next"), systemImage: "arrow.right.circle.fill")
                 }
@@ -148,5 +151,38 @@ struct StereogramBreakView: View {
                     .foregroundStyle(.white.opacity(0.45))
             }
         }
+    }
+
+    private func showNextStereogram() {
+        if let (img, src, auth) = pickNext() {
+            currentImage = img
+            currentSource = src
+            currentAuthor = auth
+        } else {
+            hasNext = false
+        }
+    }
+
+    private func installKeyboardMonitorIfNeeded() {
+        guard keyMonitor == nil, !Self.keyboardMonitorInstalled else { return }
+        Self.keyboardMonitorInstalled = true
+
+        keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
+            let rightArrow: UInt16 = 124
+            let downArrow: UInt16 = 125
+            if event.keyCode == rightArrow || event.keyCode == downArrow {
+                guard hasNext else { return nil }
+                showNextStereogram()
+                return nil
+            }
+            return event
+        }
+    }
+
+    private func removeKeyboardMonitorIfNeeded() {
+        guard let keyMonitor else { return }
+        NSEvent.removeMonitor(keyMonitor)
+        self.keyMonitor = nil
+        Self.keyboardMonitorInstalled = false
     }
 }
