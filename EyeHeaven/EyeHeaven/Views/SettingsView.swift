@@ -114,7 +114,10 @@ struct BreaksSettingsView: View {
         return Binding(
             get: { Int(settings[keyPath: kp] / 60) },
             set: {
-                settings[keyPath: kp] = Double(min(range.upperBound, max(range.lowerBound, $0))) * 60
+                let normalized = Double(min(range.upperBound, max(range.lowerBound, $0))) * 60
+                let oldValue = settings[keyPath: kp]
+                guard oldValue != normalized else { return }
+                settings[keyPath: kp] = normalized
                 if reloadSchedule {
                     BreakScheduler.shared.reloadScheduleFromSettings()
                 }
@@ -131,7 +134,10 @@ struct BreaksSettingsView: View {
         return Binding(
             get: { Int(settings[keyPath: kp]) },
             set: {
-                settings[keyPath: kp] = Double(min(range.upperBound, max(range.lowerBound, $0)))
+                let normalized = Double(min(range.upperBound, max(range.lowerBound, $0)))
+                let oldValue = settings[keyPath: kp]
+                guard oldValue != normalized else { return }
+                settings[keyPath: kp] = normalized
                 if reloadSchedule {
                     BreakScheduler.shared.reloadScheduleFromSettings()
                 }
@@ -378,13 +384,19 @@ struct IntField: View {
 
     private func commit() {
         if let n = Int(text) {
-            value = min(range.upperBound, max(range.lowerBound, n))
+            let clamped = min(range.upperBound, max(range.lowerBound, n))
+            if value != clamped {
+                value = clamped
+            }
         }
         text = "\(value)"
     }
 
     private func commitIfValid(_ candidate: String) {
         guard let number = Int(candidate) else { return }
-        value = min(range.upperBound, max(range.lowerBound, number))
+        let clamped = min(range.upperBound, max(range.lowerBound, number))
+        if value != clamped {
+            value = clamped
+        }
     }
 }
