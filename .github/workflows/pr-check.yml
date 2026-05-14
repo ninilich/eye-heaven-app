@@ -46,6 +46,7 @@ jobs:
             -project EyeHeaven/EyeHeaven.xcodeproj \
             -scheme EyeHeaven \
             -configuration Debug \
+            -xcconfig <(echo 'CODE_SIGNING_ALLOWED=NO\nCODE_SIGNING_REQUIRED=NO\nCODE_SIGN_IDENTITY=') \
             build
 
       - name: Run Unit Tests
@@ -56,6 +57,7 @@ jobs:
             -project EyeHeaven/EyeHeaven.xcodeproj \
             -scheme EyeHeaven \
             -destination 'platform=macOS' \
+            -xcconfig <(echo 'CODE_SIGNING_ALLOWED=NO\nCODE_SIGNING_REQUIRED=NO\nCODE_SIGN_IDENTITY=') \
             -only-testing:EyeHeavenTests \
             test
 
