@@ -97,6 +97,9 @@ jobs:
         if: steps.bootstrap.outputs.has_project == 'true' && steps.bootstrap.outputs.has_script == 'true' && steps.bootstrap.outputs.release_enabled == 'true' && steps.gate.outputs.should_release == 'true'
         env:
           CHANNEL: ${{ steps.gate.outputs.marketing_version }}
+          CODE_SIGNING_ALLOWED: 'NO'
+          CODE_SIGNING_REQUIRED: 'NO'
+          CODE_SIGN_IDENTITY: ''
         run: |
           chmod +x scripts/build_local_dmg.sh
           ./scripts/build_local_dmg.sh
