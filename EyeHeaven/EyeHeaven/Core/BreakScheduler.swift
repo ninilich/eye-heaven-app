@@ -162,7 +162,9 @@ final class BreakScheduler {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            self?.timerEngine.pause()
+            Task { @MainActor [weak self] in
+                self?.timerEngine.pause()
+            }
         }
 
         NSWorkspace.shared.notificationCenter.addObserver(
@@ -170,7 +172,9 @@ final class BreakScheduler {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            self?.timerEngine.resume()
+            Task { @MainActor [weak self] in
+                self?.timerEngine.resume()
+            }
         }
     }
 }

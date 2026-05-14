@@ -1,0 +1,43 @@
+name: Build and Publish Unsigned DMG
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build DMG
+        env:
+          CHANNEL: main
+        run: |
+          chmod +x scripts/build_local_dmg.sh
+          ./scripts/build_local_dmg.sh
+
+      - name: Upload artifacts to release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: main-latest
+          name: EyeHeaven main-latest
+          make_latest: false
+          generate_release_notes: false
+          body: |
+            Automated unsigned build from main.
+
+            Important:
+            - This DMG is not notarized.
+            - macOS may show an unidentified developer warning on first launch.
+            - See README installation instructions for unsigned builds.
+          files: |
+            dist/*.dmg
+            dist/*.sha256

@@ -48,10 +48,15 @@ fastlane/screenshots/
 fastlane/test_output/
 
 # Claude Code
-.claude/settings.local.json
+.claude
 .graphifyignore
 graphify-out/
+CLAUDE.md
 
 # Local editor/tooling
 .vscode/
 .xcodebuildmcp/
+
+# AI
+
+.claude
