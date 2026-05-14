@@ -4,6 +4,7 @@ enum BreakType {
     case short, long
 }
 
+@MainActor
 protocol TimerSettingsProviding: AnyObject {
     var shortBreakInterval: TimeInterval { get set }
     var shortBreakDuration: TimeInterval { get set }
