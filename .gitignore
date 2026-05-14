@@ -1,0 +1,68 @@
+# Python
+.venv/
+
+
+# Xcode
+*.xcuserstate
+*.xcuserdatad
+xcuserdata/
+*.moved-aside
+*.hmap
+*.ipa
+*.xcarchive
+DerivedData/
+
+# Build
+build/
+dist/
+*.o
+*.d
+
+# Swift Package Manager
+.build/
+.swiftpm/
+*.resolved
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# App secrets
+*.p8
+*.p12
+*.mobileprovision
+AuthKey_*.p8
+secrets.xcconfig
+
+# Notarization
+*.dmg
+*.pkg
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# Claude Code
+.claude
+.graphifyignore
+graphify-out/
+CLAUDE.md
+
+# Local editor/tooling
+.vscode/
+.xcodebuildmcp/
+
+# AI
+
+.claude
+
+# Markdown files in repository
+*.md
+!README.md
+!PRIVACY.md
