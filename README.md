@@ -58,8 +58,10 @@ Workflow file: `.github/workflows/release-main-unsigned.yml`
 
 Behavior:
 - Triggered on push to `main` (or manually via workflow_dispatch)
+- Reads `MARKETING_VERSION` from Xcode build settings
+- Publishes a new release only when `MARKETING_VERSION` increased versus existing `v*` tags
 - Builds unsigned Release DMG on macOS runner
-- Publishes assets to release tag `main-latest`
+- Publishes assets to release tag `v<MARKETING_VERSION>`
 
 Note: this pipeline does not use Apple Developer signing or notarization.
 

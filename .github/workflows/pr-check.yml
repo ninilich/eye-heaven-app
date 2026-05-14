@@ -1,0 +1,90 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-unit-tests:
+    name: Build and Unit Tests
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build (Debug)
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project EyeHeaven/EyeHeaven.xcodeproj \
+            -scheme EyeHeaven \
+            -configuration Debug \
+            build
+
+      - name: Run Unit Tests
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project EyeHeaven/EyeHeaven.xcodeproj \
+            -scheme EyeHeaven \
+            -destination 'platform=macOS' \
+            -only-testing:EyeHeavenTests \
+            test
+
+  version-gate:
+    name: MARKETING_VERSION Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure MARKETING_VERSION increased
+        shell: bash
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set -euo pipefail
+
+          PROJECT_FILE="EyeHeaven/EyeHeaven.xcodeproj/project.pbxproj"
+
+          HEAD_VERSION="$(awk -F ' = ' '/MARKETING_VERSION/ { gsub(/;/, "", $2); print $2; exit }' "$PROJECT_FILE")"
+          BASE_CONTENT="$(git show "$BASE_SHA:$PROJECT_FILE")"
+          BASE_VERSION="$(printf '%s\n' "$BASE_CONTENT" | awk -F ' = ' '/MARKETING_VERSION/ { gsub(/;/, "", $2); print $2; exit }')"
+
+          if [[ -z "$HEAD_VERSION" || -z "$BASE_VERSION" ]]; then
+            echo "Failed to resolve MARKETING_VERSION (base='$BASE_VERSION', head='$HEAD_VERSION')." >&2
+            exit 1
+          fi
+
+          if [[ ! "$HEAD_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "HEAD MARKETING_VERSION '$HEAD_VERSION' is not semver X.Y.Z" >&2
+            exit 1
+          fi
+
+          if [[ ! "$BASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "BASE MARKETING_VERSION '$BASE_VERSION' is not semver X.Y.Z" >&2
+            exit 1
+          fi
+
+          MAX_VERSION="$(printf '%s\n%s\n' "$BASE_VERSION" "$HEAD_VERSION" | sort -V | tail -n1)"
+
+          if [[ "$HEAD_VERSION" == "$BASE_VERSION" ]]; then
+            echo "MARKETING_VERSION must be increased for merge to main. Current: $HEAD_VERSION" >&2
+            exit 1
+          fi
+
+          if [[ "$MAX_VERSION" != "$HEAD_VERSION" ]]; then
+            echo "MARKETING_VERSION must be greater than base. base=$BASE_VERSION head=$HEAD_VERSION" >&2
+            exit 1
+          fi
+
+          echo "Version gate passed: base=$BASE_VERSION -> head=$HEAD_VERSION"

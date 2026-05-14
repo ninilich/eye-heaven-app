@@ -16,23 +16,62 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve version and release gate
+        id: gate
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          MARKETING_VERSION="$(xcodebuild -project EyeHeaven/EyeHeaven.xcodeproj -scheme EyeHeaven -showBuildSettings | awk -F ' = ' '/MARKETING_VERSION/ { print $2; exit }')"
+          if [[ -z "$MARKETING_VERSION" ]]; then
+            echo "Failed to resolve MARKETING_VERSION" >&2
+            exit 1
+          fi
+
+          LATEST_VERSION="$(git tag -l 'v*' | sed 's/^v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n1 || true)"
+
+          SHOULD_RELEASE=false
+          if [[ -z "$LATEST_VERSION" ]]; then
+            SHOULD_RELEASE=true
+          elif [[ "$MARKETING_VERSION" != "$LATEST_VERSION" ]]; then
+            MAX_VERSION="$(printf '%s\n%s\n' "$LATEST_VERSION" "$MARKETING_VERSION" | sort -V | tail -n1)"
+            if [[ "$MAX_VERSION" == "$MARKETING_VERSION" ]]; then
+              SHOULD_RELEASE=true
+            fi
+          fi
+
+          echo "marketing_version=$MARKETING_VERSION" >> "$GITHUB_OUTPUT"
+          echo "latest_version=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
+          echo "should_release=$SHOULD_RELEASE" >> "$GITHUB_OUTPUT"
+
+      - name: Skip release (version did not increase)
+        if: steps.gate.outputs.should_release != 'true'
+        run: |
+          echo "No release: MARKETING_VERSION=${{ steps.gate.outputs.marketing_version }}, latest tag version=${{ steps.gate.outputs.latest_version }}"
 
       - name: Build DMG
+        if: steps.gate.outputs.should_release == 'true'
         env:
-          CHANNEL: main
+          CHANNEL: ${{ steps.gate.outputs.marketing_version }}
         run: |
           chmod +x scripts/build_local_dmg.sh
           ./scripts/build_local_dmg.sh
 
       - name: Upload artifacts to release
+        if: steps.gate.outputs.should_release == 'true'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: main-latest
-          name: EyeHeaven main-latest
-          make_latest: false
-          generate_release_notes: false
+          tag_name: v${{ steps.gate.outputs.marketing_version }}
+          name: EyeHeaven v${{ steps.gate.outputs.marketing_version }}
+          make_latest: true
+          generate_release_notes: true
           body: |
             Automated unsigned build from main.
+
+            Version: ${{ steps.gate.outputs.marketing_version }}
 
             Important:
             - This DMG is not notarized.
