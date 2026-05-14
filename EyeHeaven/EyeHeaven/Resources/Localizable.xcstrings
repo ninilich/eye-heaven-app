@@ -3930,6 +3930,9 @@
     "short breaks" : {
 
     },
+    "Turning off applies after app restart" : {
+
+    },
     "Version %@ (%@)" : {
       "localizations" : {
         "en" : {
