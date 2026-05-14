@@ -51,20 +51,13 @@ struct PreBreakView: View {
 
     // MARK: - Background
 
-    @ViewBuilder
     private var background: some View {
-        if #available(macOS 26.0, *) {
-            RoundedRectangle(cornerRadius: 16)
-                .fill(.clear)
-                .glassEffect(in: .rect(cornerRadius: 16))
-        } else {
-            RoundedRectangle(cornerRadius: 16)
-                .fill(.regularMaterial)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color.primary.opacity(0.08), lineWidth: 0.5)
-                }
-        }
+        RoundedRectangle(cornerRadius: 16)
+            .fill(.regularMaterial)
+            .overlay {
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.primary.opacity(0.08), lineWidth: 0.5)
+            }
     }
 
     // MARK: - Subviews

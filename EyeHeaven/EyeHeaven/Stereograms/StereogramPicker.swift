@@ -1,6 +1,7 @@
 import Foundation
 import SwiftData
 
+@MainActor
 enum StereogramPicker {
     /// Weighted random selection. Weight = daysSinceLastShown / (timesShown + 1).
     /// Updates the chosen record in SwiftData. Returns nil if no local images available.

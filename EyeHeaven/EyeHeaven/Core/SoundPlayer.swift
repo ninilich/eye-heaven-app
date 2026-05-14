@@ -1,5 +1,6 @@
 import AppKit
 
+@MainActor
 enum SoundPlayer {
     static func playBreakStart() {
         guard AppSettings.shared.soundEnabled else { return }
