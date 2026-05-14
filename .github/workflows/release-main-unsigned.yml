@@ -12,6 +12,10 @@ permissions:
 jobs:
   build-and-release:
     runs-on: macos-latest
+    env:
+      PROJECT_FILE: EyeHeaven/EyeHeaven.xcodeproj/project.pbxproj
+      BUILD_SCRIPT: scripts/build_local_dmg.sh
+      RELEASE_ENABLED: ${{ vars.RELEASE_ENABLED }}
 
     steps:
       - name: Checkout
@@ -19,8 +23,35 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Inspect bootstrap state
+        id: bootstrap
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          has_project=false
+          has_script=false
+          release_enabled=false
+
+          if [[ -f "$PROJECT_FILE" ]]; then
+            has_project=true
+          fi
+
+          if [[ -f "$BUILD_SCRIPT" ]]; then
+            has_script=true
+          fi
+
+          if [[ "${RELEASE_ENABLED:-}" == "true" ]]; then
+            release_enabled=true
+          fi
+
+          echo "has_project=$has_project" >> "$GITHUB_OUTPUT"
+          echo "has_script=$has_script" >> "$GITHUB_OUTPUT"
+          echo "release_enabled=$release_enabled" >> "$GITHUB_OUTPUT"
+
       - name: Resolve version and release gate
         id: gate
+        if: steps.bootstrap.outputs.has_project == 'true' && steps.bootstrap.outputs.has_script == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -47,13 +78,23 @@ jobs:
           echo "latest_version=$LATEST_VERSION" >> "$GITHUB_OUTPUT"
           echo "should_release=$SHOULD_RELEASE" >> "$GITHUB_OUTPUT"
 
+      - name: Skip release (bootstrap main)
+        if: steps.bootstrap.outputs.has_project != 'true' || steps.bootstrap.outputs.has_script != 'true'
+        run: |
+          echo "Skipping release: bootstrap main does not contain app sources yet."
+
+      - name: Skip release (disabled)
+        if: steps.bootstrap.outputs.has_project == 'true' && steps.bootstrap.outputs.has_script == 'true' && steps.bootstrap.outputs.release_enabled != 'true'
+        run: |
+          echo "Skipping release: repository variable RELEASE_ENABLED is not true."
+
       - name: Skip release (version did not increase)
-        if: steps.gate.outputs.should_release != 'true'
+        if: steps.bootstrap.outputs.has_project == 'true' && steps.bootstrap.outputs.has_script == 'true' && steps.bootstrap.outputs.release_enabled == 'true' && steps.gate.outputs.should_release != 'true'
         run: |
           echo "No release: MARKETING_VERSION=${{ steps.gate.outputs.marketing_version }}, latest tag version=${{ steps.gate.outputs.latest_version }}"
 
       - name: Build DMG
-        if: steps.gate.outputs.should_release == 'true'
+        if: steps.bootstrap.outputs.has_project == 'true' && steps.bootstrap.outputs.has_script == 'true' && steps.bootstrap.outputs.release_enabled == 'true' && steps.gate.outputs.should_release == 'true'
         env:
           CHANNEL: ${{ steps.gate.outputs.marketing_version }}
         run: |
@@ -61,7 +102,7 @@ jobs:
           ./scripts/build_local_dmg.sh
 
       - name: Upload artifacts to release
-        if: steps.gate.outputs.should_release == 'true'
+        if: steps.bootstrap.outputs.has_project == 'true' && steps.bootstrap.outputs.has_script == 'true' && steps.bootstrap.outputs.release_enabled == 'true' && steps.gate.outputs.should_release == 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.gate.outputs.marketing_version }}

@@ -13,12 +13,33 @@ jobs:
   build-and-unit-tests:
     name: Build and Unit Tests
     runs-on: macos-latest
+    env:
+      PROJECT_FILE: EyeHeaven/EyeHeaven.xcodeproj/project.pbxproj
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Inspect app sources
+        id: sources
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          has_project=false
+          if [[ -f "$PROJECT_FILE" ]]; then
+            has_project=true
+          fi
+
+          echo "has_project=$has_project" >> "$GITHUB_OUTPUT"
+
+      - name: Skip build and tests (bootstrap PR)
+        if: steps.sources.outputs.has_project != 'true'
+        run: |
+          echo "Skipping build and tests: PR head does not contain app sources yet."
+
       - name: Build (Debug)
+        if: steps.sources.outputs.has_project == 'true'
         run: |
           set -euo pipefail
           xcodebuild \
@@ -28,6 +49,7 @@ jobs:
             build
 
       - name: Run Unit Tests
+        if: steps.sources.outputs.has_project == 'true'
         run: |
           set -euo pipefail
           xcodebuild \
@@ -40,6 +62,8 @@ jobs:
   version-gate:
     name: MARKETING_VERSION Gate
     runs-on: ubuntu-latest
+    env:
+      PROJECT_FILE: EyeHeaven/EyeHeaven.xcodeproj/project.pbxproj
 
     steps:
       - name: Checkout
@@ -54,11 +78,20 @@ jobs:
         run: |
           set -euo pipefail
 
-          PROJECT_FILE="EyeHeaven/EyeHeaven.xcodeproj/project.pbxproj"
+          if [[ ! -f "$PROJECT_FILE" ]]; then
+            echo "Skipping version gate: PR head does not contain app sources yet."
+            exit 0
+          fi
 
           HEAD_VERSION="$(awk -F ' = ' '/MARKETING_VERSION/ { gsub(/;/, "", $2); print $2; exit }' "$PROJECT_FILE")"
-          BASE_CONTENT="$(git show "$BASE_SHA:$PROJECT_FILE")"
-          BASE_VERSION="$(printf '%s\n' "$BASE_CONTENT" | awk -F ' = ' '/MARKETING_VERSION/ { gsub(/;/, "", $2); print $2; exit }')"
+
+          if git cat-file -e "$BASE_SHA:$PROJECT_FILE" 2>/dev/null; then
+            BASE_CONTENT="$(git show "$BASE_SHA:$PROJECT_FILE")"
+            BASE_VERSION="$(printf '%s\n' "$BASE_CONTENT" | awk -F ' = ' '/MARKETING_VERSION/ { gsub(/;/, "", $2); print $2; exit }')"
+          else
+            BASE_VERSION="0.0.0"
+            echo "Bootstrap base detected: $PROJECT_FILE is missing in base branch, using base version $BASE_VERSION"
+          fi
 
           if [[ -z "$HEAD_VERSION" || -z "$BASE_VERSION" ]]; then
             echo "Failed to resolve MARKETING_VERSION (base='$BASE_VERSION', head='$HEAD_VERSION')." >&2
