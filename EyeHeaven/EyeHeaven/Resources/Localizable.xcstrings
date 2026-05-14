@@ -4151,6 +4151,7 @@
       }
     },
     "Turning off applies after app restart" : {
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

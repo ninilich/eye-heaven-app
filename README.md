@@ -63,9 +63,14 @@ Behavior:
 
 Note: this pipeline does not use Apple Developer signing or notarization.
 
-## How to Add Stereograms
+## Legal
 
-The full guide is in `ADDING_IMAGES.md`. Summary:
+- License: GNU General Public License v3.0 (GPL-3.0), see `LICENSE`.
+- Privacy Policy: see `PRIVACY.md`.
+- Anonymous telemetry (Heartbeat) can be disabled in app settings:
+   Settings -> System -> Heartbeat.
+
+## How to Add Stereograms
 
 1. Prepare image files (`.jpg` or `.png`, reasonable file size, lowercase hyphenated names).
 2. Update `catalog.json` and add an entry to `images` with:
@@ -82,5 +87,3 @@ The full guide is in `ADDING_IMAGES.md`. Summary:
 5. Verify in app:
    - Settings -> Stereograms -> Update Now
    - Trigger a long break and confirm image + attribution
-
-For detailed examples and edge cases, use `ADDING_IMAGES.md`.
