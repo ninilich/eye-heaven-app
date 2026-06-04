@@ -74,18 +74,18 @@ Note: this pipeline does not use Apple Developer signing or notarization.
 
 ## How to Add Stereograms
 
-1. Prepare image files (`.jpg` or `.png`, reasonable file size, lowercase hyphenated names).
-2. Update `catalog.json` and add an entry to `images` with:
-   - `id`
-   - `filename`
-   - `url`
-   - optional `source`
-   - optional `author`
-3. Bump `catalog.json` `version`.
-4. Create or update the latest GitHub release and attach:
-   - updated `catalog.json`
-   - all new images
-   - all previously released images required by the current catalog
-5. Verify in app:
-   - Settings -> Stereograms -> Update Now
-   - Trigger a long break and confirm image + attribution
+Stereogram images live in the `Stereograms/` folder and are served via `raw.githubusercontent.com`.
+
+1. Add image files (`.jpg`, reasonable file size) to `Stereograms/`.
+2. Add an entry to `Stereograms/catalog.json`:
+   ```json
+   {
+     "id": "my-image",
+     "filename": "my-image.jpg",
+     "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/my-image.jpg",
+     "source": "https://example.com",
+     "author": "Author Name"
+   }
+   ```
+3. Commit and push to `main`. No new app release is triggered for `Stereograms/`-only changes.
+4. Verify in app: Settings → Stereograms → Update Now.
