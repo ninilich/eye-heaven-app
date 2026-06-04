@@ -130,3 +130,4 @@ jobs:
           files: |
             dist/*.dmg
             dist/*.sha256
+            dist/catalog.json
