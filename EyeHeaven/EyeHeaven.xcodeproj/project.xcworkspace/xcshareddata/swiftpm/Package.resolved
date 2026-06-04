@@ -1,0 +1,15 @@
+{
+  "originHash" : "1b90c5e02060c4b2d43beeea6ff6ea700d20dc503a29a93c34d8cccaf47c2445",
+  "pins" : [
+    {
+      "identity" : "heartbeat-tracker",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maierru/heartbeat-tracker.git",
+      "state" : {
+        "revision" : "d7de5f939cc5d6c2c3ae349bacecee9ae3b8a89e",
+        "version" : "1.4.0"
+      }
+    }
+  ],
+  "version" : 3
+}
