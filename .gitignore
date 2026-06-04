@@ -59,11 +59,9 @@ CLAUDE.md
 .vscode/
 .xcodebuildmcp/
 
-# AI
-
-.claude
-
 # Markdown files in repository
 *.md
 !README.md
 !PRIVACY.md
+!CONTRIBUTING.md
+!ADDING_IMAGES.md
