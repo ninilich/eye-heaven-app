@@ -53,6 +53,16 @@ hdiutil create \
 echo "==> Calculating SHA256"
 shasum -a 256 "$DMG_PATH" > "$SHA_PATH"
 
+echo "==> Copying catalog.json"
+CATALOG_SRC="$ROOT_DIR/Stereograms/catalog.json"
+if [[ -f "$CATALOG_SRC" ]]; then
+  cp "$CATALOG_SRC" "$DIST_DIR/catalog.json"
+  echo "  catalog.json copied"
+else
+  echo "  WARNING: Stereograms/catalog.json not found, skipping"
+fi
+
 echo "Build artifacts:"
 echo "  DMG: $DMG_PATH"
 echo "  SHA: $SHA_PATH"
+echo "  catalog.json: $DIST_DIR/catalog.json"

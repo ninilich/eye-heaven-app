@@ -30,7 +30,7 @@ final class CatalogService {
         images.isEmpty || images.contains { localURL(for: $0) == nil }
     }
 
-    private let catalogURL = URL(string: "https://github.com/ninilich/EyeHeaven/releases/latest/download/catalog.json")!
+    private let catalogURL = URL(string: "https://github.com/ninilich/eye-heaven-app/releases/latest/download/catalog.json")!
     private let settings = AppSettings.shared
 
     private init() {}
@@ -102,7 +102,10 @@ final class CatalogService {
 
     private func downloadCatalog() async throws -> Catalog {
         downloadStatusText = String(localized: "settings.stereograms_downloading")
-        let (data, _) = try await URLSession.shared.data(from: catalogURL)
+        let (data, response) = try await URLSession.shared.data(from: catalogURL)
+        if let http = response as? HTTPURLResponse, http.statusCode != 200 {
+            throw URLError(.badServerResponse)
+        }
         return try JSONDecoder().decode(Catalog.self, from: data)
     }
 
