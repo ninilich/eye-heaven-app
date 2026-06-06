@@ -16,7 +16,7 @@ struct BreaksSettingsView: View {
                         value: secondsBinding(\.shortBreakDuration, range: 5 ... 300),
                         unit: "sec")
                 timeRow(String(localized: "settings.warning"),
-                        value: secondsBinding(\.shortBreakWarning, range: 5 ... 60, reloadSchedule: true),
+                        value: secondsBinding(\.shortBreakWarning, range: 5 ... 60),
                         unit: "sec")
             }
             Section(String(localized: "settings.section.long_break")) {
@@ -46,7 +46,7 @@ struct BreaksSettingsView: View {
                         value: minutesBinding(\.longBreakDuration, range: 1 ... 30),
                         unit: "min")
                 timeRow(String(localized: "settings.warning"),
-                    value: secondsBinding(\.longBreakWarning, range: 10 ... 120, reloadSchedule: true),
+                        value: secondsBinding(\.longBreakWarning, range: 10 ... 120),
                         unit: "sec")
                 LabeledContent(String(localized: "settings.max_postpones")) {
                     IntField(
@@ -162,14 +162,6 @@ struct SystemSettingsView: View {
                     }
                 ))
                 Toggle(String(localized: "settings.sound_enabled"), isOn: $s.soundEnabled)
-                Toggle(isOn: $s.respectFocusMode) {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(String(localized: "settings.respect_focus_mode"))
-                        Text(String(localized: "settings.respect_focus_mode.description"))
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                }
                 Toggle(isOn: $s.heartbeatEnabled) {
                     VStack(alignment: .leading, spacing: 2) {
                         Text(String(localized: "settings.heartbeat"))
@@ -308,7 +300,6 @@ struct AboutSettingsView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-
             Image(systemName: "eye.fill")
                 .font(.system(size: 48))
                 .foregroundStyle(.blue)

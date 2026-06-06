@@ -7,7 +7,6 @@ EyeHeaven is a macOS menu bar app that helps reduce eye strain with timed short 
 - Pre-break warning banner
 - Full-screen break mode with background dimming
 - Optional stereogram display during long breaks
-- Focus Mode / Do Not Disturb awareness
 - Idle detection (no permissions required)
 - 9-language interface
 

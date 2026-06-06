@@ -69,6 +69,7 @@ struct BreakView: View {
                         .opacity(0.94)
                     )
             }
+            .overlay(alignment: .bottom) { progressBar }
             .shadow(radius: 24, y: 8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -89,6 +90,24 @@ struct BreakView: View {
 
     private var subtitleKey: LocalizedStringKey {
         breakType == .short ? "break.short.subtitle" : "break.long.subtitle"
+    }
+
+    private var progressBar: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .leading) {
+                Rectangle()
+                    .fill(.white.opacity(0.12))
+                Rectangle()
+                    .fill(.white.opacity(0.45))
+                    .frame(width: geo.size.width * progress)
+                    .animation(.linear(duration: 0.5), value: progress)
+            }
+        }
+        .frame(height: 4)
+        .clipShape(UnevenRoundedRectangle(
+            topLeadingRadius: 0, bottomLeadingRadius: 24,
+            bottomTrailingRadius: 24, topTrailingRadius: 0
+        ))
     }
 
     private var countdownRing: some View {

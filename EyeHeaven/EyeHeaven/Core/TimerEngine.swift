@@ -33,6 +33,8 @@ final class TimerEngine {
     private(set) var nextLongBreakIn: TimeInterval = 0
     private(set) var nextBreakType: BreakType = .short
 
+    var onBreakBegan: ((BreakType) -> Void)?
+
     private let settings: any TimerSettingsProviding
     private var timer: Timer?
     private var breakTask: Task<Void, Never>?
@@ -40,8 +42,6 @@ final class TimerEngine {
     private var shortCountdown: TimeInterval = 0
     private var longCountdown: TimeInterval = 0
     private var postponeCount: Int = 0
-    private var skipNextShort = false
-    private var skipNextLong = false
     private let autoStart: Bool
 
     init(settings: any TimerSettingsProviding = AppSettings.shared, autoStart: Bool = true) {
@@ -71,11 +71,6 @@ final class TimerEngine {
         guard case .paused = state else { return }
         state = .running
         start()
-    }
-
-    func skipNextBreak() {
-        skipNextShort = true
-        skipNextLong = true
     }
 
     func postponeLongBreak() {
@@ -146,8 +141,6 @@ final class TimerEngine {
         shortCountdown = settings.shortBreakInterval
         longCountdown = settings.longBreakInterval
         postponeCount = 0
-        skipNextShort = false
-        skipNextLong = false
         state = .running
         updatePublishedCountdowns()
     }
@@ -183,13 +176,7 @@ final class TimerEngine {
     private func evaluateTransitions() {
         // Long break takes priority
         if longCountdown <= 0 {
-            if skipNextLong {
-                skipNextLong = false
-                completeBreak(.long)
-                state = .running
-            } else {
-                beginBreak(.long)
-            }
+            beginBreak(.long)
             return
         }
 
@@ -199,13 +186,7 @@ final class TimerEngine {
         }
 
         if shortCountdown <= 0 {
-            if skipNextShort {
-                skipNextShort = false
-                completeBreak(.short)
-                state = .running
-            } else {
-                beginBreak(.short)
-            }
+            beginBreak(.short)
             return
         }
 
@@ -221,6 +202,7 @@ final class TimerEngine {
         state = .inBreak(type)
         timer?.invalidate()
         timer = nil
+        onBreakBegan?(type)
 
         let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
         breakTask = Task {

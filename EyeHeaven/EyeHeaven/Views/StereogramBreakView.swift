@@ -38,6 +38,11 @@ struct StereogramBreakView: View {
         self.pickNext = pickNext
     }
 
+    private var progress: Double {
+        guard duration > 0 else { return 1 }
+        return min(elapsed / duration, 1)
+    }
+
     private var remaining: Int {
         max(0, Int(duration - elapsed))
     }
@@ -50,7 +55,7 @@ struct StereogramBreakView: View {
 
     var body: some View {
         GeometryReader { geo in
-            let cardWidth = min(max(geo.size.width * 0.9, 680), 1_420)
+            let cardWidth = min(max(geo.size.width * 0.9, 680), 1420)
             let cardHeight = min(max(geo.size.height * 0.88, 520), 980)
             let imageMaxHeight = geo.size.height * 0.75
 
@@ -105,36 +110,49 @@ struct StereogramBreakView: View {
     }
 
     private var hudBar: some View {
-        HStack(spacing: 14) {
-            attributionView
-            Spacer()
-
-            HStack(spacing: 6) {
-                Image(systemName: "timer")
-                    .font(.system(size: 11, weight: .regular))
-                Text(countdownText)
-                    .font(.system(size: 12, weight: .regular, design: .monospaced))
+        VStack(spacing: 0) {
+            // Progress strip — full width, no horizontal padding
+            ZStack(alignment: .leading) {
+                Rectangle().fill(.white.opacity(0.12))
+                Rectangle()
+                    .fill(.white.opacity(0.50))
+                    .scaleEffect(x: progress, anchor: .leading)
+                    .animation(.linear(duration: 0.5), value: progress)
             }
-            .foregroundStyle(.white.opacity(0.62))
-            .padding(.trailing, 22)
+            .frame(height: 3)
 
-            if allowSkip {
-                Button(action: onSkip) {
-                    Text(String(localized: "break.skip"))
+            // Controls row
+            HStack(spacing: 14) {
+                attributionView
+                Spacer()
+
+                HStack(spacing: 6) {
+                    Image(systemName: "timer")
+                        .font(.system(size: 11, weight: .regular))
+                    Text(countdownText)
+                        .font(.system(size: 12, weight: .regular, design: .monospaced))
                 }
-                .buttonStyle(BreakActionButtonStyle(role: .tertiary, size: .compact))
-            }
+                .foregroundStyle(.white.opacity(0.62))
+                .padding(.trailing, 22)
 
-            if hasNext {
-                Button {
-                    showNextStereogram()
-                } label: {
-                    Label(String(localized: "break.stereogram.next"), systemImage: "arrow.right.circle.fill")
+                if allowSkip {
+                    Button(action: onSkip) {
+                        Text(String(localized: "break.skip"))
+                    }
+                    .buttonStyle(BreakActionButtonStyle(role: .tertiary, size: .compact))
                 }
-                .buttonStyle(BreakActionButtonStyle(role: .primary, size: .compact))
+
+                if hasNext {
+                    Button {
+                        showNextStereogram()
+                    } label: {
+                        Label(String(localized: "break.stereogram.next"), systemImage: "arrow.right.circle.fill")
+                    }
+                    .buttonStyle(BreakActionButtonStyle(role: .primary, size: .compact))
+                }
             }
+            .padding(.horizontal, 24)
         }
-        .padding(.horizontal, 24)
         .background(.black.opacity(0.38))
     }
 
