@@ -33,6 +33,8 @@ final class TimerEngine {
     private(set) var nextLongBreakIn: TimeInterval = 0
     private(set) var nextBreakType: BreakType = .short
 
+    var onBreakBegan: ((BreakType) -> Void)?
+
     private let settings: any TimerSettingsProviding
     private var timer: Timer?
     private var breakTask: Task<Void, Never>?
@@ -200,6 +202,7 @@ final class TimerEngine {
         state = .inBreak(type)
         timer?.invalidate()
         timer = nil
+        onBreakBegan?(type)
 
         let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
         breakTask = Task {

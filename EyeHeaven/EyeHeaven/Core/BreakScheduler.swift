@@ -71,6 +71,7 @@ final class BreakScheduler {
         focusDetector.start()
         setupSleepWakeObservers()
         observeTimerState()
+        timerEngine.onBreakBegan = { [weak self] _ in self?.handleWindowState() }
     }
 
     private func observeTimerState() {
