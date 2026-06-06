@@ -5,6 +5,8 @@ struct PreBreakView: View {
     let onClose: () -> Void
     let panelWidth: CGFloat
 
+    @State private var isCloseHovered = false
+
     private var timeLeft: TimeInterval {
         max(0, model.timeRemaining)
     }
@@ -87,9 +89,12 @@ struct PreBreakView: View {
                 .font(.system(size: 8, weight: .bold))
                 .foregroundStyle(.secondary)
                 .frame(width: 16, height: 16)
-                .background(Color.primary.opacity(0.08), in: Circle())
+                .background(Color.primary.opacity(isCloseHovered ? 0.18 : 0.08), in: Circle())
+                .scaleEffect(isCloseHovered ? 1.12 : 1)
         }
         .buttonStyle(.plain)
+        .onHover { isCloseHovered = $0 }
+        .animation(.easeOut(duration: 0.1), value: isCloseHovered)
     }
 
     private var titleKey: LocalizedStringKey {

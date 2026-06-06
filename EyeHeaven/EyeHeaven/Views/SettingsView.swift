@@ -16,7 +16,7 @@ struct BreaksSettingsView: View {
                         value: secondsBinding(\.shortBreakDuration, range: 5 ... 300),
                         unit: "sec")
                 timeRow(String(localized: "settings.warning"),
-                        value: secondsBinding(\.shortBreakWarning, range: 5 ... 60, reloadSchedule: true),
+                        value: secondsBinding(\.shortBreakWarning, range: 5 ... 60),
                         unit: "sec")
             }
             Section(String(localized: "settings.section.long_break")) {
@@ -46,7 +46,7 @@ struct BreaksSettingsView: View {
                         value: minutesBinding(\.longBreakDuration, range: 1 ... 30),
                         unit: "min")
                 timeRow(String(localized: "settings.warning"),
-                    value: secondsBinding(\.longBreakWarning, range: 10 ... 120, reloadSchedule: true),
+                        value: secondsBinding(\.longBreakWarning, range: 10 ... 120),
                         unit: "sec")
                 LabeledContent(String(localized: "settings.max_postpones")) {
                     IntField(
@@ -308,7 +308,6 @@ struct AboutSettingsView: View {
 
     var body: some View {
         VStack(spacing: 20) {
-
             Image(systemName: "eye.fill")
                 .font(.system(size: 48))
                 .foregroundStyle(.blue)

@@ -56,10 +56,6 @@ final class BreakScheduler {
         return false
     }
 
-    func skipNextBreak() {
-        timerEngine.skipNextBreak()
-    }
-
     func startBreakNow(_ type: BreakType) {
         timerEngine.startBreakNow(type)
     }
