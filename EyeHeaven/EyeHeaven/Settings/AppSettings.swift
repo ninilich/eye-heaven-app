@@ -100,10 +100,6 @@ final class AppSettings {
         didSet { store.set(soundEnabled, forKey: "soundEnabled") }
     }
 
-    var respectFocusMode: Bool {
-        didSet { store.set(respectFocusMode, forKey: "respectFocusMode") }
-    }
-
     var heartbeatEnabled: Bool {
         didSet { store.set(heartbeatEnabled, forKey: "heartbeatEnabled") }
     }
@@ -146,7 +142,6 @@ final class AppSettings {
         }
         launchAtLogin = store.bool(forKey: "launchAtLogin")
         soundEnabled = store.object(forKey: "soundEnabled") as? Bool ?? true
-        respectFocusMode = store.object(forKey: "respectFocusMode") as? Bool ?? true
         heartbeatEnabled = store.object(forKey: "heartbeatEnabled") as? Bool ?? true
         appLanguage = store.string(forKey: "appLanguage") ?? "system"
     }
