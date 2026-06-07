@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "images": [
     {
       "id": "3dstereogram_111",
@@ -161,6 +161,48 @@
       "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/Batiskaf.jpg",
       "source": "https://3dstereogramma.ru",
       "author": "3dstereogramma.ru"
+    },
+    {
+      "id": "sphere-cube-triangle",
+      "filename": "sphere-cube-triangle.jpg",
+      "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/sphere-cube-triangle.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Sphere_Cube_Triangle_3D_Stereogram_Illusion.png",
+      "author": "Gary W. Priester (eyeTricks)"
+    },
+    {
+      "id": "tilted-seals",
+      "filename": "tilted-seals.jpg",
+      "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/tilted-seals.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Tilted_Seals.jpg",
+      "author": "Mindcube3D"
+    },
+    {
+      "id": "grannys-last-wish",
+      "filename": "grannys-last-wish.jpg",
+      "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/grannys-last-wish.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Granny%27s_Last_Wish.jpg",
+      "author": "Mindcube3D"
+    },
+    {
+      "id": "mithantras-transformation",
+      "filename": "mithantras-transformation.jpg",
+      "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/mithantras-transformation.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Mithantra%27s_Transformation.jpg",
+      "author": "Mindcube3D"
+    },
+    {
+      "id": "victorias-dream",
+      "filename": "victorias-dream.jpg",
+      "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/victorias-dream.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Victoria%27s_Dream.jpg",
+      "author": "Mindcube3D"
+    },
+    {
+      "id": "autostereogram-3d-effect",
+      "filename": "autostereogram-3d-effect.jpg",
+      "url": "https://raw.githubusercontent.com/ninilich/eye-heaven-app/main/Stereograms/autostereogram-3d-effect.jpg",
+      "source": "https://commons.wikimedia.org/wiki/File:Autostereogram_3d_effect..jpg",
+      "author": "Userfromtheusa5000"
     }
   ]
 }

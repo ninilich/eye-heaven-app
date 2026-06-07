@@ -3,10 +3,10 @@
 ## Image requirements
 
 - Format: JPEG (`.jpg`)
-- Recommended size: 800–1600px on the longer side
+- Recommended size: 1600px on the longer side (good for Retina displays)
 - Aspect ratio: any — the app scales images to fit the screen
 - Content: must be a valid stereogram (SIRDS or painted hidden-image style)
-- File size: aim for under 500 KB per image
+- File size: aim for under 1 MB per image
 
 ## Step 1 — Add the image file
 
@@ -58,8 +58,13 @@ git commit -m "feat(stereograms): add shark"
 git push origin main
 ```
 
-Pushes that only change `Stereograms/` do **not** trigger a new app release.
-The updated catalog becomes available to all users immediately via `raw.githubusercontent.com`.
+Pushes that only change `Stereograms/` do **not** trigger a new app release — the CI workflow
+ignores that path. The new images are immediately accessible on `raw.githubusercontent.com`,
+but the updated `catalog.json` will only reach users when the next app release is published
+(CI copies `Stereograms/catalog.json` → `dist/` and attaches it to the GitHub release).
+
+To make new images available without a full app release, trigger the release workflow manually
+(`workflow_dispatch`) or bump the app version.
 
 ## Step 4 — Verify in app
 
