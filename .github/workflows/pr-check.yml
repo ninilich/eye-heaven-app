@@ -4,6 +4,12 @@ on:
   pull_request:
     branches:
       - main
+    paths-ignore:
+      - 'Stereograms/**'
+      - 'ADDING_IMAGES.md'
+      - 'README.md'
+      - 'PRIVACY.md'
+      - 'LICENSE'
   workflow_dispatch:
 
 permissions:
