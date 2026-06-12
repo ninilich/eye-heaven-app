@@ -1,20 +1,31 @@
-import AppKit
+import AVFoundation
 
 @MainActor
 enum SoundPlayer {
+    private nonisolated(unsafe) static var startPlayer: AVAudioPlayer?
+    private nonisolated(unsafe) static var endPlayer: AVAudioPlayer?
+
+    static func preload() {
+        startPlayer = makePlayer("gong_start")
+        endPlayer = makePlayer("gong_end")
+    }
+
     static func playBreakStart() {
         guard AppSettings.shared.soundEnabled else { return }
-        play(named: "Glass", volume: 0.35)
+        startPlayer?.currentTime = 0
+        startPlayer?.play()
     }
 
     static func playBreakEnd() {
         guard AppSettings.shared.soundEnabled else { return }
-        play(named: "Glass", volume: 0.35)
+        endPlayer?.currentTime = 0
+        endPlayer?.play()
     }
 
-    private static func play(named name: String, volume: Float) {
-        guard let sound = NSSound(named: .init(name)) else { return }
-        sound.volume = volume
-        sound.play()
+    private nonisolated static func makePlayer(_ name: String) -> AVAudioPlayer? {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "wav") else { return nil }
+        let player = try? AVAudioPlayer(contentsOf: url)
+        player?.prepareToPlay()
+        return player
     }
 }

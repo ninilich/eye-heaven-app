@@ -65,6 +65,7 @@ final class BreakScheduler {
     // MARK: - Private
 
     private func setup() {
+        SoundPlayer.preload()
         idleDetector.start()
         setupSleepWakeObservers()
         observeTimerState()
@@ -137,12 +138,8 @@ final class BreakScheduler {
 
     private func handleIdleIfNeeded() {
         guard case .running = timerEngine.state else { return }
-        let idle = idleDetector.idleTime
-        if idle >= settings.longBreakDuration {
-            timerEngine.registerIdleBreak(.long)
-        } else if idle >= settings.shortBreakDuration {
-            timerEngine.registerIdleBreak(.short)
-        }
+        guard idleDetector.idleTime >= settings.idleResetLength else { return }
+        timerEngine.registerIdleBreak(.long)
     }
 
     private func setupSleepWakeObservers() {

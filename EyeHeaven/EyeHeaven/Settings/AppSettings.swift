@@ -90,6 +90,12 @@ final class AppSettings {
         didSet { store.set(stereogramsLastChecked?.timeIntervalSince1970, forKey: "stereogramsLastChecked") }
     }
 
+    // MARK: - Idle
+
+    var idleResetLength: TimeInterval {
+        didSet { store.set(idleResetLength, forKey: "idleResetLength") }
+    }
+
     // MARK: - System
 
     var launchAtLogin: Bool {
@@ -140,6 +146,7 @@ final class AppSettings {
         } else {
             stereogramsLastChecked = nil
         }
+        idleResetLength = store.double(forKey: "idleResetLength").nonZero ?? 5 * 60
         launchAtLogin = store.bool(forKey: "launchAtLogin")
         soundEnabled = store.object(forKey: "soundEnabled") as? Bool ?? true
         heartbeatEnabled = store.object(forKey: "heartbeatEnabled") as? Bool ?? true
