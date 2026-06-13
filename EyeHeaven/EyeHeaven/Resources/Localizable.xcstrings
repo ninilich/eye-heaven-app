@@ -1,4156 +1,4200 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "" : {
-
-    },
-    "·" : {
-
-    },
-    "%lld" : {
-
-    },
-    "%lld min" : {
-
-    },
-    "%lld%%" : {
-
-    },
-    "🌿" : {
-
-    },
-    "👁️" : {
-
+  "sourceLanguage": "en",
+  "strings": {
+    "": {},
+    "%lld": {},
+    "%lld min": {},
+    "%lld%%": {},
+    "Beta": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beta"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бета"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "测试版"
+          }
+        }
+      }
     },
-    "about.author" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "von ninilich"
+    "EyeHeaven": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "by ninilich"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "por ninilich"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "par ninilich"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "di ninilich"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "by ninilich"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "por ninilich"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "от ninilich"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "作者：ninilich"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven"
           }
         }
       }
     },
-    "about.github" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+    "Long break every": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lange Pause alle"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Long break every"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso largo cada"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Longue pause toutes les"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa lunga ogni"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "長い休憩を"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa longa a cada"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Длинный перерыв каждые"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GitHub"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "长休息每"
           }
         }
       }
     },
-    "about.license" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MIT-Lizenz"
+    "Turning off applies after app restart": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Das Deaktivieren gilt nach dem Neustart der App"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MIT License"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turning off applies after app restart"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Licencia MIT"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desactivarlo se aplica después de reiniciar la app"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Licence MIT"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La désactivation s'applique après le redémarrage de l'app"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Licenza MIT"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La disattivazione si applica dopo il riavvio dell'app"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MITライセンス"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オフ設定はアプリ再起動後に適用されます"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Licença MIT"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desativar só se aplica após reiniciar o app"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Лицензия MIT"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отключение применяется после перезапуска приложения"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MIT 许可证"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭后需重启应用才会生效"
           }
         }
       }
     },
-    "about.tagline" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Augenpausen-Timer für macOS"
+    "Version %@ (%@)": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (%2$@)"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eye rest timer for macOS"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (%2$@)"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Temporizador de descanso visual para macOS"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versión %1$@ (%2$@)"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Minuterie de repos pour les yeux sur macOS"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version %1$@ (%2$@)"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Timer per il riposo degli occhi su macOS"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versione %1$@ (%2$@)"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "macOS用目の休憩タイマー"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "バージョン %1$@ (%2$@)"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Temporizador de descanso ocular para macOS"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Versão %1$@ (%2$@)"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Таймер отдыха для глаз на macOS"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Версия %1$@ (%2$@)"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "macOS 护眼休息计时器"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "版本 %1$@（%2$@）"
           }
         }
       }
     },
-    "Beta" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+    "about.author": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "von ninilich"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "by ninilich"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "por ninilich"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "par ninilich"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "di ninilich"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "by ninilich"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beta"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "por ninilich"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Бета"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "от ninilich"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "测试版"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "作者：ninilich"
           }
         }
       }
     },
-    "break.in_minutes %lld" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nächste Pause: %lld Min."
+    "about.github": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next break: %lld min"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próximo descanso: %lld min"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prochaine pause : %lld min"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prossima pausa: %lld min"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "次の休憩: %lld分"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próxima pausa: %lld min"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Следующий перерыв: %lld мин"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下次休息: %lld分钟"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GitHub"
           }
         }
       }
     },
-    "break.in_seconds %lld" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nächste Pause: %lld Sek."
+    "about.license": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT-Lizenz"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next break: %lld sec"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT License"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próximo descanso: %lld seg"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licencia MIT"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prochaine pause : %lld sec"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licence MIT"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prossima pausa: %lld sec"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licenza MIT"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "次の休憩: %lld秒"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MITライセンス"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próxima pausa: %lld seg"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Licença MIT"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Следующий перерыв: %lld сек"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Лицензия MIT"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下次休息: %lld秒"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MIT 许可证"
           }
         }
       }
     },
-    "break.long.subtitle" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Entspannen Sie sich"
+    "about.tagline": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Augenpausen-Timer für macOS"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take a rest"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eye rest timer for macOS"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descansa un momento"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temporizador de descanso visual para macOS"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reposez-vous"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minuterie de repos pour les yeux sur macOS"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Riposati un momento"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Timer per il riposo degli occhi su macOS"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ゆっくり休んでください"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS用目の休憩タイマー"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanse um pouco"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Temporizador de descanso ocular para macOS"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отдохните"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Таймер отдыха для глаз на macOS"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "好好休息一下"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "macOS 护眼休息计时器"
           }
         }
       }
     },
-    "break.long.title" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lange Pause"
+    "break.in_minutes %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nächste Pause: %lld Min."
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Long Break"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next break: %lld min"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso largo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximo descanso: %lld min"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Longue pause"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prochaine pause : %lld min"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa lunga"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossima pausa: %lld min"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "長い休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の休憩: %lld分"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa longa"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próxima pausa: %lld min"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Длинный перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Следующий перерыв: %lld мин"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "长时间休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下次休息: %lld分钟"
           }
         }
       }
     },
-    "break.short.subtitle" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schauen Sie in die Ferne"
+    "break.in_seconds %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nächste Pause: %lld Sek."
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Look into the distance"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next break: %lld sec"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mira a lo lejos"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximo descanso: %lld seg"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Regardez au loin"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prochaine pause : %lld sec"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Guarda in lontananza"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossima pausa: %lld sec"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "遠くを見てください"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の休憩: %lld秒"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Olhe para longe"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próxima pausa: %lld seg"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Посмотрите вдаль"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Следующий перерыв: %lld сек"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "看向远处"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下次休息: %lld秒"
           }
         }
       }
     },
-    "break.short.title" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kurze Pause"
+    "break.long.subtitle": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entspannen Sie sich"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Short Break"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take a rest"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso corto"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descansa un momento"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pause courte"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reposez-vous"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa breve"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riposati un momento"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短い休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ゆっくり休んでください"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa curta"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanse um pouco"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Короткий перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отдохните"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短暂休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好好休息一下"
           }
         }
       }
     },
-    "break.skip" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Überspringen"
+    "break.long.title": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lange Pause"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skip"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Long Break"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saltar"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso largo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passer"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Longue pause"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salta"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa lunga"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "スキップ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "長い休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pular"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa longa"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пропустить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Длинный перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跳过"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "长时间休息"
           }
         }
       }
     },
-    "break.stereogram.end" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pause beenden"
+    "break.short.subtitle": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schauen Sie in die Ferne"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "End Break"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Look into the distance"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terminar pausa"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mira a lo lejos"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terminer la pause"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regardez au loin"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Termina pausa"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guarda in lontananza"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "休憩を終了"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "遠くを見てください"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Encerrar pausa"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Olhe para longe"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Завершить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Посмотрите вдаль"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "结束休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "看向远处"
           }
         }
       }
     },
-    "break.stereogram.next" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nächste"
+    "break.short.title": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurze Pause"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Short Break"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Siguiente"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso corto"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Suivante"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause courte"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prossima"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa breve"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "次へ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "短い休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próxima"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa curta"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Следующая"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Короткий перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下一张"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "短暂休息"
           }
         }
       }
     },
-    "EyeHeaven" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+    "break.skip": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überspringen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saltar"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passer"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salta"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スキップ"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пропустить"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跳过"
           }
         }
       }
     },
-    "Long break every" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lange Pause alle"
+    "break.stereogram.end": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause beenden"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Long break every"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "End Break"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso largo cada"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminar pausa"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Longue pause toutes les"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terminer la pause"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa lunga ogni"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Termina pausa"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "長い休憩を"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "休憩を終了"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa longa a cada"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encerrar pausa"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Длинный перерыв каждые"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завершить"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "长休息每"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "结束休息"
           }
         }
       }
     },
-    "menu.next_break" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nächste Pause: —"
+    "break.stereogram.next": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nächste"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Next break: —"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próximo descanso: —"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Siguiente"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prochaine pause : —"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suivante"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prossima pausa: —"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossima"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "次の休憩: —"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次へ"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Próxima pausa: —"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próxima"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Следующий перерыв: —"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Следующая"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下次休息: —"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下一张"
           }
         }
       }
     },
-    "menu.pause" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausieren"
+    "menu.next_break": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nächste Pause: —"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pause"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next break: —"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausar"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximo descanso: —"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mettre en pause"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prochaine pause : —"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prossima pausa: —"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "一時停止"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の休憩: —"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausar"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próxima pausa: —"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пауза"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Следующий перерыв: —"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂停"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下次休息: —"
           }
         }
       }
     },
-    "menu.quit" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven beenden"
+    "menu.pause": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausieren"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quit EyeHeaven"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salir de EyeHeaven"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausar"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quitter EyeHeaven"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mettre en pause"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Esci da EyeHeaven"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeavenを終了"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一時停止"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sair do EyeHeaven"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausar"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выйти из EyeHeaven"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пауза"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "退出 EyeHeaven"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "暂停"
           }
         }
       }
     },
-    "menu.resume" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fortsetzen"
+    "menu.quit": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven beenden"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Resume"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit EyeHeaven"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reanudar"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salir de EyeHeaven"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reprendre"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitter EyeHeaven"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Riprendi"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esci da EyeHeaven"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "再開"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeavenを終了"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Retomar"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sair do EyeHeaven"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Возобновить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выйти из EyeHeaven"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "继续"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "退出 EyeHeaven"
           }
         }
       }
     },
-    "menu.settings" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Einstellungen…"
+    "menu.resume": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fortsetzen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings…"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resume"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajustes…"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reanudar"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Préférences…"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reprendre"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impostazioni…"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprendi"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "設定…"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "再開"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configurações…"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retomar"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки…"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Возобновить"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "设置…"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "继续"
           }
         }
       }
     },
-    "menu.skip_next" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nächste Pause überspringen"
+    "menu.settings": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Einstellungen…"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skip next break"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings…"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saltar próximo descanso"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes…"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passer la prochaine pause"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Préférences…"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salta la prossima pausa"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impostazioni…"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "次の休憩をスキップ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設定…"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pular próxima pausa"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configurações…"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пропустить следующий перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки…"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跳过下次休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设置…"
           }
         }
       }
     },
-    "prebreak.in_seconds %lld" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "in %lld Sek."
+    "menu.skip_next": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nächste Pause überspringen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "in %lld sec"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip next break"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "en %lld seg"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saltar próximo descanso"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "dans %lld sec"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passer la prochaine pause"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "tra %lld sec"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salta la prossima pausa"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld秒後"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の休憩をスキップ"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "em %lld seg"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular próxima pausa"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "через %lld сек"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пропустить следующий перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld秒后"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跳过下次休息"
           }
         }
       }
     },
-    "prebreak.long.title" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lange Pause kommt"
+    "prebreak.in_seconds %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %lld Sek."
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Long break coming up"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %lld sec"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso largo próximo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "en %lld seg"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Longue pause dans…"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "dans %lld sec"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa lunga in arrivo"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tra %lld sec"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "もうすぐ長い休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld秒後"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa longa em breve"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "em %lld seg"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скоро длинный перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "через %lld сек"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "即将长时间休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld秒后"
           }
         }
       }
     },
-    "prebreak.postpone" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verschieben"
+    "prebreak.long.title": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lange Pause kommt"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Postpone"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Long break coming up"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Posponer"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso largo próximo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reporter"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Longue pause dans…"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Posticipa"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa lunga in arrivo"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "延期"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もうすぐ長い休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adiar"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa longa em breve"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отложить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скоро длинный перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "推迟"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "即将长时间休息"
           }
         }
       }
     },
-    "prebreak.short.title" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kurze Pause kommt"
+    "prebreak.postpone": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verschieben"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Short break coming up"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Postpone"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso corto próximo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posponer"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pause courte dans…"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reporter"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa breve in arrivo"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posticipa"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "もうすぐ短い休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "延期"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa curta em breve"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adiar"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Скоро короткий перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отложить"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "即将短暂休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "推迟"
           }
         }
       }
     },
-    "prebreak.skip" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Überspringen"
+    "prebreak.short.title": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurze Pause kommt"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skip"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Short break coming up"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saltar"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso corto próximo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passer"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause courte dans…"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Salta"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa breve in arrivo"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "スキップ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "もうすぐ短い休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pular"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa curta em breve"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пропустить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Скоро короткий перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "跳过"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "即将短暂休息"
           }
         }
       }
     },
-    "prebreak.start_now" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jetzt starten"
+    "prebreak.skip": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überspringen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start now"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skip"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Empezar ahora"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saltar"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Commencer"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passer"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inizia ora"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salta"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今すぐ開始"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スキップ"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Começar agora"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pular"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать сейчас"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пропустить"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "立即开始"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "跳过"
           }
         }
       }
     },
-    "settings.allow_skip" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Überspringen erlauben"
+    "prebreak.start_now": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt starten"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Allow skip"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start now"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permitir omitir"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empezar ahora"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Autoriser le saut"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Commencer"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Consenti di saltare"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inizia ora"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "スキップを許可"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今すぐ開始"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permitir pular"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Começar agora"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Разрешить пропуск"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Начать сейчас"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "允许跳过"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立即开始"
           }
         }
       }
     },
-    "settings.duration" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dauer"
+    "settings.allow_skip": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überspringen erlauben"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Duration"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allow skip"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Duración"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir omitir"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Durée"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autoriser le saut"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Durata"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consenti di saltare"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "時間"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "スキップを許可"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Duração"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permitir pular"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Длительность"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Разрешить пропуск"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "时长"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "允许跳过"
           }
         }
       }
     },
-    "settings.hard_mode" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Strikter Modus"
+    "settings.duration": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dauer"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hard Mode"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duration"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modo estricto"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duración"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mode strict"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durée"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modalità rigida"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Durata"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ハードモード"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "時間"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modo rígido"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Duração"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Жёсткий режим"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Длительность"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "严格模式"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "时长"
           }
         }
       }
     },
-    "settings.hard_mode.description" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deaktiviert die Schaltfläche Überspringen"
+    "settings.hard_mode": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strikter Modus"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disables the Skip button during breaks"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hard Mode"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desactiva el botón Omitir"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo estricto"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Désactive le bouton Passer"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode strict"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disabilita il pulsante Salta"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modalità rigida"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "休憩中のスキップボタンを無効にします"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ハードモード"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desativa o botão Pular"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo rígido"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отключает кнопку пропуска во время перерывов"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Жёсткий режим"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "休息期间禁用跳过按钮"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "严格模式"
           }
         }
       }
     },
-    "settings.heartbeat" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anonyme Nutzungsstatistik"
+    "settings.hard_mode.description": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deaktiviert die Schaltfläche Überspringen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anonymous usage stats"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disables the Skip button during breaks"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estadísticas anónimas"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desactiva el botón Omitir"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Statistiques anonymes"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Désactive le bouton Passer"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Statistiche anonime"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disabilita il pulsante Salta"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "匿名使用統計"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "休憩中のスキップボタンを無効にします"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estatísticas anônimas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desativa o botão Pular"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Анонимная статистика"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отключает кнопку пропуска во время перерывов"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "匿名使用统计"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "休息期间禁用跳过按钮"
           }
         }
       }
     },
-    "settings.heartbeat.description" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ein anonymes Signal pro Tag – keine persönlichen Daten"
+    "settings.heartbeat": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anonyme Nutzungsstatistik"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "One anonymous signal per day — no personal data"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anonymous usage stats"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Una señal anónima al día — sin datos personales"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estadísticas anónimas"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un signal anonyme par jour — aucune donnée personnelle"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statistiques anonymes"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un segnale anonimo al giorno — nessun dato personale"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Statistiche anonime"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1日1回の匿名シグナル — 個人情報なし"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匿名使用統計"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Um sinal anônimo por dia — sem dados pessoais"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estatísticas anônimas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Один анонимный сигнал в сутки — никаких личных данных"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Анонимная статистика"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "每天一个匿名信号——无个人数据"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "匿名使用统计"
           }
         }
       }
     },
-    "settings.interval" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Intervall"
+    "settings.heartbeat.description": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ein anonymes Signal pro Tag – keine persönlichen Daten"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Interval"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One anonymous signal per day — no personal data"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Intervalo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una señal anónima al día — sin datos personales"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Intervalle"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un signal anonyme par jour — aucune donnée personnelle"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Intervallo"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un segnale anonimo al giorno — nessun dato personale"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "間隔"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1日1回の匿名シグナル — 個人情報なし"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Intervalo"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um sinal anônimo por dia — sem dados pessoais"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Интервал"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Один анонимный сигнал в сутки — никаких личных данных"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "间隔"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每天一个匿名信号——无个人数据"
           }
         }
       }
     },
-    "settings.launch_at_login" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bei Anmeldung starten"
+    "settings.interval": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intervall"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Launch at login"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Interval"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Iniciar al conectarse"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intervalo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lancer au démarrage"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intervalle"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avvia all'accesso"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intervallo"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ログイン時に起動"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "間隔"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Iniciar ao fazer login"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intervalo"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Запуск при входе"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Интервал"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "登录时启动"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "间隔"
           }
         }
       }
     },
-    "settings.max_postpones" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Max. Verschiebungen"
+    "settings.launch_at_login": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bei Anmeldung starten"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Max postpones"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Launch at login"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aplazamientos máx."
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar al conectarse"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reports max."
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lancer au démarrage"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Max rinvii"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avvia all'accesso"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大延期回数"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ログイン時に起動"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adiamentos máx."
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar ao fazer login"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Макс. отложений"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запуск при входе"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最大推迟次数"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "登录时启动"
           }
         }
       }
     },
-    "settings.meeting_delay" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verzögerung nach Meeting"
+    "settings.max_postpones": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max. Verschiebungen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delay after meeting"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max postpones"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Retraso tras reunión"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aplazamientos máx."
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Délai après réunion"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reports max."
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ritardo dopo riunione"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Max rinvii"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ミーティング後の遅延"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大延期回数"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atraso após reunião"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adiamentos máx."
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Задержка после встречи"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Макс. отложений"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "会议后延迟"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大推迟次数"
           }
         }
       }
     },
-    "settings.meeting_detection" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meetings erkennen"
+    "settings.meeting_delay": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verzögerung nach Meeting"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detect meetings"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delay after meeting"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detectar reuniones"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retraso tras reunión"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Détecter les réunions"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Délai après réunion"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rileva riunioni"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ritardo dopo riunione"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ミーティングを検出"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ミーティング後の遅延"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Detectar reuniões"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atraso após reunião"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Детекция встреч"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Задержка после встречи"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "检测会议"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "会议后延迟"
           }
         }
       }
     },
-    "settings.minutes %lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld Min."
+    "settings.meeting_detection": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meetings erkennen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detect meetings"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detectar reuniones"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Détecter les réunions"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rileva riunioni"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld分"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ミーティングを検出"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld min"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detectar reuniões"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld мин"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Детекция встреч"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld分钟"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "检测会议"
           }
         }
       }
     },
-    "settings.overlay_opacity" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hintergrundverdunkelung"
+    "settings.minutes %lld": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Min."
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Background dim"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atenuación de fondo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obscurcissement"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Oscuramento sfondo"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "背景の暗さ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld分"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escurecimento"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld min"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Затенение фона"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld мин"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "背景暗度"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld分钟"
           }
         }
       }
     },
-    "settings.postpones.never" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine"
+    "settings.overlay_opacity": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hintergrundverdunkelung"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "None"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Background dim"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ninguno"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atenuación de fondo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aucun"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obscurcissement"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nessuno"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oscuramento sfondo"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "なし"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "背景の暗さ"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nenhum"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escurecimento"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нет"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Затенение фона"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "不允许"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "背景暗度"
           }
         }
       }
     },
-    "settings.seconds %lld" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld Sek."
+    "settings.postpones.never": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld sec"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "None"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld seg"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguno"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld sec"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld sec"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessuno"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld秒"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "なし"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld seg"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld сек"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Нет"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld秒"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不允许"
           }
         }
       }
     },
-    "settings.section.long_break" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lange Pause"
+    "settings.seconds %lld": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Sek."
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Long Break"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sec"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso largo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld seg"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Longue pause"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sec"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa lunga"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld sec"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "長い休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld秒"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa longa"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld seg"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Длинный перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld сек"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "长时间休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld秒"
           }
         }
       }
     },
-    "settings.section.meetings" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meetings"
+    "settings.section.long_break": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lange Pause"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meetings"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Long Break"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reuniones"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso largo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Réunions"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Longue pause"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Riunioni"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa lunga"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ミーティング"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "長い休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reuniões"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa longa"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Встречи"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Длинный перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "会议"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "长时间休息"
           }
         }
       }
     },
-    "settings.section.mode" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Erinnerungsmodus"
+    "settings.section.meetings": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meetings"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reminder Mode"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meetings"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modo de recordatorio"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reuniones"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mode de rappel"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Réunions"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modalità promemoria"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riunioni"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "リマインダーモード"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ミーティング"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modo de lembrete"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reuniões"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Режим напоминания"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Встречи"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "提醒模式"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "会议"
           }
         }
       }
     },
-    "settings.section.short_break" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kurze Pause"
+    "settings.section.mode": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erinnerungsmodus"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Short Break"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reminder Mode"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descanso corto"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo de recordatorio"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pause courte"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mode de rappel"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa breve"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modalità promemoria"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短い休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "リマインダーモード"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausa curta"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Modo de lembrete"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Короткий перерыв"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Режим напоминания"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短暂休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提醒模式"
           }
         }
       }
     },
-    "settings.section.stereograms" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stereogramme"
+    "settings.section.short_break": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kurze Pause"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stereograms"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Short Break"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estereogramas"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descanso corto"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stéréogrammes"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause courte"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stereogrammi"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa breve"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ステレオグラム"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "短い休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estereogramas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausa curta"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Стереограммы"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Короткий перерыв"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "立体图"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "短暂休息"
           }
         }
       }
     },
-    "settings.section.stereograms_storage" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Speicher"
+    "settings.section.stereograms": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stereogramme"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Storage"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stereograms"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Almacenamiento"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estereogramas"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stockage"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stéréogrammes"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spazio"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stereogrammi"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ストレージ"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ステレオグラム"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Armazenamento"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estereogramas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Хранилище"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Стереограммы"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "存储"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立体图"
           }
         }
       }
     },
-    "settings.section.stereograms_updates" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktualisierungen"
+    "settings.section.stereograms_storage": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Speicher"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Updates"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Storage"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizaciones"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Almacenamiento"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mises à jour"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stockage"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggiornamenti"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spazio"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アップデート"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ストレージ"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atualizações"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armazenamento"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обновления"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Хранилище"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "存储"
           }
         }
       }
     },
-    "settings.section.system" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
+    "settings.section.stereograms_updates": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktualisierungen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Updates"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sistema"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizaciones"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Système"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mises à jour"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sistema"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiornamenti"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "システム"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アップデート"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sistema"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizações"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Система"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обновления"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "系统"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新"
           }
         }
       }
     },
-    "settings.sound_enabled" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Klänge"
+    "settings.section.system": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sounds"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sonidos"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sons"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Système"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Suoni"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "サウンド"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "システム"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sons"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Звуки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Система"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "声音"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "系统"
           }
         }
       }
     },
-    "settings.stereograms_auto_update" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Automatisch aktualisieren (alle 7 Tage)"
+    "settings.sound_enabled": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Klänge"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Auto-check for updates (every 7 days)"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sounds"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualización automática (cada 7 días)"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonidos"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mise à jour auto (tous les 7 jours)"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sons"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggiornamento auto (ogni 7 giorni)"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suoni"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自動更新（7日ごと）"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サウンド"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atualização automática (a cada 7 dias)"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sons"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Проверять обновления (каждые 7 дней)"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Звуки"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自动检查更新（每7天）"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "声音"
           }
         }
       }
     },
-    "settings.stereograms_auto_update.description" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neue Bilder werden im Hintergrund heruntergeladen"
+    "settings.stereograms_auto_update": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatisch aktualisieren (alle 7 Tage)"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "New images are downloaded silently in the background"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto-check for updates (every 7 days)"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Las nuevas imágenes se descargan silenciosamente en segundo plano"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualización automática (cada 7 días)"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Les nouvelles images sont téléchargées silencieusement en arrière-plan"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mise à jour auto (tous les 7 jours)"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le nuove immagini vengono scaricate silenziosamente in background"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiornamento auto (ogni 7 giorni)"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新しい画像はバックグラウンドで自動ダウンロード"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動更新（7日ごと）"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Novas imagens são baixadas silenciosamente em segundo plano"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualização automática (a cada 7 dias)"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Новые изображения скачиваются тихо в фоне"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Проверять обновления (каждые 7 дней)"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新图片在后台静默下载"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动检查更新（每7天）"
           }
         }
       }
     },
-    "settings.stereograms_downloading" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wird heruntergeladen…"
+    "settings.stereograms_auto_update.description": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neue Bilder werden im Hintergrund heruntergeladen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Downloading…"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New images are downloaded silently in the background"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descargando…"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las nuevas imágenes se descargan silenciosamente en segundo plano"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Téléchargement…"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Les nouvelles images sont téléchargées silencieusement en arrière-plan"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download in corso…"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le nuove immagini vengono scaricate silenziosamente in background"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ダウンロード中…"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新しい画像はバックグラウンドで自動ダウンロード"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baixando…"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Novas imagens são baixadas silenciosamente em segundo plano"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Загрузка…"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Новые изображения скачиваются тихо в фоне"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下载中…"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新图片在后台静默下载"
           }
         }
       }
     },
-    "settings.stereograms_downloading_progress %lld %lld" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lade %1$lld von %2$lld…"
+    "settings.stereograms_downloaded %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld neue Bilder heruntergeladen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Downloading %1$lld of %2$lld…"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld new images downloaded"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descargando %1$lld de %2$lld…"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld imágenes nuevas descargadas"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Téléchargement %1$lld sur %2$lld…"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld nouvelles images téléchargées"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Download %1$lld di %2$lld…"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld nuove immagini scaricate"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$lld / %2$lld をダウンロード中…"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 枚の新しい画像をダウンロードしました"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baixando %1$lld de %2$lld…"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld novas imagens baixadas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Загрузка %1$lld из %2$lld…"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Загружено новых изображений: %lld"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在下载 %1$lld / %2$lld…"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已下载 %lld 张新图像"
           }
         }
       }
     },
-    "settings.stereograms_enabled" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stereogramme aktivieren"
+    "settings.stereograms_downloading": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wird heruntergeladen…"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enable stereograms"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Downloading…"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Activar estereogramas"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descargando…"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Activer les stéréogrammes"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargement…"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abilita stereogrammi"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download in corso…"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ステレオグラムを有効にする"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ダウンロード中…"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ativar estereogramas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixando…"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Включить стереограммы"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Загрузка…"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "启用立体图"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下载中…"
           }
         }
       }
     },
-    "settings.stereograms_images_ready %lld" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld Bilder bereit"
+    "settings.stereograms_downloading_progress %lld %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lade %1$lld von %2$lld…"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld images ready"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Downloading %1$lld of %2$lld…"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld imágenes listas"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descargando %1$lld de %2$lld…"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld images prêtes"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargement %1$lld sur %2$lld…"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld immagini pronte"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download %1$lld di %2$lld…"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld 枚の画像が準備完了"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld / %2$lld をダウンロード中…"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld imagens prontas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixando %1$lld de %2$lld…"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Готово изображений: %lld"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Загрузка %1$lld из %2$lld…"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%lld 张图像已就绪"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在下载 %1$lld / %2$lld…"
           }
         }
       }
     },
-    "settings.stereograms_last_checked" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zuletzt geprüft"
+    "settings.stereograms_enabled": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stereogramme aktivieren"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Last checked"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable stereograms"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Última verificación"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activar estereogramas"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dernière vérification"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activer les stéréogrammes"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ultima verifica"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abilita stereogrammi"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最終確認"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ステレオグラムを有効にする"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Última verificação"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ativar estereogramas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Последняя проверка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включить стереограммы"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "上次检查"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "启用立体图"
           }
         }
       }
     },
-    "settings.stereograms_last_checked.never" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nie"
+    "settings.stereograms_images_ready %lld": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld Bilder bereit"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Never"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld images ready"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nunca"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld imágenes listas"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jamais"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld images prêtes"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mai"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld immagini pronte"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "なし"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 枚の画像が準備完了"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nunca"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld imagens prontas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Никогда"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Готово изображений: %lld"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "从未"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld 张图像已就绪"
           }
         }
       }
     },
-    "settings.stereograms_max_images" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neueste behalten"
+    "settings.stereograms_last_checked": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zuletzt geprüft"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keep most recent"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last checked"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conservar más recientes"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Última verificación"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conserver les plus récentes"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dernière vérification"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mantieni le più recenti"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ultima verifica"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最新を保持"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最終確認"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Manter as mais recentes"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Última verificação"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Хранить самых свежих"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Последняя проверка"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "保留最新"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "上次检查"
           }
         }
       }
     },
-    "settings.stereograms_max_images.hint" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = alle behalten"
+    "settings.stereograms_last_checked.never": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nie"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = keep all"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Never"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = conservar todas"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nunca"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = tout conserver"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jamais"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = mantieni tutte"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mai"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = すべて保持"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "なし"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = manter todas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nunca"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = хранить все"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Никогда"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0 = 保留全部"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "从未"
           }
         }
       }
     },
-    "settings.tab.about" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Info"
+    "settings.stereograms_max_images": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neueste behalten"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keep most recent"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acerca de"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conservar más recientes"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "À propos"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conserver les plus récentes"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Info"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantieni le più recenti"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "情報"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最新を保持"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sobre"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manter as mais recentes"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "О программе"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Хранить самых свежих"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关于"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "保留最新"
           }
         }
       }
     },
-    "settings.tab.breaks" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausen"
+    "settings.stereograms_max_images.hint": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = alle behalten"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Breaks"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = keep all"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Descansos"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = conservar todas"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pauses"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = tout conserver"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pause"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = mantieni tutte"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "休憩"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = すべて保持"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pausas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = manter todas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перерывы"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = хранить все"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "0 = 保留全部"
           }
         }
       }
     },
-    "settings.title" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven Einstellungen"
+    "settings.tab.about": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Info"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven Settings"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configuración de EyeHeaven"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acerca de"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paramètres EyeHeaven"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "À propos"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impostazioni EyeHeaven"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Info"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven 設定"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "情報"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Configurações do EyeHeaven"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sobre"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройки EyeHeaven"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "О программе"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "EyeHeaven 设置"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关于"
           }
         }
       }
     },
-    "settings.update_catalog" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Katalog aktualisieren"
+    "settings.tab.breaks": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Update catalog"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Breaks"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizar catálogo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descansos"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mettre à jour le catalogue"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pauses"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggiorna catalogo"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pause"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "カタログを更新"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "休憩"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atualizar catálogo"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pausas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обновить каталог"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перерывы"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更新目录"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "休息"
           }
         }
       }
     },
-    "settings.update_now" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jetzt aktualisieren"
+    "settings.title": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven Einstellungen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Update Now"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven Settings"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualizar ahora"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configuración de EyeHeaven"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mettre à jour maintenant"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paramètres EyeHeaven"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggiorna ora"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impostazioni EyeHeaven"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今すぐ更新"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven 設定"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Atualizar agora"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Configurações do EyeHeaven"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обновить сейчас"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Настройки EyeHeaven"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "立即更新"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "EyeHeaven 设置"
           }
         }
       }
     },
-    "settings.warning" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vorwarnung"
+    "settings.update_catalog": {
+      "extractionState": "stale",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Katalog aktualisieren"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Warning"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Update catalog"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aviso previo"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar catálogo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avertissement"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mettre à jour le catalogue"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avviso"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiorna catalogo"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "警告"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カタログを更新"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aviso"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar catálogo"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Предупреждение"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обновить каталог"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "提前警告"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新目录"
           }
         }
       }
     },
-    "short breaks" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "kurzen Pausen"
+    "settings.update_now": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jetzt aktualisieren"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "short breaks"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Update Now"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "descansos cortos"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar ahora"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "pauses courtes"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mettre à jour maintenant"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "pause brevi"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiorna ora"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "短い休憩ごと"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "今すぐ更新"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "pausas curtas"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar agora"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "коротких перерывов"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обновить сейчас"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "次短休息"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "立即更新"
           }
         }
       }
     },
-    "Turning off applies after app restart" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Das Deaktivieren gilt nach dem Neustart der App"
+    "settings.warning": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vorwarnung"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Turning off applies after app restart"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Warning"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desactivarlo se aplica después de reiniciar la app"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aviso previo"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La désactivation s'applique après le redémarrage de l'app"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avertissement"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La disattivazione si applica dopo il riavvio dell'app"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avviso"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "オフ設定はアプリ再起動後に適用されます"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "警告"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desativar só se aplica após reiniciar o app"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aviso"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отключение применяется после перезапуска приложения"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Предупреждение"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "关闭后需重启应用才会生效"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "提前警告"
           }
         }
       }
     },
-    "Version %@ (%@)" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %1$@ (%2$@)"
+    "short breaks": {
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kurzen Pausen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %1$@ (%2$@)"
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "short breaks"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versión %1$@ (%2$@)"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "descansos cortos"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %1$@ (%2$@)"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pauses courtes"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versione %1$@ (%2$@)"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pause brevi"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "バージョン %1$@ (%2$@)"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "短い休憩ごと"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versão %1$@ (%2$@)"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pausas curtas"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Версия %1$@ (%2$@)"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "коротких перерывов"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "版本 %1$@（%2$@）"
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次短休息"
           }
         }
       }
-    }
+    },
+    "·": {},
+    "🌿": {},
+    "👁️": {}
   },
-  "version" : "1.0"
+  "version": "1.0"
 }
