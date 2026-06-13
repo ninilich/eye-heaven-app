@@ -33,9 +33,22 @@
 		4018F14E2F9E94840065BE25 /* EyeHeavenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EyeHeavenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		40E1E84E2FDD63F4002927F9 /* Exceptions for "EyeHeaven" folder in "EyeHeaven" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4018F1362F9E94830065BE25 /* EyeHeaven */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		4018F1392F9E94830065BE25 /* EyeHeaven */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				40E1E84E2FDD63F4002927F9 /* Exceptions for "EyeHeaven" folder in "EyeHeaven" target */,
+			);
 			path = EyeHeaven;
 			sourceTree = "<group>";
 		};
@@ -420,6 +433,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EyeHeaven/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -428,6 +443,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 0.1.4;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ninil.EyeHeaven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -454,6 +470,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EyeHeaven/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,6 +480,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.5;
 				MARKETING_VERSION = 0.1.4;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = org.ninil.EyeHeaven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
