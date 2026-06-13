@@ -70,12 +70,14 @@ final class BreakScheduler {
         setupSleepWakeObservers()
         observeTimerState()
         timerEngine.onBreakBegan = { [weak self] _ in self?.handleWindowState() }
+        timerEngine.onBreakEnded = { [weak self] _ in self?.handleWindowState() }
     }
 
     private func observeTimerState() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        let timer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.tick() }
         }
+        RunLoop.main.add(timer, forMode: .common)
     }
 
     private func tick() {
