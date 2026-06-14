@@ -1,5 +1,7 @@
 # EyeHeaven
 
+[ninilich.github.io/eye-heaven](https://ninilich.github.io/eye-heaven/)
+
 EyeHeaven is a macOS menu bar app that helps reduce eye strain with timed short and long breaks.
 
 **Features:**
