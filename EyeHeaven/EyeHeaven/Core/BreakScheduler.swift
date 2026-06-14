@@ -65,16 +65,19 @@ final class BreakScheduler {
     // MARK: - Private
 
     private func setup() {
+        SoundPlayer.preload()
         idleDetector.start()
         setupSleepWakeObservers()
         observeTimerState()
         timerEngine.onBreakBegan = { [weak self] _ in self?.handleWindowState() }
+        timerEngine.onBreakEnded = { [weak self] _ in self?.handleWindowState() }
     }
 
     private func observeTimerState() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+        let timer = Timer(timeInterval: 1, repeats: true) { [weak self] _ in
             Task { @MainActor in self?.tick() }
         }
+        RunLoop.main.add(timer, forMode: .common)
     }
 
     private func tick() {
@@ -137,12 +140,8 @@ final class BreakScheduler {
 
     private func handleIdleIfNeeded() {
         guard case .running = timerEngine.state else { return }
-        let idle = idleDetector.idleTime
-        if idle >= settings.longBreakDuration {
-            timerEngine.registerIdleBreak(.long)
-        } else if idle >= settings.shortBreakDuration {
-            timerEngine.registerIdleBreak(.short)
-        }
+        guard idleDetector.idleTime >= settings.idleResetLength else { return }
+        timerEngine.registerIdleBreak(.long)
     }
 
     private func setupSleepWakeObservers() {

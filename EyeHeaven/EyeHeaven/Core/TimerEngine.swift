@@ -34,6 +34,7 @@ final class TimerEngine {
     private(set) var nextBreakType: BreakType = .short
 
     var onBreakBegan: ((BreakType) -> Void)?
+    var onBreakEnded: ((BreakType) -> Void)?
 
     private let settings: any TimerSettingsProviding
     private var timer: Timer?
@@ -99,6 +100,7 @@ final class TimerEngine {
         cancelBreakTask()
         completeBreak(type)
         state = .running
+        onBreakEnded?(type)
         start()
     }
 

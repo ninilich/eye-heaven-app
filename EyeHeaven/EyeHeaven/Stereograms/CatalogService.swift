@@ -25,6 +25,7 @@ final class CatalogService {
     private(set) var downloadProgress: Double = 0
     private(set) var downloadStatusText = ""
     private(set) var downloadError: String?
+    private(set) var downloadedCount: Int = 0
 
     var needsDownload: Bool {
         images.isEmpty || images.contains { localURL(for: $0) == nil }
@@ -48,6 +49,7 @@ final class CatalogService {
         isDownloading = true
         downloadProgress = 0
         downloadError = nil
+        downloadedCount = 0
 
         do {
             let catalog = try await downloadCatalog()
@@ -119,15 +121,16 @@ final class CatalogService {
             downloadStatusText = String(
                 localized: "settings.stereograms_downloading_progress \(index + 1) \(missing.count)"
             )
-            downloadProgress = Double(index) / Double(missing.count)
 
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, response) = try await URLSession.shared.data(from: url)
+            downloadProgress = Double(index + 1) / Double(missing.count)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else { continue }
+
             let dest = cacheDir.appendingPathComponent(image.filename)
             try data.write(to: dest)
-
+            downloadedCount += 1
             upsertRecord(imageId: image.id, context: ctx)
         }
-        downloadProgress = 1
     }
 
     private func upsertRecord(imageId: String, context: ModelContext) {

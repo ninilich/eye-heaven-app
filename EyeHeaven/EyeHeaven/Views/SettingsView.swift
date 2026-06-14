@@ -272,6 +272,11 @@ private struct CatalogDownloadStatusView: View {
         }
         if !service.isDownloading, service.downloadError == nil, !service.images.isEmpty {
             let count = service.images.count(where: { service.localURL(for: $0) != nil })
+            if service.downloadedCount > 0 {
+                Text(String(localized: "settings.stereograms_downloaded \(service.downloadedCount)"))
+                    .font(.caption)
+                    .foregroundStyle(.green)
+            }
             Text(String(localized: "settings.stereograms_images_ready \(count)"))
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -288,7 +293,8 @@ private struct CatalogUpdateButtonView: View {
             Task { await service.fetchAndDownload() }
         }
         .disabled(service.isDownloading)
-        .buttonStyle(.borderless)
+        .buttonStyle(.bordered)
+        .controlSize(.small)
     }
 }
 
