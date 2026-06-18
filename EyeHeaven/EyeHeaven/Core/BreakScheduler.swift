@@ -13,6 +13,8 @@ final class BreakScheduler {
     private let breakController = BreakWindowController()
     private var preBreakAcknowledged = false
     private var breakSoundPlayed = false
+    private var breakStartedAt: Date?
+    private var sleepStartedAt: Date?
 
     private init() {
         settings = .shared
@@ -69,8 +71,14 @@ final class BreakScheduler {
         idleDetector.start()
         setupSleepWakeObservers()
         observeTimerState()
-        timerEngine.onBreakBegan = { [weak self] _ in self?.handleWindowState() }
-        timerEngine.onBreakEnded = { [weak self] _ in self?.handleWindowState() }
+        timerEngine.onBreakBegan = { [weak self] _ in
+            self?.breakStartedAt = Date()
+            self?.handleWindowState()
+        }
+        timerEngine.onBreakEnded = { [weak self] _ in
+            self?.breakStartedAt = nil
+            self?.handleWindowState()
+        }
     }
 
     private func observeTimerState() {
@@ -82,7 +90,16 @@ final class BreakScheduler {
 
     private func tick() {
         handleIdleIfNeeded()
+        handleWallClockBreakEndIfNeeded()
         handleWindowState()
+    }
+
+    private func handleWallClockBreakEndIfNeeded() {
+        guard case let .inBreak(type) = timerEngine.state,
+              let startedAt = breakStartedAt else { return }
+        let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
+        guard Date().timeIntervalSince(startedAt) >= duration else { return }
+        timerEngine.breakFinished(type)
     }
 
     private func handleWindowState() {
@@ -152,6 +169,7 @@ final class BreakScheduler {
         ) { [weak self] _ in
             Task { @MainActor [weak self] in
                 self?.timerEngine.pause()
+                self?.sleepStartedAt = Date()
             }
         }
 
@@ -162,6 +180,14 @@ final class BreakScheduler {
         ) { [weak self] _ in
             Task { @MainActor [weak self] in
                 self?.timerEngine.resume()
+                if let sleepStart = self?.sleepStartedAt,
+                   let breakStart = self?.breakStartedAt,
+                   case .inBreak = self?.timerEngine.state
+                {
+                    let sleptFor = Date().timeIntervalSince(sleepStart)
+                    self?.breakStartedAt = breakStart.addingTimeInterval(sleptFor)
+                }
+                self?.sleepStartedAt = nil
             }
         }
     }

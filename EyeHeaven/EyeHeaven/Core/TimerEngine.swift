@@ -79,6 +79,7 @@ final class TimerEngine {
         guard postponeCount < settings.longBreakMaxPostpones else { return }
         postponeCount += 1
         longCountdown += postponeDuration
+        shortCountdown = settings.shortBreakInterval
         state = .running
         updatePublishedCountdowns()
     }
@@ -208,7 +209,11 @@ final class TimerEngine {
 
         let duration = type == .short ? settings.shortBreakDuration : settings.longBreakDuration
         breakTask = Task {
-            try? await Task.sleep(for: .seconds(duration))
+            do {
+                try await Task.sleep(for: .seconds(duration))
+            } catch {
+                return
+            }
             await MainActor.run {
                 self.breakFinished(type)
             }

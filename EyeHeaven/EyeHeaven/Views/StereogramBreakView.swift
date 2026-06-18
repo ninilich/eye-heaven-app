@@ -3,12 +3,11 @@ import Combine
 import SwiftUI
 
 struct StereogramBreakView: View {
-    private static var keyboardMonitorInstalled = false
-
     @State private var currentImage: NSImage
     @State private var currentSource: String?
     @State private var currentAuthor: String?
     @State private var elapsed: TimeInterval = 0
+    @State private var breakStartDate = Date()
     @State private var hasNext = true
     @State private var keyMonitor: Any?
 
@@ -99,9 +98,10 @@ struct StereogramBreakView: View {
         }
         .onReceive(Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()) { _ in
             guard elapsed < duration else { return }
-            elapsed += 0.5
+            elapsed = Date().timeIntervalSince(breakStartDate)
         }
         .onAppear {
+            breakStartDate = Date()
             installKeyboardMonitorIfNeeded()
         }
         .onDisappear {
@@ -182,8 +182,7 @@ struct StereogramBreakView: View {
     }
 
     private func installKeyboardMonitorIfNeeded() {
-        guard keyMonitor == nil, !Self.keyboardMonitorInstalled else { return }
-        Self.keyboardMonitorInstalled = true
+        guard keyMonitor == nil else { return }
 
         keyMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { event in
             let rightArrow: UInt16 = 124
@@ -201,6 +200,5 @@ struct StereogramBreakView: View {
         guard let keyMonitor else { return }
         NSEvent.removeMonitor(keyMonitor)
         self.keyMonitor = nil
-        Self.keyboardMonitorInstalled = false
     }
 }
