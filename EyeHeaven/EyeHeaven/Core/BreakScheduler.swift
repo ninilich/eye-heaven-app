@@ -15,6 +15,8 @@ final class BreakScheduler {
     private var breakSoundPlayed = false
     private var breakStartedAt: Date?
     private var sleepStartedAt: Date?
+    private var scheduleSuspended = false
+    private(set) var isScheduleSuspended = false
 
     private init() {
         settings = .shared
@@ -44,6 +46,7 @@ final class BreakScheduler {
     }
 
     func togglePause() {
+        guard !isScheduleSuspended else { return }
         switch timerEngine.state {
         case .running: timerEngine.pause()
         case .paused: timerEngine.resume()
@@ -89,9 +92,24 @@ final class BreakScheduler {
     }
 
     private func tick() {
+        handleScheduleIfNeeded()
         handleIdleIfNeeded()
         handleWallClockBreakEndIfNeeded()
         handleWindowState()
+    }
+
+    private func handleScheduleIfNeeded() {
+        let shouldBeActive = settings.isCurrentlyInSchedule()
+        if !shouldBeActive, !scheduleSuspended {
+            guard case .running = timerEngine.state else { return }
+            scheduleSuspended = true
+            isScheduleSuspended = true
+            timerEngine.pause()
+        } else if shouldBeActive, scheduleSuspended {
+            scheduleSuspended = false
+            isScheduleSuspended = false
+            timerEngine.resume()
+        }
     }
 
     private func handleWallClockBreakEndIfNeeded() {

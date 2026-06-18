@@ -42,10 +42,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(menuItem(title: "\(startNow): \(longBreak)", symbol: "figure.stand", action: #selector(startLongBreak)))
         menu.addItem(.separator())
 
-        let isPaused = BreakScheduler.shared.isPaused
-        let pauseTitle = isPaused ? "Resume timer" : "Pause timer"
-        let pauseSymbol = isPaused ? "play.fill" : "pause.fill"
-        menu.addItem(menuItem(title: pauseTitle, symbol: pauseSymbol, action: #selector(togglePause)))
+        if BreakScheduler.shared.isScheduleSuspended {
+            let item = menuItem(title: String(localized: "menu.paused_by_schedule"), symbol: "calendar.badge.clock")
+            item.isEnabled = false
+            menu.addItem(item)
+        } else {
+            let isPaused = BreakScheduler.shared.isPaused
+            let pauseTitle = isPaused ? "Resume timer" : "Pause timer"
+            let pauseSymbol = isPaused ? "play.fill" : "pause.fill"
+            menu.addItem(menuItem(title: pauseTitle, symbol: pauseSymbol, action: #selector(togglePause)))
+        }
         menu.addItem(.separator())
         menu.addItem(menuItem(title: String(localized: "menu.settings"), symbol: "gearshape", action: #selector(openSettings), key: ","))
         menu.addItem(.separator())

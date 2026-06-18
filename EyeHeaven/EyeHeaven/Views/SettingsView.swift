@@ -75,6 +75,35 @@ struct BreaksSettingsView: View {
                     }
                 }
             }
+            Section(String(localized: "settings.section.schedule")) {
+                Toggle(String(localized: "settings.schedule_enabled"), isOn: $s.scheduleEnabled)
+                if s.scheduleEnabled {
+                    LabeledContent(String(localized: "settings.schedule_active_days")) {
+                        HStack(spacing: 4) {
+                            ForEach([2, 3, 4, 5, 6, 7, 1] as [Int], id: \.self) { day in
+                                ScheduleDayButton(
+                                    label: scheduleWeekdayLabel(day),
+                                    isSelected: s.scheduleActiveDays.contains(day),
+                                    action: { toggleScheduleDay(day) }
+                                )
+                            }
+                        }
+                    }
+                    LabeledContent(String(localized: "settings.schedule_from")) {
+                        DatePicker("", selection: scheduleTimeBinding(\.scheduleStartMinutes),
+                                   displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                    }
+                    LabeledContent(String(localized: "settings.schedule_to")) {
+                        DatePicker("", selection: scheduleTimeBinding(\.scheduleEndMinutes),
+                                   displayedComponents: .hourAndMinute)
+                            .labelsHidden()
+                    }
+                    Text(String(localized: "settings.schedule.hint"))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
             Section(String(localized: "settings.section.meetings")) {
                 Toggle(isOn: $s.meetingDetectionEnabled) {
                     HStack(spacing: 6) {
@@ -98,7 +127,37 @@ struct BreaksSettingsView: View {
         }
         .formStyle(.grouped)
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        .frame(width: 480, height: 460, alignment: .top)
+        .frame(width: 480, height: 560, alignment: .top)
+    }
+
+    private func scheduleWeekdayLabel(_ weekday: Int) -> String {
+        Calendar.current.shortWeekdaySymbols[weekday - 1]
+    }
+
+    private func toggleScheduleDay(_ day: Int) {
+        if s.scheduleActiveDays.contains(day) {
+            guard s.scheduleActiveDays.count > 1 else { return }
+            s.scheduleActiveDays.removeAll { $0 == day }
+        } else {
+            s.scheduleActiveDays.append(day)
+        }
+    }
+
+    private func scheduleTimeBinding(_ kp: ReferenceWritableKeyPath<AppSettings, Int>) -> Binding<Date> {
+        let settings = AppSettings.shared
+        return Binding(
+            get: {
+                var comps = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+                comps.hour = settings[keyPath: kp] / 60
+                comps.minute = settings[keyPath: kp] % 60
+                return Calendar.current.date(from: comps) ?? Date()
+            },
+            set: { date in
+                let h = Calendar.current.component(.hour, from: date)
+                let m = Calendar.current.component(.minute, from: date)
+                settings[keyPath: kp] = h * 60 + m
+            }
+        )
     }
 
     private func timeRow(_ label: String, value: Binding<Int>, unit: String) -> some View {
@@ -338,6 +397,26 @@ struct AboutSettingsView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .frame(width: 480, height: 460, alignment: .top)
         .padding(.top, 36)
+    }
+}
+
+// MARK: - ScheduleDayButton
+
+private struct ScheduleDayButton: View {
+    let label: String
+    let isSelected: Bool
+    let action: () -> Void
+
+    var body: some View {
+        if isSelected {
+            Button(label, action: action)
+                .controlSize(.small)
+                .buttonStyle(.borderedProminent)
+        } else {
+            Button(label, action: action)
+                .controlSize(.small)
+                .buttonStyle(.bordered)
+        }
     }
 }
 
