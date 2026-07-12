@@ -138,7 +138,7 @@ final class CatalogService {
             FetchDescriptor<StereogramRecord>(predicate: #Predicate { $0.imageId == imageId })
         ).first
         if existing == nil {
-            let record = StereogramRecord(imageId: imageId)
+            let record = StereogramRecord(imageId: imageId, downloadedAt: .now)
             context.insert(record)
         }
         try? context.save()
