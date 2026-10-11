@@ -6,6 +6,7 @@ on:
       - main
     paths-ignore:
       - 'Stereograms/**'
+      - 'docs/**'
       - 'README.md'
       - 'ADDING_IMAGES.md'
       - 'PRIVACY.md'

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EyeHeaven — Smart Eye Break Timer for Mac</title>
+  <meta name="description" content="EyeHeaven is a macOS menu bar app that helps reduce eye strain with smart timed breaks and beautiful stereogram exercises.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0f7f4; --card: #ffffff; --text: #1a2e2a; --muted: #5a7a72;
+      --accent: #0a8f7c; --accent2: #06b6a0; --border: #cde4de;
+      --hero-bg: #0d1f1b;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* ── HERO ── */
+    .hero { background: var(--hero-bg); color: #fff; text-align: center; padding: 80px 24px 72px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(10,143,124,0.3) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-icon { width: 96px; height: 96px; border-radius: 22px; margin: 0 auto 24px; display: block; box-shadow: 0 8px 32px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); }
+    .badge { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 12px; border-radius: 20px; letter-spacing: 0.5px; text-transform: uppercase; }
+    .badge-free { background: rgba(10,143,124,0.2); border: 1px solid rgba(10,143,124,0.5); color: #2dd4bf; margin-bottom: 20px; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 20px; }
+    .hero h1 span { color: #2dd4bf; }
+    .hero p { font-size: clamp(1rem, 2.5vw, 1.2rem); color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 36px; }
+    .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-github { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #1a2e2a; text-decoration: none; border-radius: 12px; padding: 12px 24px; font-size: 15px; font-weight: 600; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
+    .btn-github:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+    .btn-github svg { width: 22px; height: 22px; }
+    .btn-appstore { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 12px 24px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .btn-appstore:hover { background: rgba(255,255,255,0.2); }
+    .btn-appstore svg { width: 22px; height: 22px; }
+    .hero-sub { margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* ── CAROUSEL ── */
+    .carousel-section { background: var(--hero-bg); padding: 0 0 72px; }
+    .carousel-track-wrap { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.2) transparent; padding: 0 40px; display: flex; gap: 16px; cursor: grab; user-select: none; }
+    .carousel-track-wrap:active { cursor: grabbing; }
+    .carousel-track-wrap::-webkit-scrollbar { height: 4px; }
+    .carousel-track-wrap::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+    .carousel-item {
+      flex: 0 0 auto;
+      width: min(620px, 85vw);
+      aspect-ratio: 1440 / 900;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      scroll-snap-align: center;
+      background: #0a1512;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-in;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .carousel-item:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.6); }
+    .carousel-item img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+    .carousel-hint { text-align: center; margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.28); }
+    /* Dots */
+    .carousel-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+    .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.2); cursor: pointer; transition: background 0.2s, transform 0.2s; border: none; padding: 0; }
+    .carousel-dot.active { background: #2dd4bf; transform: scale(1.3); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 1000; align-items: center; justify-content: center; padding: 24px; cursor: zoom-out; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 100%; max-height: 92vh; border-radius: 10px; box-shadow: 0 24px 80px rgba(0,0,0,0.8); }
+    .lightbox-close { position: fixed; top: 20px; right: 24px; color: rgba(255,255,255,0.6); font-size: 36px; cursor: pointer; line-height: 1; background: none; border: none; }
+
+    /* ── SHARED SECTION ── */
+    section { max-width: 860px; margin: 0 auto; padding: 60px 24px; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; }
+    .section-intro { font-size: 1.05rem; color: var(--muted); max-width: 600px; margin-bottom: 40px; }
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    /* ── FEATURES ── */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .feature-card { background: var(--card); border-radius: 16px; padding: 22px 18px; border: 1px solid var(--border); transition: transform 0.15s, box-shadow 0.15s; }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .feature-card.highlight { border-color: var(--accent); background: linear-gradient(135deg, #f0fdf9 0%, #ffffff 100%); }
+    .feature-icon { font-size: 28px; margin-bottom: 10px; }
+    .feature-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+    .feature-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--accent); background: rgba(10,143,124,0.1); border-radius: 6px; padding: 2px 7px; margin-bottom: 8px; }
+
+    /* ── STEREOGRAMS SPOTLIGHT ── */
+    .stereo-section { background: var(--hero-bg); color: #fff; }
+    .stereo-section .section-label { color: #2dd4bf; }
+    .stereo-section h2 { color: #fff; }
+    .stereo-section .section-intro { color: rgba(255,255,255,0.55); }
+    .stereo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+    .stereo-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 24px 20px; }
+    .stereo-card .s-icon { font-size: 28px; margin-bottom: 12px; }
+    .stereo-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; color: #fff; }
+    .stereo-card p { font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    /* Expand: why stereograms */
+    .expand-block { border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; overflow: hidden; }
+    .expand-block summary { list-style: none; padding: 16px 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; font-size: 0.95rem; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.04); transition: background 0.15s; }
+    .expand-block summary::-webkit-details-marker { display: none; }
+    .expand-block summary:hover { background: rgba(255,255,255,0.07); }
+    .expand-block[open] summary { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .expand-chevron { width: 18px; height: 18px; flex-shrink: 0; color: #2dd4bf; transition: transform 0.2s; }
+    details[open] .expand-chevron { transform: rotate(180deg); }
+    .expand-body { padding: 20px; background: rgba(255,255,255,0.02); }
+    .expand-body p { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 12px; }
+    .expand-body p:last-child { margin-bottom: 0; }
+    .expand-body strong { color: rgba(255,255,255,0.8); font-weight: 600; }
+
+    /* ── HOW IT WORKS ── */
+    .hiw-bg { background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .steps { display: flex; flex-direction: column; gap: 12px; }
+    .step { display: flex; align-items: flex-start; gap: 16px; background: var(--bg); border-radius: 14px; padding: 18px 20px; border: 1px solid var(--border); }
+    .step-num { width: 34px; height: 34px; background: var(--accent); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+    .step-text h4 { font-size: 1rem; font-weight: 600; margin-bottom: 3px; }
+    .step-text p { font-size: 0.9rem; color: var(--muted); }
+
+    /* Expand: install instructions */
+    .expand-block-light { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-top: 28px; }
+    .expand-block-light summary { list-style: none; padding: 14px 20px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-weight: 600; font-size: 0.95rem; color: var(--text); background: var(--card); transition: background 0.15s; }
+    .expand-block-light summary::-webkit-details-marker { display: none; }
+    .expand-block-light summary:hover { background: var(--bg); }
+    .expand-block-light[open] summary { border-bottom: 1px solid var(--border); }
+    .expand-chevron-dark { width: 18px; height: 18px; flex-shrink: 0; color: var(--accent); transition: transform 0.2s; }
+    details[open] .expand-chevron-dark { transform: rotate(180deg); }
+    .expand-block-light .expand-body { padding: 20px; background: var(--card); }
+    .expand-block-light .expand-body p, .expand-block-light .expand-body li { font-size: 0.9rem; color: var(--muted); line-height: 1.65; margin-bottom: 8px; }
+    .expand-block-light .expand-body ul, .expand-block-light .expand-body ol { padding-left: 20px; }
+    .expand-block-light .expand-body strong { color: var(--text); font-weight: 600; }
+    .expand-block-light .expand-body code { font-family: 'SF Mono', 'Menlo', 'Monaco', monospace; font-size: 0.82rem; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; }
+    .expand-block-light .expand-body pre { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; overflow-x: auto; margin: 10px 0; }
+    .expand-block-light .expand-body pre code { background: none; border: none; padding: 0; font-size: 0.85rem; }
+
+    /* ── CONTRIBUTE ── */
+    .contribute-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .contribute-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; transition: transform 0.15s, box-shadow 0.15s; }
+    .contribute-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+    .contribute-card .c-icon { font-size: 32px; margin-bottom: 12px; }
+    .contribute-card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .contribute-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-bottom: 16px; }
+    .btn-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; border: 1px solid var(--accent); border-radius: 8px; padding: 6px 14px; transition: background 0.15s; }
+    .btn-link:hover { background: rgba(10,143,124,0.08); }
+    .btn-link svg { width: 14px; height: 14px; }
+
+    /* ── CTA ── */
+    .cta-bg { background: var(--card); border-top: 1px solid var(--border); }
+    .cta-inner { max-width: 600px; margin: 0 auto; text-align: center; padding: 72px 24px; }
+    .cta-inner p { color: var(--muted); margin-bottom: 32px; }
+    .cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-github-dark { display: inline-flex; align-items: center; gap: 10px; background: var(--hero-bg); color: #fff; text-decoration: none; border-radius: 12px; padding: 14px 28px; font-size: 16px; font-weight: 600; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+    .btn-github-dark:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+    .btn-github-dark svg { width: 22px; height: 22px; }
+    .btn-appstore-cta { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 14px 28px; font-size: 16px; font-weight: 600; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-appstore-cta:hover { border-color: var(--accent); background: rgba(99,102,241,0.08); }
+    .btn-appstore-cta svg { width: 22px; height: 22px; }
+    .cta-note { font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+    /* ── FOOTER ── */
+    footer { text-align: center; padding: 32px 24px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); background: var(--bg); }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .stereo-grid { grid-template-columns: 1fr; }
+      .contribute-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="icon.png" alt="EyeHeaven" class="hero-icon">
+    <div class="badge badge-free">Free &amp; Open Source</div>
+    <h1>Give your eyes<br>a <span>real break</span>.</h1>
+    <p>A smart macOS menu bar timer that schedules short and long breaks — with beautiful stereogram exercises to relax your eyes and mind.</p>
+    <div class="hero-buttons">
+      <a href="https://github.com/ninilich/eye-heaven-app/releases/latest" class="btn-github" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        Download on GitHub
+      </a>
+      <a href="https://apps.apple.com/us/app/eyeheaven-eye-rest-timer/id6778077737?mt=12" class="btn-appstore" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+    </div>
+    <div class="hero-sub">macOS · Free · No Account · Open Source (GPL-3.0)</div>
+  </div>
+</div>
+
+<!-- ── CAROUSEL ── -->
+<div class="carousel-section">
+  <div class="carousel-track-wrap" id="carousel">
+    <div class="carousel-item" onclick="openLightbox('screenshot-long-break.png')">
+      <img src="screenshot-long-break.png" alt="EyeHeaven — long break with stereogram" draggable="false">
+    </div>
+    <div class="carousel-item" onclick="openLightbox('screenshot-short-break.png')">
+      <img src="screenshot-short-break.png" alt="EyeHeaven — short break" draggable="false">
+    </div>
+    <div class="carousel-item" onclick="openLightbox('screenshot-tray-menu.png')">
+      <img src="screenshot-tray-menu.png" alt="EyeHeaven — menu bar" draggable="false">
+    </div>
+    <div class="carousel-item" onclick="openLightbox('screenshot-settings.png')">
+      <img src="screenshot-settings.png" alt="EyeHeaven — break settings" draggable="false">
+    </div>
+    <div class="carousel-item" onclick="openLightbox('screenshot-settings-stereo.png')">
+      <img src="screenshot-settings-stereo.png" alt="EyeHeaven — stereogram settings" draggable="false">
+    </div>
+  </div>
+  <div class="carousel-dots" id="carousel-dots">
+    <button class="carousel-dot active" onclick="scrollToSlide(0)"></button>
+    <button class="carousel-dot" onclick="scrollToSlide(1)"></button>
+    <button class="carousel-dot" onclick="scrollToSlide(2)"></button>
+    <button class="carousel-dot" onclick="scrollToSlide(3)"></button>
+    <button class="carousel-dot" onclick="scrollToSlide(4)"></button>
+  </div>
+  <p class="carousel-hint">Swipe or drag to explore · click to zoom</p>
+</div>
+
+<!-- ── LIGHTBOX ── -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- ── FEATURES ── -->
+<section>
+  <div class="section-label">Features</div>
+  <h2>Everything you need<br>for healthier screen time.</h2>
+  <p class="section-intro">Designed for people who work long hours at a computer — simple, unobtrusive, and effective.</p>
+  <div class="features-grid">
+    <div class="feature-card highlight">
+      <div class="feature-tag">Main Feature</div>
+      <div class="feature-icon">🌀</div>
+      <h3>Stereogram Eye Exercises</h3>
+      <p>Long breaks show beautiful 3D stereograms — scientifically proven to relax eye muscles strained by prolonged screen focus.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⏱️</div>
+      <h3>Smart Break Scheduling</h3>
+      <p>Configure short and long break intervals to match the 20-20-20 rule or your own routine. Fully customizable.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔔</div>
+      <h3>Gentle Pre-Break Warning</h3>
+      <p>A non-intrusive banner appears before each break so you can finish your thought before stepping away.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🖥️</div>
+      <h3>Full-Screen Break Mode</h3>
+      <p>Immersive break screen with background dimming to help you actually disconnect from your work.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💤</div>
+      <h3>Idle Detection</h3>
+      <p>Stepped away from your desk? EyeHeaven detects inactivity and pauses the timer — no permissions required.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌍</div>
+      <h3>9-Language Interface</h3>
+      <p>Available in English, Russian, German, Spanish, French, Italian, Portuguese, Polish, and more.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ── STEREOGRAMS SPOTLIGHT ── -->
+<div class="stereo-section">
+  <section>
+    <div class="section-label">The Science of Stereograms</div>
+    <h2>Breaks your eyes<br>actually need.</h2>
+    <p class="section-intro">Not all breaks are equal. Looking out the window helps — but stereograms work at the muscular level.</p>
+    <div class="stereo-grid">
+      <div class="stereo-card">
+        <div class="s-icon">👁️</div>
+        <h3>Ciliary Muscle Reset</h3>
+        <p>Screen work locks your ciliary muscles at one focal distance for hours. Stereograms force a divergence shift, actively releasing that tension.</p>
+      </div>
+      <div class="stereo-card">
+        <div class="s-icon">🧠</div>
+        <h3>Binocular Vision Training</h3>
+        <p>Solving a stereogram engages both eyes working together — a workout for the visual cortex that regular breaks simply don't provide.</p>
+      </div>
+      <div class="stereo-card">
+        <div class="s-icon">📥</div>
+        <h3>Growing Catalog</h3>
+        <p>High-quality stereogram images downloaded and cached locally. New images added by the community — contributions welcome.</p>
+      </div>
+    </div>
+
+    <!-- Expand: why stereograms -->
+    <details class="expand-block">
+      <summary>
+        <span>Why are stereograms better than just looking away?</span>
+        <svg class="expand-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="expand-body">
+        <p>When you stare at a screen, your <strong>ciliary muscles</strong> — the tiny muscles that change the shape of your eye lens — stay contracted at a fixed focal distance (typically 50–70 cm). Over hours, this sustained contraction causes the familiar burning, heaviness, and blurry vision of <strong>Computer Vision Syndrome</strong>.</p>
+        <p>Simply looking away helps, but your eyes often re-focus on a nearby wall or window at a similar distance. <strong>Stereograms require parallel or diverged eye alignment</strong> — a focal state completely opposite to screen work. Achieving the "magic eye" effect actively stretches and resets the ciliary muscles, providing relief that passive breaks rarely match.</p>
+        <p>Additionally, stereograms stimulate <strong>vergence eye movements</strong> (the inward/outward rotation of both eyes), which are suppressed during normal screen use. Regular vergence exercise is associated with reduced eye fatigue and improved visual stamina.</p>
+      </div>
+    </details>
+  </section>
+</div>
+
+<!-- ── HOW IT WORKS ── -->
+<div class="hiw-bg">
+  <section>
+    <div class="section-label">How it works</div>
+    <h2>Set it once, forget it.</h2>
+    <p class="section-intro">Lives quietly in your menu bar. No configuration needed to get started.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <h4>Install &amp; launch</h4>
+          <p>Download the DMG from GitHub, drag EyeHeaven to Applications, and open it. It sits in your menu bar — always available, never in the way.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <h4>Configure your rhythm</h4>
+          <p>Set how often you want short breaks (e.g. every 20 min) and long breaks (e.g. every 2 hours). Or keep the smart defaults.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <h4>Get a pre-break warning</h4>
+          <p>A banner appears before each break so you can finish your sentence, then look away.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">
+          <h4>Take your break</h4>
+          <p>Short break: close your eyes or look out the window. Long break: focus on the stereogram and let your eyes relax in 3D.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expand: install instructions -->
+    <details class="expand-block-light">
+      <summary>
+        <span>Installing from GitHub — step by step</span>
+        <svg class="expand-chevron-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </summary>
+      <div class="expand-body">
+        <ol>
+          <li>Open the <a href="https://github.com/ninilich/eye-heaven-app/releases/latest" target="_blank" style="color: var(--accent);">Releases page</a> and download the latest <code>.dmg</code> file.</li>
+          <li>Open the DMG and drag <strong>EyeHeaven.app</strong> to your Applications folder.</li>
+          <li><strong>First launch</strong> — right-click the app in Applications and choose <strong>Open</strong>, then click <strong>Open</strong> in the confirmation dialog.</li>
+          <li>If macOS shows <em>"damaged and can't be opened"</em>, run this once in Terminal:
+            <pre><code>xattr -dr com.apple.quarantine /Applications/EyeHeaven.app</code></pre>
+          </li>
+          <li>To verify the download integrity, compare the checksum with the <code>.sha256</code> file in the release assets:
+            <pre><code>shasum -a 256 EyeHeaven-&lt;version&gt;.dmg</code></pre>
+          </li>
+        </ol>
+      </div>
+    </details>
+  </section>
+</div>
+
+<hr class="divider">
+
+<!-- ── CONTRIBUTE ── -->
+<section>
+  <div class="section-label">Open Source</div>
+  <h2>Welcome to contribute.</h2>
+  <p class="section-intro">EyeHeaven is open source and welcomes contributions of any kind — from code improvements to new stereogram images.</p>
+  <div class="contribute-grid">
+    <div class="contribute-card">
+      <div class="c-icon">⚙️</div>
+      <h3>Code Contributions</h3>
+      <p>Built with Swift 6.2 and SwiftUI on macOS 15+. Whether it's a bug fix, a new feature, or a UI improvement — PRs are welcome. The CI pipeline takes care of building and releasing automatically.</p>
+      <a href="https://github.com/ninilich/eye-heaven-app/blob/main/CONTRIBUTING.md" class="btn-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        CONTRIBUTING.md
+      </a>
+    </div>
+    <div class="contribute-card">
+      <div class="c-icon">🌀</div>
+      <h3>Expand the Stereogram Catalog</h3>
+      <p>No code required. Add a JPEG stereogram to the <code>Stereograms/</code> folder, update <code>catalog.json</code>, and open a PR. Catalog-only commits don't trigger an app release — it's fast and easy.</p>
+      <a href="https://github.com/ninilich/eye-heaven-app/blob/main/ADDING_IMAGES.md" class="btn-link" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        ADDING_IMAGES.md
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta-bg">
+  <div class="cta-inner">
+    <h2>Start protecting your eyes today.</h2>
+    <p>Free, open source, and ready to install. Takes 30 seconds to set up.</p>
+    <div class="cta-buttons">
+      <a href="https://github.com/ninilich/eye-heaven-app/releases/latest" class="btn-github-dark" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        Download on GitHub
+      </a>
+      <a href="https://apps.apple.com/us/app/eyeheaven-eye-rest-timer/id6778077737?mt=12" class="btn-appstore-cta" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        Download on App Store
+      </a>
+    </div>
+    <div class="cta-note">macOS · Free · GPL-3.0</div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>Questions? <a href="mailto:ninilich@tuta.io">ninilich@tuta.io</a></p>
+  <p style="margin-top: 8px;">
+    macOS Menu Bar App · Free &amp; Open Source ·
+    <a href="https://github.com/ninilich/eye-heaven-app" target="_blank">GitHub</a> ·
+    <a href="https://github.com/ninilich/eye-heaven-app/blob/main/PRIVACY.md" target="_blank">Privacy Policy</a>
+  </p>
+</footer>
+
+<script>
+  /* ── Lightbox ── */
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  /* ── Carousel drag-to-scroll ── */
+  const track = document.getElementById('carousel');
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => { isDown = true; track.style.cursor = 'grabbing'; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+  track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
+  track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    track.scrollLeft = scrollLeft - (x - startX) * 1.2;
+  });
+
+  /* ── Carousel dots ── */
+  function scrollToSlide(idx) {
+    const items = track.querySelectorAll('.carousel-item');
+    if (!items[idx]) return;
+    items[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+  function updateDots() {
+    const items = [...track.querySelectorAll('.carousel-item')];
+    const dots = [...document.querySelectorAll('.carousel-dot')];
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let closest = 0, minDist = Infinity;
+    items.forEach((item, i) => {
+      const dist = Math.abs(item.offsetLeft + item.offsetWidth / 2 - center);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+  }
+  track.addEventListener('scroll', updateDots, { passive: true });
+</script>
+
+</body>
+</html>
