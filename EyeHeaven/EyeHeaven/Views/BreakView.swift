@@ -131,9 +131,10 @@ struct BreakView: View {
     }
 
     private func startTimer() {
+        let start = Date()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
             Task { @MainActor in
-                elapsed += 0.5
+                elapsed = Date().timeIntervalSince(start)
                 if elapsed >= duration {
                     stopTimer()
                 }

@@ -5,8 +5,8 @@
 //  Created by Nikolai Nikolaev on 26.04.26.
 //
 
-import XCTest
 @testable import EyeHeaven
+import XCTest
 
 @MainActor
 final class EyeHeavenTests: XCTestCase {
@@ -26,6 +26,7 @@ final class EyeHeavenTests: XCTestCase {
 
         engine.postponeLongBreak()
         XCTAssertEqual(rounded(engine.nextLongBreakIn) - beforePostpone, 180)
+        XCTAssertEqual(rounded(engine.nextShortBreakIn), 3, "shortCountdown must reset on postpone to prevent immediate short break")
         assertStateIsRunning(engine.state)
     }
 
@@ -102,5 +103,4 @@ private final class TestSettings: TimerSettingsProviding {
     var longBreakInterval: TimeInterval {
         shortBreakInterval * 2
     }
-
 }

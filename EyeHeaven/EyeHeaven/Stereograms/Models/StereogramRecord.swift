@@ -8,10 +8,10 @@ final class StereogramRecord {
     var timesShown: Int
     var downloadedAt: Date
 
-    init(imageId: String) {
+    init(imageId: String, downloadedAt: Date = .distantPast) {
         self.imageId = imageId
         lastShownAt = .distantPast
         timesShown = 0
-        downloadedAt = .now
+        self.downloadedAt = downloadedAt
     }
 }

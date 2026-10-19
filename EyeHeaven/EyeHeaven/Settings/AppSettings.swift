@@ -90,6 +90,24 @@ final class AppSettings {
         didSet { store.set(stereogramsLastChecked?.timeIntervalSince1970, forKey: "stereogramsLastChecked") }
     }
 
+    // MARK: - Schedule
+
+    var scheduleEnabled: Bool {
+        didSet { store.set(scheduleEnabled, forKey: "scheduleEnabled") }
+    }
+
+    var scheduleActiveDays: [Int] {
+        didSet { store.set(scheduleActiveDays, forKey: "scheduleActiveDays") }
+    }
+
+    var scheduleStartMinutes: Int {
+        didSet { store.set(scheduleStartMinutes, forKey: "scheduleStartMinutes") }
+    }
+
+    var scheduleEndMinutes: Int {
+        didSet { store.set(scheduleEndMinutes, forKey: "scheduleEndMinutes") }
+    }
+
     // MARK: - Idle
 
     var idleResetLength: TimeInterval {
@@ -146,11 +164,24 @@ final class AppSettings {
         } else {
             stereogramsLastChecked = nil
         }
+        scheduleEnabled = store.bool(forKey: "scheduleEnabled")
+        scheduleActiveDays = store.array(forKey: "scheduleActiveDays") as? [Int] ?? [2, 3, 4, 5, 6]
+        scheduleStartMinutes = (store.object(forKey: "scheduleStartMinutes") as? Int) ?? 540
+        scheduleEndMinutes = (store.object(forKey: "scheduleEndMinutes") as? Int) ?? 1080
         idleResetLength = store.double(forKey: "idleResetLength").nonZero ?? 5 * 60
         launchAtLogin = store.bool(forKey: "launchAtLogin")
         soundEnabled = store.object(forKey: "soundEnabled") as? Bool ?? true
         heartbeatEnabled = store.object(forKey: "heartbeatEnabled") as? Bool ?? true
         appLanguage = store.string(forKey: "appLanguage") ?? "system"
+    }
+
+    func isCurrentlyInSchedule() -> Bool {
+        guard scheduleEnabled, !scheduleActiveDays.isEmpty else { return true }
+        let cal = Calendar.current
+        let now = Date()
+        guard scheduleActiveDays.contains(cal.component(.weekday, from: now)) else { return false }
+        let current = cal.component(.hour, from: now) * 60 + cal.component(.minute, from: now)
+        return current >= scheduleStartMinutes && current < scheduleEndMinutes
     }
 
     private static func clampLongBreakEveryShortBreaks(_ value: Int) -> Int {
