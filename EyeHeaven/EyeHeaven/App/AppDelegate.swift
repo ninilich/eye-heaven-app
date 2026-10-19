@@ -97,6 +97,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
         func addTab(_ view: some View, label: String, symbol: String) {
             let vc = NSHostingController(rootView: view)
+            vc.sizingOptions = [.preferredContentSize]
             let item = NSTabViewItem(viewController: vc)
             item.label = label
             item.image = NSImage(systemSymbolName: symbol, accessibilityDescription: nil)
